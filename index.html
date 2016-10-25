@@ -857,7 +857,7 @@ var nt = Math.round (nt * multiplier) / multiplier;
 
 //calculate the taxes...THIS IS THE END PRICE!!!
 var actualTax= (tax / 100) + 1;
-var last =nt * actualTax;
+var last =total * actualTax;
 var last = Math.round (last * multiplier) / multiplier;
 
 //calc the home depot thing.
@@ -874,7 +874,7 @@ document.getElementById('output').innerHTML ="R-" + value + "\"" +" Kraft Faced 
 //(took this out, but am leaving j.i.c.)document.getElementById('new').innerHTML =deal+"% Promo Discount"+" (-$"+dscnt+")"+"= $"+nt;
 
 //total with tax.
-document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+total+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
+document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+last+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
 
 }
 
@@ -1715,7 +1715,7 @@ var nt = Math.round (nt * multiplier) / multiplier;
 
 //calculate the taxes...this is the END PRICE!!!
 var actualTax= (tax / 100) + 1;
-var last =nt * actualTax;
+var last =total * actualTax;
 var last = Math.round (last * multiplier) / multiplier;
 
 //calc the home depot thing.
@@ -1731,7 +1731,7 @@ document.getElementById('output').innerHTML ="R-" + value + "\"" +" Unfaced "+"(
 //document.getElementById('new').innerHTML =deal+"% Promo Discount "+"($"+dscnt+")"+"=$"+nt;
 
 //total with tax.
-document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+total+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
+document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+last+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
 
 
 
