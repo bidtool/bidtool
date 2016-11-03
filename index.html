@@ -2,12 +2,12 @@
 <html lang="en-us">
     <head>
         <meta charset="utf-8">
-        <meta name='viewport' content="width=device-width">
-        <link href="../bidtool.github.io/bidtool.css" type="text/css" rel="stylesheet" media="screen">
+        <style>
+            h1 {color:maroon}
+        </style>
         <title>Blueseal Project</title>
 
         <script type="text/javascript">
-
             /*Input - a persons location, types of insulation, and square footage needed per...
 *Processing - fetch the warehouse asigned to the location, along with all types of insulation it has. (warehouse will have    assigned
 *vars that rep. the types of insulation.
@@ -20,7 +20,6 @@
 * take this # and times it by the morphed tax var assigned to the phone number...
 *display- show 1.type of ins/2.sqrftg of type/3.bags/4.bags timesd by typesqft/5.type price/6.anwer/7.answer times phone tax var.
 */
-
             function Kraft() {
                 //recieve the users specs.
                 var value = document.getElementById ('insulationValue').value;
@@ -29,9 +28,7 @@
                 var amount = parseFloat (document.getElementById('amount').value);
                 var deal = parseFloat (document.getElementById('discount').value);
                 var tax =parseFloat (document.getElementById('taxes').value);
-
                 //get the location type of insulation from corresponding warehouse.
-
                 var sqft1 ;
                 switch (value) {
                     case '11x15':
@@ -81,7 +78,6 @@
                         window.alert("sadly, not yet in system");
                         break;
                 }
-
                 var sqft2 ;
                 switch (value) {
                     case '11x15':
@@ -131,7 +127,6 @@
                         window.alert("sadly, not yet in system");
                         break;
                 }
-
                 var sqft3 ;
                 switch (value) {
                     case '11x15':
@@ -181,7 +176,6 @@
                         window.alert("sadly, not yet in system");
                         break;
                 }
-
                 var sqft4 ;
                 switch (value) {
                     case '11x15':
@@ -231,8 +225,6 @@
                         window.alert("sadly, not yet in system");
                         break;
                 }
-
-
                 var sqft;
                 if ( loc =="owens" ) {
                     sqft = sqft1;
@@ -249,12 +241,9 @@
                 else {
                     sqft ="not possible";
                 }
-
                 //now turn the sqft in to a number.
                 var sqft= parseFloat(sqft) ;
-
                 //get price and declare ditributor like "if ins value is 11x15- idi is
-
                 var price11 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -339,7 +328,6 @@
                         price11 = '.31';
                         break;
                 }
-
                 var price13 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -424,7 +412,6 @@
                         price13 = '.38';
                         break;
                 }
-
                 var price19 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -509,7 +496,6 @@
                         price19 = '.48';
                         break;
                 }
-
                 var price21 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -594,7 +580,6 @@
                         price21 = '.68';
                         break;
                 }
-
                 var price30 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -679,7 +664,6 @@
                         price30 = '.74';
                         break;
                 }
-
                 var price38 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -764,7 +748,6 @@
                         price38 = '.91';
                         break;
                 }
-
                 //now take price and mix it with right dis.
                 var price;
                 if ( value =="11x15" || value =="11x23" ) {
@@ -788,7 +771,6 @@
                 else {
                     price ="something went wrong";
                 }
-
                 //now find the home depot price per square foot.
                 var hdPrice;
                 if ( value =="11x15" || value =="11x23" ) {
@@ -812,7 +794,6 @@
                 else {
                     hdPrice ="something went wrong";
                 }
-
                 //now calculate how many bags based on overall square feet given and overall square feet they will get
                 var bags= amount / sqft ;
                 //make number smaller.
@@ -821,14 +802,11 @@
                 var bags = Math.round (bags * multiplier) / multiplier;
                 // make the numbers rounded correctly...
                 var bags=Math.round (bags);
-
                 //make the overall sqft number smaller
                 var overall= bags * sqft ;
                 var overall = Math.round (overall * multiplier) / multiplier;
-
                 //turn price into a number.
                 var price = parseFloat(price);
-
                 //otober 2016 changes to take 16% off the price per sf.
                 var price;
                 if ( bags > 11 ) {
@@ -841,11 +819,9 @@
                     price= price;
                 }
                 var price = Math.round (price * multiplier) / multiplier;
-
                 //now make price multiplied to overall sqft.
                 var total = overall * price;
                 var total = Math.round (total * multiplier) / multiplier;
-
                 //now display total with total + taxes under it.
                 //discount.
                 var perc=deal / 100;
@@ -853,31 +829,22 @@
                 var dscnt = Math.round (dscnt * multiplier) / multiplier;
                 var nt = total - dscnt
                 var nt = Math.round (nt * multiplier) / multiplier;
-
                 //calculate the taxes...THIS IS THE END PRICE!!!
                 var actualTax= (tax / 100) + 1;
-                var last =nt * actualTax;
+                var last =total * actualTax;
                 var last = Math.round (last * multiplier) / multiplier;
-
                 //calc the home depot thing.
                 var hd =total * .22;
                 var hd = Math.round (hd * multiplier) / multiplier;
-
                 var price= price.toFixed(2);
-
+                var total= total.toFixed(2);
                 //show the end without tax n discount.
                 document.getElementById('output').innerHTML ="R-" + value + "\"" +" Kraft Faced "+"(" + sqft + " sq ft in a bag" + "/" + bags +" bags" + "=" + overall +" sq ft" + ")"+"("+"$"+price+")"+"=$"+total;
-
                 //show it the discount end.
-
                 //(took this out, but am leaving j.i.c.)document.getElementById('new').innerHTML =deal+"% Promo Discount"+" (-$"+dscnt+")"+"= $"+nt;
-
                 //total with tax.
-                document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+total+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
-
+                document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+last+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
             }
-
-
             function Unfaced() {
                 //recieve the users specs.
                 var value = document.getElementById ('insulationValue').value;
@@ -886,9 +853,7 @@
                 var amount = parseFloat (document.getElementById('amount').value);
                 var deal = parseFloat (document.getElementById('discount').value);
                 var tax =parseFloat (document.getElementById('taxes').value);
-
                 //get the location type of insulation from corresponding warehouse.
-
                 var sqft1 ;
                 switch (value) {
                     case '11x15':
@@ -938,7 +903,6 @@
                         window.alert("sadly, not yet in system");
                         break;
                 }
-
                 var sqft2 ;
                 switch (value) {
                     case '11x15':
@@ -988,7 +952,6 @@
                         window.alert("sadly, not yet in system");
                         break;
                 }
-
                 var sqft3 ;
                 switch (value) {
                     case '11x15':
@@ -1038,7 +1001,6 @@
                         window.alert("sadly, not yet in system");
                         break;
                 }
-
                 var sqft4 ;
                 switch (value) {
                     case '11x15':
@@ -1088,8 +1050,6 @@
                         window.alert("sadly, not yet in system");
                         break;
                 }
-
-
                 var sqft;
                 if ( loc =="owens" ) {
                     sqft = sqft1;
@@ -1106,12 +1066,9 @@
                 else {
                     sqft ="not possible";
                 }
-
                 //now turn the sqft in to a number.
                 var sqft= parseFloat(sqft) ;
-
                 //UNFACED BELOW__get price and declare ditributor like "if ins value is 11x15- idi is
-
                 var price11 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -1196,7 +1153,6 @@
                         price11 = '.29';
                         break;
                 }
-
                 var price13 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -1281,7 +1237,6 @@
                         price13 = '.37';
                         break;
                 }
-
                 var price19 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -1366,7 +1321,6 @@
                         price19 = '.46';
                         break;
                 }
-
                 var price21 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -1451,7 +1405,6 @@
                         price21 = '.65';
                         break;
                 }
-
                 var price30 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -1536,7 +1489,6 @@
                         price30 = '.69';
                         break;
                 }
-
                 var price38 ;
                 switch (dis) {
                     case 'paragon pacific':
@@ -1621,7 +1573,6 @@
                         price38 = '.88';
                         break;
                 }
-
                 //now take price and mix it with right dis.
                 var price;
                 if ( value =="11x15" || value =="11x23" ) {
@@ -1645,7 +1596,6 @@
                 else {
                     price ="something went wrong";
                 }
-
                 //now find the home depot price per square foot.
                 var hdPrice;
                 if ( value =="11x15" || value =="11x23" ) {
@@ -1669,8 +1619,6 @@
                 else {
                     hdPrice ="something went wrong";
                 }
-
-
                 //now calculate how many bags based on overall square feet given and overall square feet they will get
                 var bags= amount / sqft ;
                 //make number smaller.
@@ -1679,14 +1627,11 @@
                 var bags = Math.round (bags * multiplier) / multiplier;
                 // make the numbers rounded correctly...
                 var bags=Math.round (bags);
-
                 //make the overall sqft number smaller
                 var overall= bags * sqft ;
                 var overall = Math.round (overall * multiplier) / multiplier;
-
                 //turn price into a number.
                 var price = parseFloat(price);
-
                 //otober 2016 changes to take 16% off the price per sf.
                 var price;
                 if ( bags > 11 ) {
@@ -1699,11 +1644,9 @@
                     price= price;
                 }
                 var price = Math.round (price * multiplier) / multiplier;
-
                 //now make price multiplied to overall sqft.
                 var total = overall * price;
                 var total = Math.round (total * multiplier) / multiplier;
-
                 //now display total with total + taxes under it.
                 //discount.
                 var perc=deal / 100;
@@ -1711,29 +1654,21 @@
                 var dscnt = Math.round (dscnt * multiplier) / multiplier;
                 var nt = total - dscnt
                 var nt = Math.round (nt * multiplier) / multiplier;
-
                 //calculate the taxes...this is the END PRICE!!!
                 var actualTax= (tax / 100) + 1;
-                var last =nt * actualTax;
+                var last =total * actualTax;
                 var last = Math.round (last * multiplier) / multiplier;
-
                 //calc the home depot thing.
                 var hd =total * .22;
                 var hd = Math.round (hd * multiplier) / multiplier;
-
-                var price= num.toFixed(3);
-
+                var price= price.toFixed(2);
+                var total= total.toFixed(2);
                 //show the end without tax n discount.
                 document.getElementById('output').innerHTML ="R-" + value + "\"" +" Unfaced "+"(" + sqft + " sq ft in a bag" + "/" + bags +" bags" + "=" + overall +" sq ft" + ")"+"("+"$"+price+")"+"=$"+total;
-
                 //show it the discount end.
                 //document.getElementById('new').innerHTML =deal+"% Promo Discount "+"($"+dscnt+")"+"=$"+nt;
-
                 //total with tax.
-                document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+total+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
-
-
-
+                document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+last+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
             }
             //---------------------------------------------------------------------------------------------------------
             /*input: sqft needed, R-value of blow in, and distributor name.
@@ -1743,7 +1678,6 @@
 *show: the end bid in this format-- 1 bale of loose fill at R- depth covers ___ sq ft/__bales=__ sq ft
 *                                   InsulSafe loose fill - $___per bale*__bales=$__.
 */
-
             function blueSealBlowIn() {
                 //recieve the users specs.
                 var amount = parseFloat (document.getElementById('numnum').value);
@@ -1751,7 +1685,6 @@
                 var dis = document.getElementById ('diTor').value;
                 var disString = dis;
                 var disNumber = parseFloat(dis);
-
                 //now get the price for what it is, turn it back into a string, then later turn them into just the 3 numbers for the coming calls...
                 var endPrice = dis;
                 var dis = dis.toString();
@@ -1766,25 +1699,20 @@
                     case '29.93':case '31.05':case '32.03':case '24.79':case '28.75':case '30.56':case '31.74':
                         dis = '2';
                         break;
-
                 }
                 var dis = parseFloat(dis);
-
                 //call em!------------------------------------------------------------------------------------------------
                 var getSf = blowIn(amount,value,dis);
-
                 //calculate what we have so far.
                 var amountNumber = parseFloat(amount);
                 var bales = amountNumber / getSf;
                 var bales = Math.round(bales);
                 var overAll = bales * getSf;
                 var last = bales * endPrice;
-
                 var dos= 2
                 var plier = Math.pow(10, dos);
                 var overAll = Math.round (overAll * plier) / plier;
                 var last = Math.round (last * plier) / plier;
-
                 //show the end product!!!yay
                 document.getElementById('gogo').innerHTML='Fiberglass Loose Fill at R-'+value+ ' Depth ('+ getSf+ ' sq '+
                     'ft per bale/'+bales+' bales='+overAll+' sq ft($'+endPrice+') = $'+last;
@@ -1836,17 +1764,13 @@
                 //now finish and return the sf and the price.-----------------------------------------------------------------------
                 var go = value;
                 return go;
-
             }
-
             //FUNCTION FOR CANADA QUOTES!!!-----------------------------------------------------------------------
-
             function Canada() {
                 var square= parseFloat (document.getElementById('amount').value);
                 var rvalue= document.getElementById ('canadaInsulationValue').value;
                 var prov= document.getElementById ('province').value;
                 var canDiscount= parseFloat (document.getElementById('discount').value);
-
                 var taxes ;
                 switch (prov) {
                     case 'BC':
@@ -1865,7 +1789,6 @@
                         taxes = 1.13;
                         break;
                 }
-
                 var BC = [
                     {
                         name:'BC',a:'0',b:"0",c:"117.5",d:"180.17",e:"97.92",f:"114",g:"150.14",h:"48.95",i:"90.08",j:"78.33",k:"63.33",l:'75.06',m:'48.96',n:'52.54',o:'0',p:'0',q:'34.27',r:'52.5',s:'0',t:'0',u:'0',v:'56',w:'32',x:'48',price8:'.23',price10:'.24',price12:'.25',price14:'.40',price20:'.39',price22:'.62',price28:'.54',price28:'.70',price35:'.97',price40:'.84'
@@ -1874,9 +1797,7 @@
                         },{     name:'Sas',a:'0',b:"0",c:"0",d:"0",e:"97.92",f:"114",g:"135.12",h:"0",i:"0",j:"78.33",k:"63.33",l:'120.11',m:'0',n:'0',o:'0',p:'0',q:'40',r:'0',s:'0',t:'0',u:'0',v:'0',w:'32',x:'48',price10:'0',price12:'.36',price14:'0',price20:'.60',price22:'0',price28:'.81',price28:'0',price35:'0',price40:'1.22'
                           },{    name:'Ontario',a:'0',b:"0",c:"0",d:"0",e:"97.9",f:"0",g:"150.1",h:"78.3",i:"120.1",j:"78",k:"99.2",l:'122.7',m:'49',n:'75.1',o:'33.7',p:'52',q:'53.3',r:'80',s:'42.7',t:'64',u:'0',v:'0',w:'32',x:'48',price10:'0',price12:'.33',price14:'.49',price20:'.56',price22:'.84',price24:'1.33',price28:'.78',price28:'0',price31:'.87',price35:'0',price40:'1.24'
                             }
-
                 ]
-
                 var whichprov ;
                 switch (prov) {
                     case 'BC':
@@ -1895,7 +1816,6 @@
                         whichprov = 4;
                         break;
                 }
-
                 var price;
                 if ( rvalue =="8x15" || rvalue =="8x23" ) {
                     price= BC[whichprov].price8;
@@ -1933,7 +1853,6 @@
                 else {
                     price ="something went wrong";
                 }
-
                 var squareft ;
                 switch (rvalue) {
                     case '8x15':
@@ -2009,7 +1928,6 @@
                         squareft= BC[whichprov].x;
                         break;
                 }
-
                 var num= 2
                 var multiplier = Math.pow(10, num);
                 //set all the var's to be used whn they are all called
@@ -2028,15 +1946,11 @@
                 var dscnt = Math.round (dscnt * multiplier) / multiplier;
                 var nt = Math.round (nt * multiplier) / multiplier;
                 var totalwtx = Math.round (totalwtx * multiplier) / multiplier;
-
                 document.getElementById('canOutput').innerHTML ="R-" + rvalue + "\"" + " (" + squareft + " sq ft in a bag/" + bags +" bags=" + overall +" sq ft)($"+price+")=$"+total;
-
                 //show it the discount end.
                 document.getElementById('canNew').innerHTML =canDiscount+"% Promo Discount ($"+dscnt+")=$"+nt+'<br>'+'TotalWTX=$'+totalwtx;
             }
             //--------------------------------------------------------------------------------------------------------------------------------
-
-
         </script>
     </head>
 
@@ -2178,4 +2092,3 @@
 
     </body>
 </html>
-
