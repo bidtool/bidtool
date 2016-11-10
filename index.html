@@ -1,1991 +1,2202 @@
 <!DOCTYPE HTML>
 <html lang="en-us">
-    <head>
-        <meta charset="utf-8">
-        <style>
-            h1 {color:maroon}
-        </style>
-        <title>Blueseal Project</title>
 
-        <script type="text/javascript">
-            /*Input - a persons location, types of insulation, and square footage needed per...
-*Processing - fetch the warehouse asigned to the location, along with all types of insulation it has. (warehouse will have    assigned
-*vars that rep. the types of insulation.
-*calculate - from the warehouse assigned to the location; take the type the/y have...
-* move to the var that assigns squar footage to types of location
-* take the needed sqftg and devide it by type sqrftg
-* take the !rounded! parse float of this: (# of bags), and times that by the typesqft
-* fetch the price per sqrft of the type of ins from the vars lists
-* times the last used # by this price var.
-* take this # and times it by the morphed tax var assigned to the phone number...
-*display- show 1.type of ins/2.sqrftg of type/3.bags/4.bags timesd by typesqft/5.type price/6.anwer/7.answer times phone tax var.
-*/
-            function Kraft() {
-                //recieve the users specs.
-                var value = document.getElementById ('insulationValue').value;
-                var loc = document.getElementById ('location').value;
-                var dis = document.getElementById ('distributor').value;
-                var amount = parseFloat (document.getElementById('amount').value);
-                var deal = parseFloat (document.getElementById('discount').value);
-                var tax =parseFloat (document.getElementById('taxes').value);
-                //get the location type of insulation from corresponding warehouse.
-                var sqft1 ;
-                switch (value) {
-                    case '11x15':
-                        sqft1 = "155";
-                        break;
-                    case '11x23':
-                        sqft1 = "237.67";
-                        break;
-                    case '13x15':
-                        sqft1 = "125.94";
-                        break;
-                    case '13x23':
-                        sqft1 = "148.54";
-                        break;
-                    case '15x15':
-                        sqft1 = "67.81";
-                        break;
-                    case '15x23':
-                        sqft1 = "owens corning doesn't carry r15x23";
-                        break;
-                    case '19x15':
-                        sqft1 = "77.50";
-                        break;
-                    case '19x23':
-                        sqft1 = "118.83";
-                        break;
-                    case '21x15':
-                        sqft1 = "67.81";
-                        break;
-                    case '21x23':
-                        sqft1 = "89.13";
-                        break;
-                    case '30x16':
-                        sqft1 = "58.67";
-                        break;
-                    case '30x24':
-                        sqft1 = "88";
-                        break;
-                    case '38x16':
-                        sqft1 = "42.67";
-                        break;
-                    case '38x24':
-                        sqft1 = "64";
-                        break;
-                    default:
-                        sqft1 = "try different warehouse, or type a different insulation";
-                        window.alert("sadly, not yet in system");
-                        break;
-                }
-                var sqft2 ;
-                switch (value) {
-                    case '11x15':
-                        sqft2 = "155";
-                        break;
-                    case '11x23':
-                        sqft2 = "237.67";
-                        break;
-                    case '13x15':
-                        sqft2 = "125.94";
-                        break;
-                    case '13x23':
-                        sqft2 = "193.10";
-                        break;
-                    case '15x15':
-                        sqft2 = "77.50";
-                        break;
-                    case '15x23':
-                        sqft2 = "certainteed doesnt carry 15x23";
-                        break;
-                    case '19x15':
-                        sqft2 = "87.19";
-                        break;
-                    case '19x23':
-                        sqft2 = "133.69";
-                        break;
-                    case '21x15':
-                        sqft2 = "77.50";
-                        break;
-                    case '21x23':
-                        sqft2 = "118.83";
-                        break;
-                    case '30x16':
-                        sqft2 = "58.67";
-                        break;
-                    case '30x24':
-                        sqft2 = "88";
-                        break;
-                    case '38x16':
-                        sqft2 = "42.67";
-                        break;
-                    case '38x24':
-                        sqft2 = "64";
-                        break;
-                    default:
-                        sqft2 = "try different warehouse, or type a different insulation";
-                        window.alert("sadly, not yet in system");
-                        break;
-                }
-                var sqft3 ;
-                switch (value) {
-                    case '11x15':
-                        sqft3 = "155";
-                        break;
-                    case '11x23':
-                        sqft3 = "237.66";
-                        break;
-                    case '13x15':
-                        sqft3 = "106.56";
-                        break;
-                    case '13x23':
-                        sqft3 = "163.39";
-                        break;
-                    case '15x15':
-                        sqft3 = "67.81";
-                        break;
-                    case '15x23':
-                        sqft3 = "johns manville doesnt carry 15x23";
-                        break;
-                    case '19x15':
-                        sqft3 = "87.18";
-                        break;
-                    case '19x23':
-                        sqft3 = "133.68";
-                        break;
-                    case '21x15':
-                        sqft3 = "67.81";
-                        break;
-                    case '21x23':
-                        sqft3 = "118.83";
-                        break;
-                    case '30x16':
-                        sqft3 = "58.66";
-                        break;
-                    case '30x24':
-                        sqft3 = "88";
-                        break;
-                    case '38x16':
-                        sqft3 = "48";
-                        break;
-                    case '38x24':
-                        sqft3 = "72";
-                        break;
-                    default:
-                        sqft3 = "try different warehouse, or type a different insulation";
-                        window.alert("sadly, not yet in system");
-                        break;
-                }
-                var sqft4 ;
-                switch (value) {
-                    case '11x15':
-                        sqft4 = "156.67";
-                        break;
-                    case '11x23':
-                        sqft4 = "240.22";
-                        break;
-                    case '13x15':
-                        sqft4 = "117.50";
-                        break;
-                    case '13x23':
-                        sqft4 = "163.39";
-                        break;
-                    case '15x15':
-                        sqft4 = "58.13";
-                        break;
-                    case '15x23':
-                        sqft4 = "knauf doesnt carry 15x23";
-                        break;
-                    case '19x15':
-                        sqft4 = "97.92";
-                        break;
-                    case '19x23':
-                        sqft4 = "138";
-                        break;
-                    case '21x15':
-                        sqft4 = "67.81";
-                        break;
-                    case '21x23':
-                        sqft4 = "103.98";
-                        break;
-                    case '30x16':
-                        sqft4 = "69.33";
-                        break;
-                    case '30x24':
-                        sqft4 = "88";
-                        break;
-                    case '38x16':
-                        sqft4 = "58.67";
-                        break;
-                    case '38x24':
-                        sqft4 = "64";
-                        break;
-                    default:
-                        sqft4 = "try different warehouse, or type a different insulation";
-                        window.alert("sadly, not yet in system");
-                        break;
-                }
-                var sqft;
-                if ( loc =="owens" ) {
-                    sqft = sqft1;
-                }
-                else if ( loc =="ct" ) {
-                    sqft = sqft2;
-                }
-                else if ( loc =="johns" ) {
-                    sqft = sqft3;
-                }
-                else if ( loc =="knauf" ) {
-                    sqft = sqft4;
-                }
-                else {
-                    sqft ="not possible";
-                }
-                //now turn the sqft in to a number.
-                var sqft= parseFloat(sqft) ;
-                //get price and declare ditributor like "if ins value is 11x15- idi is
-                var price11 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price11 = '.31';
-                        break;
-                    case 'rocky':
-                        price11 = '.31';
-                        break;
-                    case 'pacific':
-                        price11 = '.31';
-                        break;
-                    case 'best':
-                        price11 = '.31';
-                        break;
-                    case 'idi':
-                        price11 = '.31';
-                        break;
-                    case 'ris':
-                        price11 = '.32';
-                        break;
-                    case 'cardalls':
-                        price11 = '.31';
-                        break;
-                    case 'specialty':
-                        price11 = '.33';
-                        break;
-                    case 'bdi':
-                        price11 = '.31';
-                        break;
-                    case 'new england':
-                        price11 = '.31';
-                        break;
-                    case 'boston':
-                        price11 = '.31';
-                        break;
-                    case 'denver':
-                        price11 = '31';
-                        break;
-                    case 'florida':
-                        price11 = '.31';
-                        break;
-                    case 'jp':
-                        price11 = '.31';
-                        break;
-                    case 'industrial':
-                        price11 = '.31';
-                        break;
-                    case 'mp':
-                        price11 = '.31';
-                        break;
-                    case 'michigan':
-                        price11 = '.31';
-                        break;
-                    case 'building':
-                        price11 = '.31';
-                        break;
-                    case 'lnw':
-                        price11 = 'not available';
-                        break;
-                    case 'building spokane':
-                        price11 = 'nope';
-                        break;
-                    case 'appalachian':
-                        price11 = '.31';
-                        break;
-                    case 'winroc':
-                        price11 = '.31';
-                        break;
-                    case 'gypsum':
-                        price11 = '.31';
-                        break;
-                    case 'accurate':
-                        price11 = '.31';
-                        break;
-                    case 'api':
-                        price11 = '.31'
-                        break;
-                    case 'starr':
-                        price11 = '.31';
-                        break;
-                    case '84 lumber':
-                        price11 = '.31';
-                        break;
-                }
-                var price13 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price13 = '.38';
-                        break;
-                    case 'rocky':
-                        price13 = '.38';
-                        break;
-                    case 'pacific':
-                        price13 = '.38';
-                        break;
-                    case 'best':
-                        price13 = '.38';
-                        break;
-                    case 'idi':
-                        price13 = '.38';
-                        break;
-                    case 'ris':
-                        price13 = '.39';
-                        break;
-                    case 'cardalls':
-                        price13 = '.38';
-                        break;
-                    case 'specialty':
-                        price13 = 'none';
-                        break;
-                    case 'bdi':
-                        price13 = '.38';
-                        break;
-                    case 'new england':
-                        price13 = '.38';
-                        break;
-                    case 'boston':
-                        price13 = '.38';
-                        break;
-                    case 'denver':
-                        price13 = '.38';
-                        break;
-                    case 'florida':
-                        price13 = '.38';
-                        break;
-                    case 'jp':
-                        price13 = '.38';
-                        break;
-                    case 'industrial':
-                        price13 = '.38';
-                        break;
-                    case 'mp':
-                        price13 = '.38';
-                        break;
-                    case 'michigan':
-                        price13 = '.38';
-                        break;
-                    case 'building':
-                        price13 = '.38';
-                        break;
-                    case 'lnw':
-                        price13 = '.38';
-                        break;
-                    case 'building spokane':
-                        price13 = 'none';
-                        break;
-                    case 'appalachian':
-                        price13 = '.38';
-                        break;
-                    case 'winroc':
-                        price13 = '.38';
-                        break;
-                    case 'gypsum':
-                        price13 = '.38';
-                        break;
-                    case 'accurate':
-                        price13 = '.38';
-                        break;
-                    case 'api':
-                        price13 = '.38';
-                        break;
-                    case 'starr':
-                        price13 = '.38';
-                        break;
-                    case '84 lumber':
-                        price13 = '.38';
-                        break;
-                }
-                var price19 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price19 = ".48";
-                        break;
-                    case 'rocky':
-                        price19 = '.48';
-                        break;
-                    case 'pacific':
-                        price19 = '.48';
-                        break;
-                    case 'best':
-                        price19 = '.48';
-                        break;
-                    case 'idi':
-                        price19 = '.48';
-                        break;
-                    case 'ris':
-                        price19 = '.48';
-                        break;
-                    case 'cardalls':
-                        price19 = '.48';
-                        break;
-                    case 'specialty':
-                        price19 = '.49';
-                        break;
-                    case 'bdi':
-                        price19 = '.48';
-                        break;
-                    case 'new england':
-                        price19 = '.48';
-                        break;
-                    case 'boston':
-                        price19 = '.48';
-                        break;
-                    case 'denver':
-                        price19 = '.48';
-                        break;
-                    case 'florida':
-                        price19 = '.48';
-                        break;
-                    case 'jp':
-                        price19 = '.48';
-                        break;
-                    case 'industrial':
-                        price19 = '.48';
-                        break;
-                    case 'mp':
-                        price19 = '.48';
-                        break;
-                    case 'michigan':
-                        price19 = '.48';
-                        break;
-                    case 'building':
-                        price19 = '.48';
-                        break;
-                    case 'lnw':
-                        price19 = '.48';
-                        break;
-                    case 'building spokane':
-                        price19 = 'none';
-                        break;
-                    case 'appalachian':
-                        price19 = '.48';
-                        break;
-                    case 'winroc':
-                        price19 = '.48';
-                        break;
-                    case 'gypsum':
-                        price19 = '.48';
-                        break;
-                    case 'accurate':
-                        price19 = '.48';
-                        break;
-                    case 'api':
-                        price19 = '.48';
-                        break;
-                    case 'starr':
-                        price19 = '.48';
-                        break;
-                    case '84 lumber':
-                        price19 = '.48';
-                        break;
-                }
-                var price21 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price21 = ".68";
-                        break;
-                    case 'rocky':
-                        price21 = '.68';
-                        break;
-                    case 'pacific':
-                        price21 = '.68';
-                        break;
-                    case 'best':
-                        price21 = '.68';
-                        break;
-                    case 'idi':
-                        price21 = '.68';
-                        break;
-                    case 'ris':
-                        price21 = '.86';
-                        break;
-                    case 'cardalls':
-                        price21 = '.68';
-                        break;
-                    case 'specialty':
-                        price21 = '.80';
-                        break;
-                    case 'bdi':
-                        price21 = '.68';
-                        break;
-                    case 'new england':
-                        price21 = '.68';
-                        break;
-                    case 'boston':
-                        price21 = '.68';
-                        break;
-                    case 'denver':
-                        price21 = '.68';
-                        break;
-                    case 'florida':
-                        price21 = '.68';
-                        break;
-                    case 'jp':
-                        price21 = '.68';
-                        break;
-                    case 'industrial':
-                        price21 = '.68';
-                        break;
-                    case 'mp':
-                        price21 = '.68';
-                        break;
-                    case 'michigan':
-                        price21 = '.68';
-                        break;
-                    case 'building':
-                        price21 = '.68';
-                        break;
-                    case 'lnw':
-                        price21 = 'none';
-                        break;
-                    case 'building spokane':
-                        price21 = 'none';
-                        break;
-                    case 'appalachian':
-                        price21 = '.68';
-                        break;
-                    case 'winroc':
-                        price21 = '.68';
-                        break;
-                    case 'gypsum':
-                        price21 = '.68';
-                        break;
-                    case 'accurate':
-                        price21 = '.68';
-                        break;
-                    case 'api':
-                        price21 = '.68';
-                        break;
-                    case 'starr':
-                        price21 = '.68';
-                        break;
-                    case '84 lumber':
-                        price21 = '.68';
-                        break;
-                }
-                var price30 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price30 = ".74";
-                        break;
-                    case 'rocky':
-                        price30 = '.74';
-                        break;
-                    case 'pacific':
-                        price30 = '.74';
-                        break;
-                    case 'best':
-                        price30 = '.74';
-                        break;
-                    case 'idi':
-                        price30 = '.74';
-                        break;
-                    case 'ris':
-                        price30 = '.77';
-                        break;
-                    case 'cardalls':
-                        price30 = '.74';
-                        break;
-                    case 'specialty':
-                        price30 = '.78';
-                        break;
-                    case 'bdi':
-                        price30 = '.74';
-                        break;
-                    case 'new england':
-                        price30 = '.74';
-                        break;
-                    case 'boston':
-                        price30 = '.74';
-                        break;
-                    case 'denver':
-                        price30 = '.74';
-                        break;
-                    case 'florida':
-                        price30 = '.74';
-                        break;
-                    case 'jp':
-                        price30 = '.74';
-                        break;
-                    case 'industrial':
-                        price30 = '.74';
-                        break;
-                    case 'mp':
-                        price30 = '.74';
-                        break;
-                    case 'michigan':
-                        price30 = '.74';
-                        break;
-                    case 'building':
-                        price30 = '.74';
-                        break;
-                    case 'lnw':
-                        price30 = '.74';
-                        break;
-                    case 'building spokane':
-                        price30 = 'none';
-                        break;
-                    case 'appalachian':
-                        price30 = '.74';
-                        break;
-                    case 'winroc':
-                        price30 = '.74';
-                        break;
-                    case 'gypsum':
-                        price30 = '.74';
-                        break;
-                    case 'accurate':
-                        price30 = '.74';
-                        break;
-                    case 'api':
-                        price30 = '.74';
-                        break;
-                    case 'starr':
-                        price30 = '.74';
-                        break;
-                    case '84 lumber':
-                        price30 = '.74';
-                        break;
-                }
-                var price38 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price38 = ".91";
-                        break;
-                    case 'rocky':
-                        price38 = '.91';
-                        break;
-                    case 'pacific':
-                        price38 = '.91';
-                        break;
-                    case 'best':
-                        price38 = '.91';
-                        break;
-                    case 'idi':
-                        price38 = '.91';
-                        break;
-                    case 'ris':
-                        price38 = '.95';
-                        break;
-                    case 'cardalls':
-                        price38 = '.91';
-                        break;
-                    case 'specialty':
-                        price38 = 'none';
-                        break;
-                    case 'bdi':
-                        price38 = '.91';
-                        break;
-                    case 'new england':
-                        price38 = '.91';
-                        break;
-                    case 'boston':
-                        price38 = '.91';
-                        break;
-                    case 'denver':
-                        price38 = '.91';
-                        break;
-                    case 'florida':
-                        price38 = '.91';
-                        break;
-                    case 'jp':
-                        price38 = '.91';
-                        break;
-                    case 'industrial':
-                        price38 = '.91';
-                        break;
-                    case 'mp':
-                        price38 = '.91';
-                        break;
-                    case 'michigan':
-                        price38 = '.91';
-                        break;
-                    case 'building':
-                        price38 = '.91';
-                        break;
-                    case 'lnw':
-                        price38 = '.91';
-                        break;
-                    case 'building spokane':
-                        price38 = 'none';
-                        break;
-                    case 'appalachian':
-                        price38 = '.91';
-                        break;
-                    case 'winroc':
-                        price38 = '.91';
-                        break;
-                    case 'gypsum':
-                        price38 = '.91';
-                        break;
-                    case 'accurate':
-                        price38 = '.91';
-                        break;
-                    case 'api':
-                        price38 = '.91';
-                        break;
-                    case 'starr':
-                        price38 = '.91';
-                        break;
-                    case '84 lumber':
-                        price38 = '.91';
-                        break;
-                }
-                //now take price and mix it with right dis.
-                var price;
-                if ( value =="11x15" || value =="11x23" ) {
-                    price = price11;
-                }
-                else if ( value =="13x15" || value =="13x23" ) {
-                    price = price13;
-                }
-                else if ( value =="19x15" || value =="19x23" ) {
-                    price = price19;
-                }
-                else if ( value =="21x15" || value =="21x23" ) {
-                    price = price21;
-                }
-                else if ( value =="30x16" || value =="30x24" ) {
-                    price = price30;
-                }
-                else if ( value =="38x16" || value =="38x24" ) {
-                    price = price38;
-                }
-                else {
-                    price ="something went wrong";
-                }
-                //now find the home depot price per square foot.
-                var hdPrice;
-                if ( value =="11x15" || value =="11x23" ) {
-                    hdPrice = '0.30';
-                }
-                else if ( value =="13x15" || value =="13x23" ) {
-                    hdPrice = '0.47';
-                }
-                else if ( value =="19x15" || value =="19x23" ) {
-                    hdPrice = '0.58';
-                }
-                else if ( value =="21x15" || value =="21x23" ) {
-                    hdPrice = '0.70';
-                }
-                else if ( value =="30x16" || value =="30x24" ) {
-                    hdPrice = '0.92';
-                }
-                else if ( value =="38x16" || value =="38x24" ) {
-                    hdPrice = '1.11';
-                }
-                else {
-                    hdPrice ="something went wrong";
-                }
-                //now calculate how many bags based on overall square feet given and overall square feet they will get
-                var bags= amount / sqft ;
-                //make number smaller.
-                var num= 2
-                var multiplier = Math.pow(10, num);
-                var bags = Math.round (bags * multiplier) / multiplier;
-                // make the numbers rounded correctly...
-                var bags=Math.round (bags);
-                //make the overall sqft number smaller
-                var overall= bags * sqft ;
-                var overall = Math.round (overall * multiplier) / multiplier;
-                //turn price into a number.
-                var price = parseFloat(price);
-                //otober 2016 changes to take 16% off the price per sf.
-                var price;
-                if ( bags > 11 ) {
-                    price = price - (price * .16);
-                }
-                else if ( deal == 16 ) {
-                    price = price - (price * .16);
-                }
-                else {
-                    price= price;
-                }
-                var price = Math.round (price * multiplier) / multiplier;
-                //now make price multiplied to overall sqft.
-                var total = overall * price;
-                var total = Math.round (total * multiplier) / multiplier;
-                //now display total with total + taxes under it.
-                //discount.
-                var perc=deal / 100;
-                var dscnt=total * perc;
-                var dscnt = Math.round (dscnt * multiplier) / multiplier;
-                var nt = total - dscnt
-                var nt = Math.round (nt * multiplier) / multiplier;
-                //calculate the taxes...THIS IS THE END PRICE!!!
-                var actualTax= (tax / 100) + 1;
-                var last =total * actualTax;
-                var last = Math.round (last * multiplier) / multiplier;
-                //calc the home depot thing.
-                var hd =total * .22;
-                var hd = Math.round (hd * multiplier) / multiplier;
-                var price= price.toFixed(2);
-                var total= total.toFixed(2);
-                //show the end without tax n discount.
-                document.getElementById('output').innerHTML ="R-" + value + "\"" +" Kraft Faced "+"(" + sqft + " sq ft in a bag" + "/" + bags +" bags" + "=" + overall +" sq ft" + ")"+"("+"$"+price+")"+"=$"+total;
-                //show it the discount end.
-                //(took this out, but am leaving j.i.c.)document.getElementById('new').innerHTML =deal+"% Promo Discount"+" (-$"+dscnt+")"+"= $"+nt;
-                //total with tax.
-                document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+last+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
+<head>
+    <meta charset="utf-8">
+    <style>
+        h1 {
+            color: maroon
+        }
+    </style>
+    <title>Blueseal Project</title>
+
+    <script type="text/javascript">
+        /*Input - a persons location, types of insulation, and square footage needed per...
+         *Processing - fetch the warehouse asigned to the location, along with all types of insulation it has. (warehouse will have    assigned
+         *vars that rep. the types of insulation.
+         *calculate - from the warehouse assigned to the location; take the type the/y have...
+         * move to the var that assigns squar footage to types of location
+         * take the needed sqftg and devide it by type sqrftg
+         * take the !rounded! parse float of this: (# of bags), and times that by the typesqft
+         * fetch the price per sqrft of the type of ins from the vars lists
+         * times the last used # by this price var.
+         * take this # and times it by the morphed tax var assigned to the phone number...
+         *display- show 1.type of ins/2.sqrftg of type/3.bags/4.bags timesd by typesqft/5.type price/6.anwer/7.answer times phone tax var.
+         */
+        function Kraft() {
+            //recieve the users specs.
+            var value = document.getElementById('insulationValue').value;
+            var loc = document.getElementById('location').value;
+            var dis = document.getElementById('distributor').value;
+            var amount = parseFloat(document.getElementById('amount').value);
+            var deal = parseFloat(document.getElementById('discount').value);
+            var tax = parseFloat(document.getElementById('taxes').value);
+            //get the location type of insulation from corresponding warehouse.
+            var sqft1;
+            switch (value) {
+            case '11x15':
+                sqft1 = "155";
+                break;
+            case '11x23':
+                sqft1 = "237.67";
+                break;
+            case '13x15':
+                sqft1 = "125.94";
+                break;
+            case '13x23':
+                sqft1 = "148.54";
+                break;
+            case '15x15':
+                sqft1 = "67.81";
+                break;
+            case '15x23':
+                sqft1 = "owens corning doesn't carry r15x23";
+                break;
+            case '19x15':
+                sqft1 = "77.50";
+                break;
+            case '19x23':
+                sqft1 = "118.83";
+                break;
+            case '21x15':
+                sqft1 = "67.81";
+                break;
+            case '21x23':
+                sqft1 = "89.13";
+                break;
+            case '30x16':
+                sqft1 = "58.67";
+                break;
+            case '30x24':
+                sqft1 = "88";
+                break;
+            case '38x16':
+                sqft1 = "42.67";
+                break;
+            case '38x24':
+                sqft1 = "64";
+                break;
+            default:
+                sqft1 = "try different warehouse, or type a different insulation";
+                window.alert("sadly, not yet in system");
+                break;
             }
-            function Unfaced() {
-                //recieve the users specs.
-                var value = document.getElementById ('insulationValue').value;
-                var loc = document.getElementById ('location').value;
-                var dis = document.getElementById ('distributor').value;
-                var amount = parseFloat (document.getElementById('amount').value);
-                var deal = parseFloat (document.getElementById('discount').value);
-                var tax =parseFloat (document.getElementById('taxes').value);
-                //get the location type of insulation from corresponding warehouse.
-                var sqft1 ;
-                switch (value) {
-                    case '11x15':
-                        sqft1 = "155";
-                        break;
-                    case '11x23':
-                        sqft1 = "237.67";
-                        break;
-                    case '13x15':
-                        sqft1 = "106.56";
-                        break;
-                    case '13x23':
-                        sqft1 = "178.25";
-                        break;
-                    case '15x15':
-                        sqft1 = "77.50";
-                        break;
-                    case '15x23':
-                        sqft1 = "103.98";
-                        break;
-                    case '19x15':
-                        sqft1 = "77.50";
-                        break;
-                    case '19x23':
-                        sqft1 = "118.83";
-                        break;
-                    case '21x15':
-                        sqft1 = "67.81";
-                        break;
-                    case '21x23':
-                        sqft1 = "89.13";
-                        break;
-                    case '30x16':
-                        sqft1 = "53.33";
-                        break;
-                    case '30x24':
-                        sqft1 = "88";
-                        break;
-                    case '38x16':
-                        sqft1 = "42.67";
-                        break;
-                    case '38x24':
-                        sqft1 = "64";
-                        break;
-                    default:
-                        sqft1 = "try different warehouse, or type a different insulation";
-                        window.alert("sadly, not yet in system");
-                        break;
-                }
-                var sqft2 ;
-                switch (value) {
-                    case '11x15':
-                        sqft2 = "155";
-                        break;
-                    case '11x23':
-                        sqft2 = "237.67";
-                        break;
-                    case '13x15':
-                        sqft2 = "125.94";
-                        break;
-                    case '13x23':
-                        sqft2 = "193.10";
-                        break;
-                    case '15x15':
-                        sqft2 = "77.50";
-                        break;
-                    case '15x23':
-                        sqft2 = "certainteed doesnt carry 15x23";
-                        break;
-                    case '19x15':
-                        sqft2 = "87.19";
-                        break;
-                    case '19x23':
-                        sqft2 = "133.69";
-                        break;
-                    case '21x15':
-                        sqft2 = "77.50";
-                        break;
-                    case '21x23':
-                        sqft2 = "118.83";
-                        break;
-                    case '30x16':
-                        sqft2 = "58.67";
-                        break;
-                    case '30x24':
-                        sqft2 = "88";
-                        break;
-                    case '38x16':
-                        sqft2 = "42.67";
-                        break;
-                    case '38x24':
-                        sqft2 = "64";
-                        break;
-                    default:
-                        sqft2 = "try different warehouse, or type a different insulation";
-                        window.alert("sadly, not yet in system");
-                        break;
-                }
-                var sqft3 ;
-                switch (value) {
-                    case '11x15':
-                        sqft3 = "155";
-                        break;
-                    case '11x23':
-                        sqft3 = "237.66";
-                        break;
-                    case '13x15':
-                        sqft3 = "106.53";
-                        break;
-                    case '13x23':
-                        sqft3 = "163.94";
-                        break;
-                    case '15x15':
-                        sqft3 = "67.81";
-                        break;
-                    case '15x23':
-                        sqft3 = "johns manville doesnt carry 15x23";
-                        break;
-                    case '19x15':
-                        sqft3 = "87.18";
-                        break;
-                    case '19x23':
-                        sqft3 = "133.68";
-                        break;
-                    case '21x15':
-                        sqft3 = "67.81";
-                        break;
-                    case '21x23':
-                        sqft3 = "103.97";
-                        break;
-                    case '30x16':
-                        sqft3 = "58.66";
-                        break;
-                    case '30x24':
-                        sqft3 = "88";
-                        break;
-                    case '38x16':
-                        sqft3 = "48";
-                        break;
-                    case '38x24':
-                        sqft3 = "72";
-                        break;
-                    default:
-                        sqft3 = "try different warehouse, or type a different insulation";
-                        window.alert("sadly, not yet in system");
-                        break;
-                }
-                var sqft4 ;
-                switch (value) {
-                    case '11x15':
-                        sqft4 = "159.28";
-                        break;
-                    case '11x23':
-                        sqft4 = "242.83";
-                        break;
-                    case '13x15':
-                        sqft4 = "117.50";
-                        break;
-                    case '13x23':
-                        sqft4 = "165";
-                        break;
-                    case '15x15':
-                        sqft4 = "none";
-                        break;
-                    case '15x23':
-                        sqft4 = "knauf doesnt carry 15x23";
-                        break;
-                    case '19x15':
-                        sqft4 = "99.54";
-                        break;
-                    case '19x23':
-                        sqft4 = "136.59";
-                        break;
-                    case '21x15':
-                        sqft4 = "67.81";
-                        break;
-                    case '21x23':
-                        sqft4 = "103.98";
-                        break;
-                    case '30x16':
-                        sqft4 = "69.33";
-                        break;
-                    case '30x24':
-                        sqft4 = "88";
-                        break;
-                    case '38x16':
-                        sqft4 = "58.67";
-                        break;
-                    case '38x24':
-                        sqft4 = "64";
-                        break;
-                    default:
-                        sqft4 = "try different warehouse, or type a different insulation";
-                        window.alert("sadly, not yet in system");
-                        break;
-                }
-                var sqft;
-                if ( loc =="owens" ) {
-                    sqft = sqft1;
-                }
-                else if ( loc =="ct" ) {
-                    sqft = sqft2;
-                }
-                else if ( loc =="johns" ) {
-                    sqft = sqft3;
-                }
-                else if ( loc =="knauf" ) {
-                    sqft = sqft4;
-                }
-                else {
-                    sqft ="not possible";
-                }
-                //now turn the sqft in to a number.
-                var sqft= parseFloat(sqft) ;
-                //UNFACED BELOW__get price and declare ditributor like "if ins value is 11x15- idi is
-                var price11 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price11 = '.29';
-                        break;
-                    case 'rocky':
-                        price11 = '.29';
-                        break;
-                    case 'pacific':
-                        price11 = '.29';
-                        break;
-                    case 'best':
-                        price11 = '.29';
-                        break;
-                    case 'idi':
-                        price11 = '.29';
-                        break;
-                    case 'ris':
-                        price11 = '.29';
-                        break;
-                    case 'cardalls':
-                        price11 = '.29';
-                        break;
-                    case 'specialty':
-                        price11 = '.28';
-                        break;
-                    case 'bdi':
-                        price11 = '29';
-                        break;
-                    case 'new england':
-                        price11 = '.29';
-                        break;
-                    case 'boston':
-                        price11 = '.29';
-                        break;
-                    case 'denver':
-                        price11 = '.29';
-                        break;
-                    case 'florida':
-                        price11 = '.29';
-                        break;
-                    case 'jp':
-                        price11 = '.29';
-                        break;
-                    case 'industrial':
-                        price11 = '.29';
-                        break;
-                    case 'mp':
-                        price11 = '.29';
-                        break;
-                    case 'michigan':
-                        price11 = '.29';
-                        break;
-                    case 'building':
-                        price11 = '.29';
-                        break;
-                    case 'lnw':
-                        price11 = '29';
-                        break;
-                    case 'building spokane':
-                        price11 = '32';
-                        break;
-                    case 'appalachian':
-                        price11 = '.29';
-                        break;
-                    case 'winroc':
-                        price11 = '.29';
-                        break;
-                    case 'gypsum':
-                        price11 = '.29';
-                        break;
-                    case 'accurate':
-                        price11 = '.29';
-                        break;
-                    case 'api':
-                        price11 = '.29'
-                        break;
-                    case 'starr':
-                        price11 = '.29';
-                        break;
-                    case '84 lumber':
-                        price11 = '.29';
-                        break;
-                }
-                var price13 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price13 = '.37';
-                        break;
-                    case 'rocky':
-                        price13 = '.37';
-                        break;
-                    case 'pacific':
-                        price13 = '.37';
-                        break;
-                    case 'best':
-                        price13 = '.37';
-                        break;
-                    case 'idi':
-                        price13 = '.37';
-                        break;
-                    case 'ris':
-                        price13 = '.37';
-                        break;
-                    case 'cardalls':
-                        price13 = '.37';
-                        break;
-                    case 'specialty':
-                        price13 = '.35';
-                        break;
-                    case 'bdi':
-                        price13 = '.37';
-                        break;
-                    case 'new england':
-                        price13 = '.37';
-                        break;
-                    case 'boston':
-                        price13 = '.37';
-                        break;
-                    case 'denver':
-                        price13 = '.37';
-                        break;
-                    case 'florida':
-                        price13 = '.37';
-                        break;
-                    case 'jp':
-                        price13 = '.37';
-                        break;
-                    case 'industrial':
-                        price13 = '.37';
-                        break;
-                    case 'mp':
-                        price13 = '.37';
-                        break;
-                    case 'michigan':
-                        price13 = '.37';
-                        break;
-                    case 'building':
-                        price13 = '.37';
-                        break;
-                    case 'lnw':
-                        price13 = '.37';
-                        break;
-                    case 'building spokane':
-                        price13 = 'none';
-                        break;
-                    case 'appalachian':
-                        price13 = '.37';
-                        break;
-                    case 'winroc':
-                        price13 = '.37';
-                        break;
-                    case 'gypsum':
-                        price13 = '.37';
-                        break;
-                    case 'accurate':
-                        price13 = '.37';
-                        break;
-                    case 'api':
-                        price13 = '.37';
-                        break;
-                    case 'starr':
-                        price13 = '.37';
-                        break;
-                    case '84 lumber':
-                        price13 = '.37';
-                        break;
-                }
-                var price19 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price19 = ".46";
-                        break;
-                    case 'rocky':
-                        price19 = '.46';
-                        break;
-                    case 'pacific':
-                        price19 = '.46';
-                        break;
-                    case 'best':
-                        price19 = '.46';
-                        break;
-                    case 'idi':
-                        price19 = '.46';
-                        break;
-                    case 'ris':
-                        price19 = '.45';
-                        break;
-                    case 'cardalls':
-                        price19 = '.46';
-                        break;
-                    case 'specialty':
-                        price19 = '.43';
-                        break;
-                    case 'bdi':
-                        price19 = '.46';
-                        break;
-                    case 'new england':
-                        price19 = '.46';
-                        break;
-                    case 'boston':
-                        price19 = '.46';
-                        break;
-                    case 'denver':
-                        price19 = '.46';
-                        break;
-                    case 'florida':
-                        price19 = '.46';
-                        break;
-                    case 'jp':
-                        price19 = '.46';
-                        break;
-                    case 'industrial':
-                        price19 = '.46';
-                        break;
-                    case 'mp':
-                        price19 = '.46';
-                        break;
-                    case 'michigan':
-                        price19 = '.46';
-                        break;
-                    case 'building':
-                        price19 = '.46';
-                        break;
-                    case 'lnw':
-                        price19 = '.46';
-                        break;
-                    case 'building spokane':
-                        price19 = '.46';
-                        break;
-                    case 'appalachian':
-                        price19 = '.46';
-                        break;
-                    case 'winroc':
-                        price19 = '.46';
-                        break;
-                    case 'gypsum':
-                        price19 = '.46';
-                        break;
-                    case 'accurate':
-                        price19 = '.46';
-                        break;
-                    case 'api':
-                        price19 = '.46';
-                        break;
-                    case 'starr':
-                        price19 = '.46';
-                        break;
-                    case '84 lumber':
-                        price19 = '.46';
-                        break;
-                }
-                var price21 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price21 = ".65";
-                        break;
-                    case 'rocky':
-                        price21 = '.65';
-                        break;
-                    case 'pacific':
-                        price21 = '.65';
-                        break;
-                    case 'best':
-                        price21 = '.65';
-                        break;
-                    case 'idi':
-                        price21 = '.65';
-                        break;
-                    case 'ris':
-                        price21 = '.80';
-                        break;
-                    case 'cardalls':
-                        price21 = '.65';
-                        break;
-                    case 'specialty':
-                        price21 = '.74';
-                        break;
-                    case 'bdi':
-                        price21 = '.65';
-                        break;
-                    case 'new england':
-                        price21 = '.65';
-                        break;
-                    case 'boston':
-                        price21 = '.65';
-                        break;
-                    case 'denver':
-                        price21 = '.65';
-                        break;
-                    case 'florida':
-                        price21 = '.65';
-                        break;
-                    case 'jp':
-                        price21 = '.65';
-                        break;
-                    case 'industrial':
-                        price21 = '.65';
-                        break;
-                    case 'mp':
-                        price21 = '.65';
-                        break;
-                    case 'michigan':
-                        price21 = '.65';
-                        break;
-                    case 'building':
-                        price21 = '.65';
-                        break;
-                    case 'lnw':
-                        price21 = 'none';
-                        break;
-                    case 'building spokane':
-                        price21 = 'none';
-                        break;
-                    case 'appalachian':
-                        price21 = '.65';
-                        break;
-                    case 'winroc':
-                        price21 = '.65';
-                        break;
-                    case 'gypsum':
-                        price21 = '.65';
-                        break;
-                    case 'accurate':
-                        price21 = '.65';
-                        break;
-                    case 'api':
-                        price21 = '.65';
-                        break;
-                    case 'starr':
-                        price21 = '.65';
-                        break;
-                    case '84 lumber':
-                        price21 = '.65';
-                        break;
-                }
-                var price30 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price30 = ".69";
-                        break;
-                    case 'rocky':
-                        price30 = '.69';
-                        break
-                        case 'pacific':
-                        price30 = '.69';
-                        break;
-                    case 'best':
-                        price30 = '.69';
-                        break;
-                    case 'idi':
-                        price30 = '.69';
-                        break;
-                    case 'ris':
-                        price30 = '.73';
-                        break;
-                    case 'cardalls':
-                        price30 = '.69';
-                        break;
-                    case 'specialty':
-                        price30 = '.70';
-                        break;
-                    case 'bdi':
-                        price30 = '.69';
-                        break;
-                    case 'new england':
-                        price30 = '.69';
-                        break;
-                    case 'boston':
-                        price30 = '.69';
-                        break;
-                    case 'denver':
-                        price30 = '.69';
-                        break;
-                    case 'florida':
-                        price30 = '.69';
-                        break;
-                    case 'jp':
-                        price30 = '.69';
-                        break;
-                    case 'industrial':
-                        price30 = '.69';
-                        break;
-                    case 'mp':
-                        price30 = '.69';
-                        break;
-                    case 'michigan':
-                        price30 = '.69';
-                        break;
-                    case 'building':
-                        price30 = '.69';
-                        break;
-                    case 'lnw':
-                        price30 = '.69';
-                        break;
-                    case 'building spokane':
-                        price30 = 'none';
-                        break;
-                    case 'appalachian':
-                        price30 = '.69';
-                        break;
-                    case 'winroc':
-                        price30 = '.69';
-                        break;
-                    case 'gypsum':
-                        price30 = '.69';
-                        break;
-                    case 'accurate':
-                        price30 = '.69';
-                        break;
-                    case 'api':
-                        price30 = '.69';
-                        break;
-                    case 'starr':
-                        price30 = '.69';
-                        break;
-                    case '84 lumber':
-                        price30 = '.69';
-                        break;
-                }
-                var price38 ;
-                switch (dis) {
-                    case 'paragon pacific':
-                        price38 = ".88";
-                        break;
-                    case 'rocky':
-                        price38 = '.88';
-                        break;
-                    case 'pacific':
-                        price38 = '.88';
-                        break;
-                    case 'best':
-                        price38 = '.88';
-                        break;
-                    case 'idi':
-                        price38 = '.88';
-                        break;
-                    case 'ris':
-                        price38 = '.89';
-                        break;
-                    case 'cardalls':
-                        price38 = '.88';
-                        break;
-                    case 'specialty':
-                        price38 = '.84';
-                        break;
-                    case 'bdi':
-                        price38 = '.88';
-                        break;
-                    case 'new england':
-                        price38 = '.88';
-                        break;
-                    case 'boston':
-                        price38 = '.88';
-                        break;
-                    case 'denver':
-                        price38 = '.88';
-                        break;
-                    case 'florida':
-                        price38 = '.88';
-                        break;
-                    case 'jp':
-                        price38 = '.88';
-                        break;
-                    case 'industrial':
-                        price38 = '.88';
-                        break;
-                    case 'mp':
-                        price38 = '.88';
-                        break;
-                    case 'michigan':
-                        price38 = '.88';
-                        break;
-                    case 'building':
-                        price38 = '.88';
-                        break;
-                    case 'lnw':
-                        price38 = 'none';
-                        break;
-                    case 'building spokane':
-                        price38 = 'none';
-                        break;
-                    case 'appalachian':
-                        price38 = '.88';
-                        break;
-                    case 'winroc':
-                        price38 = '.88';
-                        break;
-                    case 'gypsum':
-                        price38 = '.88';
-                        break;
-                    case 'accurate':
-                        price38 = '.88';
-                        break;
-                    case 'api':
-                        price38 = '.88';
-                        break;
-                    case 'starr':
-                        price38 = '.88';
-                        break;
-                    case '84 lumber':
-                        price38 = '.88';
-                        break;
-                }
-                //now take price and mix it with right dis.
-                var price;
-                if ( value =="11x15" || value =="11x23" ) {
-                    price = price11;
-                }
-                else if ( value =="13x15" || value =="13x23" ) {
-                    price = price13;
-                }
-                else if ( value =="19x15" || value =="19x23" ) {
-                    price = price19;
-                }
-                else if ( value =="21x15" || value =="21x23" ) {
-                    price = price21;
-                }
-                else if ( value =="30x16" || value =="30x24" ) {
-                    price = price30;
-                }
-                else if ( value =="38x16" || value =="38x24" ) {
-                    price = price38;
-                }
-                else {
-                    price ="something went wrong";
-                }
-                //now find the home depot price per square foot.
-                var hdPrice;
-                if ( value =="11x15" || value =="11x23" ) {
-                    hdPrice = '0.30';
-                }
-                else if ( value =="13x15" || value =="13x23" ) {
-                    hdPrice = '0.44';
-                }
-                else if ( value =="19x15" || value =="19x23" ) {
-                    hdPrice = '0.53';
-                }
-                else if ( value =="21x15" || value =="21x23" ) {
-                    hdPrice = '0.70';
-                }
-                else if ( value =="30x16" || value =="30x24" ) {
-                    hdPrice = '0.87';
-                }
-                else if ( value =="38x16" || value =="38x24" ) {
-                    hdPrice = '1.04';
-                }
-                else {
-                    hdPrice ="something went wrong";
-                }
-                //now calculate how many bags based on overall square feet given and overall square feet they will get
-                var bags= amount / sqft ;
-                //make number smaller.
-                var num= 2
-                var multiplier = Math.pow(10, num);
-                var bags = Math.round (bags * multiplier) / multiplier;
-                // make the numbers rounded correctly...
-                var bags=Math.round (bags);
-                //make the overall sqft number smaller
-                var overall= bags * sqft ;
-                var overall = Math.round (overall * multiplier) / multiplier;
-                //turn price into a number.
-                var price = parseFloat(price);
-                //otober 2016 changes to take 16% off the price per sf.
-                var price;
-                if ( bags > 11 ) {
-                    price = price - (price * .16);
-                }
-                else if ( deal == 16 ) {
-                    price = price - (price * .16);
-                }
-                else {
-                    price= price;
-                }
-                var price = Math.round (price * multiplier) / multiplier;
-                //now make price multiplied to overall sqft.
-                var total = overall * price;
-                var total = Math.round (total * multiplier) / multiplier;
-                //now display total with total + taxes under it.
-                //discount.
-                var perc=deal / 100;
-                var dscnt=total * perc;
-                var dscnt = Math.round (dscnt * multiplier) / multiplier;
-                var nt = total - dscnt
-                var nt = Math.round (nt * multiplier) / multiplier;
-                //calculate the taxes...this is the END PRICE!!!
-                var actualTax= (tax / 100) + 1;
-                var last =total * actualTax;
-                var last = Math.round (last * multiplier) / multiplier;
-                //calc the home depot thing.
-                var hd =total * .22;
-                var hd = Math.round (hd * multiplier) / multiplier;
-                var price= price.toFixed(2);
-                var total= total.toFixed(2);
-                //show the end without tax n discount.
-                document.getElementById('output').innerHTML ="R-" + value + "\"" +" Unfaced "+"(" + sqft + " sq ft in a bag" + "/" + bags +" bags" + "=" + overall +" sq ft" + ")"+"("+"$"+price+")"+"=$"+total;
-                //show it the discount end.
-                //document.getElementById('new').innerHTML =deal+"% Promo Discount "+"($"+dscnt+")"+"=$"+nt;
-                //total with tax.
-                document.getElementById('withtax').innerHTML ="TotalWTX="+"$"+last+'<br/>'+'---------------------'+'<br/>'+'The average Home Depot and retail price for the same R-'+value+' precut batts are $'+hdPrice+' per square foot. We dropped yours to $'+price+' per square foot. Your total estimated savings is $'+hd+'<br/>'+'<br/>'+'<br/>';
+            var sqft2;
+            switch (value) {
+            case '11x15':
+                sqft2 = "155";
+                break;
+            case '11x23':
+                sqft2 = "237.67";
+                break;
+            case '13x15':
+                sqft2 = "125.94";
+                break;
+            case '13x23':
+                sqft2 = "193.10";
+                break;
+            case '15x15':
+                sqft2 = "77.50";
+                break;
+            case '15x23':
+                sqft2 = "certainteed doesnt carry 15x23";
+                break;
+            case '19x15':
+                sqft2 = "87.19";
+                break;
+            case '19x23':
+                sqft2 = "133.69";
+                break;
+            case '21x15':
+                sqft2 = "77.50";
+                break;
+            case '21x23':
+                sqft2 = "118.83";
+                break;
+            case '30x16':
+                sqft2 = "58.67";
+                break;
+            case '30x24':
+                sqft2 = "88";
+                break;
+            case '38x16':
+                sqft2 = "42.67";
+                break;
+            case '38x24':
+                sqft2 = "64";
+                break;
+            default:
+                sqft2 = "try different warehouse, or type a different insulation";
+                window.alert("sadly, not yet in system");
+                break;
             }
-            //---------------------------------------------------------------------------------------------------------
-            /*input: sqft needed, R-value of blow in, and distributor name.
-*Calculate: take dispt. name and find in that array what the price per bag of blow in it has, now see what ins.type array it has (InsulSafe,
-*JM Climate Pro, or ProPink) and follow it to its corresponding list of sqft covered per bale. sqft is an array that lists the sqft per bale
-*in each ins.type.
-*show: the end bid in this format-- 1 bale of loose fill at R- depth covers ___ sq ft/__bales=__ sq ft
-*                                   InsulSafe loose fill - $___per bale*__bales=$__.
-*/
-            function blueSealBlowIn() {
-                //recieve the users specs.
-                var amount = parseFloat (document.getElementById('numnum').value);
-                var value = document.getElementById ('insVal').value;
-                var dis = document.getElementById ('diTor').value;
-                var disString = dis;
-                var disNumber = parseFloat(dis);
-                //now get the price for what it is, turn it back into a string, then later turn them into just the 3 numbers for the coming calls...
-                var endPrice = dis;
-                var dis = dis.toString();
-                var dis ;
-                switch (disString) {
-                    case '28.81':case '31.04':case '27.15':case '25.79':case '37.13':
-                        dis = '0';
-                        break;
-                    case '31.50':case '25.30':case '32.20':case '38.94':case '36.01':case '32.68':case '24.15':case '27.60':case '25.33':
-                        dis = '1';
-                        break;
-                    case '29.93':case '31.05':case '32.03':case '24.79':case '28.75':case '30.56':case '31.74':
-                        dis = '2';
-                        break;
-                }
-                var dis = parseFloat(dis);
-                //call em!------------------------------------------------------------------------------------------------
-                var getSf = blowIn(amount,value,dis);
-                //calculate what we have so far.
-                var amountNumber = parseFloat(amount);
-                var bales = amountNumber / getSf;
-                var bales = Math.round(bales);
-                var overAll = bales * getSf;
-                var last = bales * endPrice;
-                var dos= 2
-                var plier = Math.pow(10, dos);
-                var overAll = Math.round (overAll * plier) / plier;
-                var last = Math.round (last * plier) / plier;
-                //show the end product!!!yay
-                document.getElementById('gogo').innerHTML='Fiberglass Loose Fill at R-'+value+ ' Depth ('+ getSf+ ' sq '+
-                    'ft per bale/'+bales+' bales='+overAll+' sq ft($'+endPrice+') = $'+last;
+            var sqft3;
+            switch (value) {
+            case '11x15':
+                sqft3 = "155";
+                break;
+            case '11x23':
+                sqft3 = "237.66";
+                break;
+            case '13x15':
+                sqft3 = "106.56";
+                break;
+            case '13x23':
+                sqft3 = "163.39";
+                break;
+            case '15x15':
+                sqft3 = "67.81";
+                break;
+            case '15x23':
+                sqft3 = "johns manville doesnt carry 15x23";
+                break;
+            case '19x15':
+                sqft3 = "87.18";
+                break;
+            case '19x23':
+                sqft3 = "133.68";
+                break;
+            case '21x15':
+                sqft3 = "67.81";
+                break;
+            case '21x23':
+                sqft3 = "118.83";
+                break;
+            case '30x16':
+                sqft3 = "58.66";
+                break;
+            case '30x24':
+                sqft3 = "88";
+                break;
+            case '38x16':
+                sqft3 = "48";
+                break;
+            case '38x24':
+                sqft3 = "72";
+                break;
+            default:
+                sqft3 = "try different warehouse, or type a different insulation";
+                window.alert("sadly, not yet in system");
+                break;
             }
-            function blowIn(amount,value,dis){
-                //make the sf array with objects and their characteristics.-----------------------------------------------------------
-                var products = [
+            var sqft4;
+            switch (value) {
+            case '11x15':
+                sqft4 = "156.67";
+                break;
+            case '11x23':
+                sqft4 = "240.22";
+                break;
+            case '13x15':
+                sqft4 = "117.50";
+                break;
+            case '13x23':
+                sqft4 = "163.39";
+                break;
+            case '15x15':
+                sqft4 = "58.13";
+                break;
+            case '15x23':
+                sqft4 = "knauf doesnt carry 15x23";
+                break;
+            case '19x15':
+                sqft4 = "97.92";
+                break;
+            case '19x23':
+                sqft4 = "138";
+                break;
+            case '21x15':
+                sqft4 = "67.81";
+                break;
+            case '21x23':
+                sqft4 = "103.98";
+                break;
+            case '30x16':
+                sqft4 = "69.33";
+                break;
+            case '30x24':
+                sqft4 = "88";
+                break;
+            case '38x16':
+                sqft4 = "58.67";
+                break;
+            case '38x24':
+                sqft4 = "64";
+                break;
+            default:
+                sqft4 = "try different warehouse, or type a different insulation";
+                window.alert("sadly, not yet in system");
+                break;
+            }
+            var sqft;
+            if (loc == "owens") {
+                sqft = sqft1;
+            } else if (loc == "ct") {
+                sqft = sqft2;
+            } else if (loc == "johns") {
+                sqft = sqft3;
+            } else if (loc == "knauf") {
+                sqft = sqft4;
+            } else {
+                sqft = "not possible";
+            }
+            //now turn the sqft in to a number.
+            var sqft = parseFloat(sqft);
+            //get price and declare ditributor like "if ins value is 11x15- idi is
+            var price11;
+            switch (dis) {
+            case 'paragon pacific':
+                price11 = '.31';
+                break;
+            case 'rocky':
+                price11 = '.31';
+                break;
+            case 'pacific':
+                price11 = '.31';
+                break;
+            case 'best':
+                price11 = '.31';
+                break;
+            case 'idi':
+                price11 = '.31';
+                break;
+            case 'ris':
+                price11 = '.32';
+                break;
+            case 'cardalls':
+                price11 = '.31';
+                break;
+            case 'specialty':
+                price11 = '.33';
+                break;
+            case 'bdi':
+                price11 = '.31';
+                break;
+            case 'new england':
+                price11 = '.31';
+                break;
+            case 'boston':
+                price11 = '.31';
+                break;
+            case 'denver':
+                price11 = '31';
+                break;
+            case 'florida':
+                price11 = '.31';
+                break;
+            case 'jp':
+                price11 = '.31';
+                break;
+            case 'industrial':
+                price11 = '.31';
+                break;
+            case 'mp':
+                price11 = '.31';
+                break;
+            case 'michigan':
+                price11 = '.31';
+                break;
+            case 'building':
+                price11 = '.31';
+                break;
+            case 'lnw':
+                price11 = 'not available';
+                break;
+            case 'building spokane':
+                price11 = 'nope';
+                break;
+            case 'appalachian':
+                price11 = '.31';
+                break;
+            case 'winroc':
+                price11 = '.31';
+                break;
+            case 'gypsum':
+                price11 = '.31';
+                break;
+            case 'accurate':
+                price11 = '.31';
+                break;
+            case 'api':
+                price11 = '.31'
+                break;
+            case 'starr':
+                price11 = '.31';
+                break;
+            case '84 lumber':
+                price11 = '.31';
+                break;
+            }
+            var price13;
+            switch (dis) {
+            case 'paragon pacific':
+                price13 = '.38';
+                break;
+            case 'rocky':
+                price13 = '.38';
+                break;
+            case 'pacific':
+                price13 = '.38';
+                break;
+            case 'best':
+                price13 = '.38';
+                break;
+            case 'idi':
+                price13 = '.38';
+                break;
+            case 'ris':
+                price13 = '.39';
+                break;
+            case 'cardalls':
+                price13 = '.38';
+                break;
+            case 'specialty':
+                price13 = 'none';
+                break;
+            case 'bdi':
+                price13 = '.38';
+                break;
+            case 'new england':
+                price13 = '.38';
+                break;
+            case 'boston':
+                price13 = '.38';
+                break;
+            case 'denver':
+                price13 = '.38';
+                break;
+            case 'florida':
+                price13 = '.38';
+                break;
+            case 'jp':
+                price13 = '.38';
+                break;
+            case 'industrial':
+                price13 = '.38';
+                break;
+            case 'mp':
+                price13 = '.38';
+                break;
+            case 'michigan':
+                price13 = '.38';
+                break;
+            case 'building':
+                price13 = '.38';
+                break;
+            case 'lnw':
+                price13 = '.38';
+                break;
+            case 'building spokane':
+                price13 = 'none';
+                break;
+            case 'appalachian':
+                price13 = '.38';
+                break;
+            case 'winroc':
+                price13 = '.38';
+                break;
+            case 'gypsum':
+                price13 = '.38';
+                break;
+            case 'accurate':
+                price13 = '.38';
+                break;
+            case 'api':
+                price13 = '.38';
+                break;
+            case 'starr':
+                price13 = '.38';
+                break;
+            case '84 lumber':
+                price13 = '.38';
+                break;
+            }
+            var price19;
+            switch (dis) {
+            case 'paragon pacific':
+                price19 = ".48";
+                break;
+            case 'rocky':
+                price19 = '.48';
+                break;
+            case 'pacific':
+                price19 = '.48';
+                break;
+            case 'best':
+                price19 = '.48';
+                break;
+            case 'idi':
+                price19 = '.48';
+                break;
+            case 'ris':
+                price19 = '.48';
+                break;
+            case 'cardalls':
+                price19 = '.48';
+                break;
+            case 'specialty':
+                price19 = '.49';
+                break;
+            case 'bdi':
+                price19 = '.48';
+                break;
+            case 'new england':
+                price19 = '.48';
+                break;
+            case 'boston':
+                price19 = '.48';
+                break;
+            case 'denver':
+                price19 = '.48';
+                break;
+            case 'florida':
+                price19 = '.48';
+                break;
+            case 'jp':
+                price19 = '.48';
+                break;
+            case 'industrial':
+                price19 = '.48';
+                break;
+            case 'mp':
+                price19 = '.48';
+                break;
+            case 'michigan':
+                price19 = '.48';
+                break;
+            case 'building':
+                price19 = '.48';
+                break;
+            case 'lnw':
+                price19 = '.48';
+                break;
+            case 'building spokane':
+                price19 = 'none';
+                break;
+            case 'appalachian':
+                price19 = '.48';
+                break;
+            case 'winroc':
+                price19 = '.48';
+                break;
+            case 'gypsum':
+                price19 = '.48';
+                break;
+            case 'accurate':
+                price19 = '.48';
+                break;
+            case 'api':
+                price19 = '.48';
+                break;
+            case 'starr':
+                price19 = '.48';
+                break;
+            case '84 lumber':
+                price19 = '.48';
+                break;
+            }
+            var price21;
+            switch (dis) {
+            case 'paragon pacific':
+                price21 = ".68";
+                break;
+            case 'rocky':
+                price21 = '.68';
+                break;
+            case 'pacific':
+                price21 = '.68';
+                break;
+            case 'best':
+                price21 = '.68';
+                break;
+            case 'idi':
+                price21 = '.68';
+                break;
+            case 'ris':
+                price21 = '.86';
+                break;
+            case 'cardalls':
+                price21 = '.68';
+                break;
+            case 'specialty':
+                price21 = '.80';
+                break;
+            case 'bdi':
+                price21 = '.68';
+                break;
+            case 'new england':
+                price21 = '.68';
+                break;
+            case 'boston':
+                price21 = '.68';
+                break;
+            case 'denver':
+                price21 = '.68';
+                break;
+            case 'florida':
+                price21 = '.68';
+                break;
+            case 'jp':
+                price21 = '.68';
+                break;
+            case 'industrial':
+                price21 = '.68';
+                break;
+            case 'mp':
+                price21 = '.68';
+                break;
+            case 'michigan':
+                price21 = '.68';
+                break;
+            case 'building':
+                price21 = '.68';
+                break;
+            case 'lnw':
+                price21 = 'none';
+                break;
+            case 'building spokane':
+                price21 = 'none';
+                break;
+            case 'appalachian':
+                price21 = '.68';
+                break;
+            case 'winroc':
+                price21 = '.68';
+                break;
+            case 'gypsum':
+                price21 = '.68';
+                break;
+            case 'accurate':
+                price21 = '.68';
+                break;
+            case 'api':
+                price21 = '.68';
+                break;
+            case 'starr':
+                price21 = '.68';
+                break;
+            case '84 lumber':
+                price21 = '.68';
+                break;
+            }
+            var price30;
+            switch (dis) {
+            case 'paragon pacific':
+                price30 = ".74";
+                break;
+            case 'rocky':
+                price30 = '.74';
+                break;
+            case 'pacific':
+                price30 = '.74';
+                break;
+            case 'best':
+                price30 = '.74';
+                break;
+            case 'idi':
+                price30 = '.74';
+                break;
+            case 'ris':
+                price30 = '.77';
+                break;
+            case 'cardalls':
+                price30 = '.74';
+                break;
+            case 'specialty':
+                price30 = '.78';
+                break;
+            case 'bdi':
+                price30 = '.74';
+                break;
+            case 'new england':
+                price30 = '.74';
+                break;
+            case 'boston':
+                price30 = '.74';
+                break;
+            case 'denver':
+                price30 = '.74';
+                break;
+            case 'florida':
+                price30 = '.74';
+                break;
+            case 'jp':
+                price30 = '.74';
+                break;
+            case 'industrial':
+                price30 = '.74';
+                break;
+            case 'mp':
+                price30 = '.74';
+                break;
+            case 'michigan':
+                price30 = '.74';
+                break;
+            case 'building':
+                price30 = '.74';
+                break;
+            case 'lnw':
+                price30 = '.74';
+                break;
+            case 'building spokane':
+                price30 = 'none';
+                break;
+            case 'appalachian':
+                price30 = '.74';
+                break;
+            case 'winroc':
+                price30 = '.74';
+                break;
+            case 'gypsum':
+                price30 = '.74';
+                break;
+            case 'accurate':
+                price30 = '.74';
+                break;
+            case 'api':
+                price30 = '.74';
+                break;
+            case 'starr':
+                price30 = '.74';
+                break;
+            case '84 lumber':
+                price30 = '.74';
+                break;
+            }
+            var price38;
+            switch (dis) {
+            case 'paragon pacific':
+                price38 = ".91";
+                break;
+            case 'rocky':
+                price38 = '.91';
+                break;
+            case 'pacific':
+                price38 = '.91';
+                break;
+            case 'best':
+                price38 = '.91';
+                break;
+            case 'idi':
+                price38 = '.91';
+                break;
+            case 'ris':
+                price38 = '.95';
+                break;
+            case 'cardalls':
+                price38 = '.91';
+                break;
+            case 'specialty':
+                price38 = 'none';
+                break;
+            case 'bdi':
+                price38 = '.91';
+                break;
+            case 'new england':
+                price38 = '.91';
+                break;
+            case 'boston':
+                price38 = '.91';
+                break;
+            case 'denver':
+                price38 = '.91';
+                break;
+            case 'florida':
+                price38 = '.91';
+                break;
+            case 'jp':
+                price38 = '.91';
+                break;
+            case 'industrial':
+                price38 = '.91';
+                break;
+            case 'mp':
+                price38 = '.91';
+                break;
+            case 'michigan':
+                price38 = '.91';
+                break;
+            case 'building':
+                price38 = '.91';
+                break;
+            case 'lnw':
+                price38 = '.91';
+                break;
+            case 'building spokane':
+                price38 = 'none';
+                break;
+            case 'appalachian':
+                price38 = '.91';
+                break;
+            case 'winroc':
+                price38 = '.91';
+                break;
+            case 'gypsum':
+                price38 = '.91';
+                break;
+            case 'accurate':
+                price38 = '.91';
+                break;
+            case 'api':
+                price38 = '.91';
+                break;
+            case 'starr':
+                price38 = '.91';
+                break;
+            case '84 lumber':
+                price38 = '.91';
+                break;
+            }
+            //now take price and mix it with right dis.
+            var price;
+            if (value == "11x15" || value == "11x23") {
+                price = price11;
+            } else if (value == "13x15" || value == "13x23") {
+                price = price13;
+            } else if (value == "19x15" || value == "19x23") {
+                price = price19;
+            } else if (value == "21x15" || value == "21x23") {
+                price = price21;
+            } else if (value == "30x16" || value == "30x24") {
+                price = price30;
+            } else if (value == "38x16" || value == "38x24") {
+                price = price38;
+            } else {
+                price = .66;
+            }
+            //now find the home depot price per square foot.
+            var hdPrice;
+            if (value == "11x15" || value == "11x23") {
+                hdPrice = '0.30';
+            } else if (value == "13x15" || value == "13x23") {
+                hdPrice = '0.47';
+            } else if (value == "19x15" || value == "19x23") {
+                hdPrice = '0.58';
+            } else if (value == "21x15" || value == "21x23") {
+                hdPrice = '0.70';
+            } else if (value == "30x16" || value == "30x24") {
+                hdPrice = '0.92';
+            } else if (value == "38x16" || value == "38x24") {
+                hdPrice = '1.11';
+            } else {
+                hdPrice = "something went wrong";
+            }
+            //now calculate how many bags based on overall square feet given and overall square feet they will get
+            var bags = amount / sqft;
+            //make number smaller.
+            var num = 2
+            var multiplier = Math.pow(10, num);
+            var bags = Math.round(bags * multiplier) / multiplier;
+            // make the numbers rounded correctly...
+            var bags = Math.round(bags);
+            //make the overall sqft number smaller
+            var overall = bags * sqft;
+            var overall = Math.round(overall * multiplier) / multiplier;
+            //turn price into a number.
+            var price = parseFloat(price);
+
+//otober 2016 changes to take 16% off the price per sf.
+            var price;
+            if (bags > 11) {
+                price = price - (price * .16);
+            } else if (deal == 16) {
+                price = price - (price * .16);
+            }else if (deal == 10) {
+                    price = price - (price * .10);
+            } else {
+                price = price;
+            }
+
+            var price = Math.round(price * multiplier) / multiplier;
+            //now make price multiplied to overall sqft.
+            var total = overall * price;
+            var total = Math.round(total * multiplier) / multiplier;
+            //now display total with total + taxes under it.
+            //discount.
+            var perc = deal / 100;
+            var dscnt = total * perc;
+            var dscnt = Math.round(dscnt * multiplier) / multiplier;
+            var nt = total - dscnt
+            var nt = Math.round(nt * multiplier) / multiplier;
+            //calculate the taxes...THIS IS THE END PRICE!!!
+            var actualTax = (tax / 100) + 1;
+            var last = total * actualTax;
+            var last = Math.round(last * multiplier) / multiplier;
+            //calc the home depot thing.
+            var hd = total * .22;
+            var hd = Math.round(hd * multiplier) / multiplier;
+            var price = price.toFixed(2);
+            var total = total.toFixed(2);
+            //show the end without tax n discount.
+            document.getElementById('output').innerHTML = "R-" + value + "\"" + " Kraft Faced " + "(" + sqft + " sq ft in a bag" + "/" + bags + " bags" + "=" + overall + " sq ft" + ")" + "(" + "$" + price + ")" + "=$" + total;
+            //show it the discount end.
+            //(took this out, but am leaving j.i.c.)document.getElementById('new').innerHTML =deal+"% Promo Discount"+" (-$"+dscnt+")"+"= $"+nt;
+            //total with tax.
+            document.getElementById('withtax').innerHTML = "TotalWTX=" + "$" + last + '<br/>' + '---------------------' + '<br/>' + 'The average Home Depot and retail price for the same R-' + value + ' precut batts are $' + hdPrice + ' per square foot. We dropped yours to $' + price + ' per square foot. Your total estimated savings is $' + hd + '<br/>' + '<br/>' + '<br/>';
+        }
+
+        function Unfaced() {
+            //recieve the users specs.
+            var value = document.getElementById('insulationValue').value;
+            var loc = document.getElementById('location').value;
+            var dis = document.getElementById('distributor').value;
+            var amount = parseFloat(document.getElementById('amount').value);
+            var deal = parseFloat(document.getElementById('discount').value);
+            var tax = parseFloat(document.getElementById('taxes').value);
+            //get the location type of insulation from corresponding warehouse.
+            var sqft1;
+            switch (value) {
+            case '11x15':
+                sqft1 = "155";
+                break;
+            case '11x23':
+                sqft1 = "237.67";
+                break;
+            case '13x15':
+                sqft1 = "106.56";
+                break;
+            case '13x23':
+                sqft1 = "178.25";
+                break;
+            case '15x15':
+                sqft1 = "77.50";
+                break;
+            case '15x23':
+                sqft1 = "103.98";
+                break;
+            case '19x15':
+                sqft1 = "77.50";
+                break;
+            case '19x23':
+                sqft1 = "118.83";
+                break;
+            case '21x15':
+                sqft1 = "67.81";
+                break;
+            case '21x23':
+                sqft1 = "89.13";
+                break;
+            case '30x16':
+                sqft1 = "53.33";
+                break;
+            case '30x24':
+                sqft1 = "88";
+                break;
+            case '38x16':
+                sqft1 = "42.67";
+                break;
+            case '38x24':
+                sqft1 = "64";
+                break;
+            default:
+                sqft1 = "try different warehouse, or type a different insulation";
+                window.alert("sadly, not yet in system");
+                break;
+            }
+            var sqft2;
+            switch (value) {
+            case '11x15':
+                sqft2 = "155";
+                break;
+            case '11x23':
+                sqft2 = "237.67";
+                break;
+            case '13x15':
+                sqft2 = "125.94";
+                break;
+            case '13x23':
+                sqft2 = "193.10";
+                break;
+            case '15x15':
+                sqft2 = "77.50";
+                break;
+            case '15x23':
+                sqft2 = "certainteed doesnt carry 15x23";
+                break;
+            case '19x15':
+                sqft2 = "87.19";
+                break;
+            case '19x23':
+                sqft2 = "133.69";
+                break;
+            case '21x15':
+                sqft2 = "77.50";
+                break;
+            case '21x23':
+                sqft2 = "118.83";
+                break;
+            case '30x16':
+                sqft2 = "58.67";
+                break;
+            case '30x24':
+                sqft2 = "88";
+                break;
+            case '38x16':
+                sqft2 = "42.67";
+                break;
+            case '38x24':
+                sqft2 = "64";
+                break;
+            default:
+                sqft2 = "try different warehouse, or type a different insulation";
+                window.alert("sadly, not yet in system");
+                break;
+            }
+            var sqft3;
+            switch (value) {
+            case '11x15':
+                sqft3 = "155";
+                break;
+            case '11x23':
+                sqft3 = "237.66";
+                break;
+            case '13x15':
+                sqft3 = "106.53";
+                break;
+            case '13x23':
+                sqft3 = "163.94";
+                break;
+            case '15x15':
+                sqft3 = "67.81";
+                break;
+            case '15x23':
+                sqft3 = "johns manville doesnt carry 15x23";
+                break;
+            case '19x15':
+                sqft3 = "87.18";
+                break;
+            case '19x23':
+                sqft3 = "133.68";
+                break;
+            case '21x15':
+                sqft3 = "67.81";
+                break;
+            case '21x23':
+                sqft3 = "103.97";
+                break;
+            case '30x16':
+                sqft3 = "58.66";
+                break;
+            case '30x24':
+                sqft3 = "88";
+                break;
+            case '38x16':
+                sqft3 = "48";
+                break;
+            case '38x24':
+                sqft3 = "72";
+                break;
+            default:
+                sqft3 = "try different warehouse, or type a different insulation";
+                window.alert("sadly, not yet in system");
+                break;
+            }
+            var sqft4;
+            switch (value) {
+            case '11x15':
+                sqft4 = "159.28";
+                break;
+            case '11x23':
+                sqft4 = "242.83";
+                break;
+            case '13x15':
+                sqft4 = "117.50";
+                break;
+            case '13x23':
+                sqft4 = "165";
+                break;
+            case '15x15':
+                sqft4 = "none";
+                break;
+            case '15x23':
+                sqft4 = "knauf doesnt carry 15x23";
+                break;
+            case '19x15':
+                sqft4 = "99.54";
+                break;
+            case '19x23':
+                sqft4 = "136.59";
+                break;
+            case '21x15':
+                sqft4 = "67.81";
+                break;
+            case '21x23':
+                sqft4 = "103.98";
+                break;
+            case '30x16':
+                sqft4 = "69.33";
+                break;
+            case '30x24':
+                sqft4 = "88";
+                break;
+            case '38x16':
+                sqft4 = "58.67";
+                break;
+            case '38x24':
+                sqft4 = "64";
+                break;
+            default:
+                sqft4 = "try different warehouse, or type a different insulation";
+                window.alert("sadly, not yet in system");
+                break;
+            }
+            var sqft;
+            if (loc == "owens") {
+                sqft = sqft1;
+            } else if (loc == "ct") {
+                sqft = sqft2;
+            } else if (loc == "johns") {
+                sqft = sqft3;
+            } else if (loc == "knauf") {
+                sqft = sqft4;
+            } else {
+                sqft = "not possible";
+            }
+            //now turn the sqft in to a number.
+            var sqft = parseFloat(sqft);
+            //UNFACED BELOW__get price and declare ditributor like "if ins value is 11x15- idi is
+            var price11;
+            switch (dis) {
+            case 'paragon pacific':
+                price11 = '.29';
+                break;
+            case 'rocky':
+                price11 = '.29';
+                break;
+            case 'pacific':
+                price11 = '.29';
+                break;
+            case 'best':
+                price11 = '.29';
+                break;
+            case 'idi':
+                price11 = '.29';
+                break;
+            case 'ris':
+                price11 = '.29';
+                break;
+            case 'cardalls':
+                price11 = '.29';
+                break;
+            case 'specialty':
+                price11 = '.28';
+                break;
+            case 'bdi':
+                price11 = '29';
+                break;
+            case 'new england':
+                price11 = '.29';
+                break;
+            case 'boston':
+                price11 = '.29';
+                break;
+            case 'denver':
+                price11 = '.29';
+                break;
+            case 'florida':
+                price11 = '.29';
+                break;
+            case 'jp':
+                price11 = '.29';
+                break;
+            case 'industrial':
+                price11 = '.29';
+                break;
+            case 'mp':
+                price11 = '.29';
+                break;
+            case 'michigan':
+                price11 = '.29';
+                break;
+            case 'building':
+                price11 = '.29';
+                break;
+            case 'lnw':
+                price11 = '29';
+                break;
+            case 'building spokane':
+                price11 = '32';
+                break;
+            case 'appalachian':
+                price11 = '.29';
+                break;
+            case 'winroc':
+                price11 = '.29';
+                break;
+            case 'gypsum':
+                price11 = '.29';
+                break;
+            case 'accurate':
+                price11 = '.29';
+                break;
+            case 'api':
+                price11 = '.29'
+                break;
+            case 'starr':
+                price11 = '.29';
+                break;
+            case '84 lumber':
+                price11 = '.29';
+                break;
+            }
+            var price13;
+            switch (dis) {
+            case 'paragon pacific':
+                price13 = '.37';
+                break;
+            case 'rocky':
+                price13 = '.37';
+                break;
+            case 'pacific':
+                price13 = '.37';
+                break;
+            case 'best':
+                price13 = '.37';
+                break;
+            case 'idi':
+                price13 = '.37';
+                break;
+            case 'ris':
+                price13 = '.37';
+                break;
+            case 'cardalls':
+                price13 = '.37';
+                break;
+            case 'specialty':
+                price13 = '.35';
+                break;
+            case 'bdi':
+                price13 = '.37';
+                break;
+            case 'new england':
+                price13 = '.37';
+                break;
+            case 'boston':
+                price13 = '.37';
+                break;
+            case 'denver':
+                price13 = '.37';
+                break;
+            case 'florida':
+                price13 = '.37';
+                break;
+            case 'jp':
+                price13 = '.37';
+                break;
+            case 'industrial':
+                price13 = '.37';
+                break;
+            case 'mp':
+                price13 = '.37';
+                break;
+            case 'michigan':
+                price13 = '.37';
+                break;
+            case 'building':
+                price13 = '.37';
+                break;
+            case 'lnw':
+                price13 = '.37';
+                break;
+            case 'building spokane':
+                price13 = 'none';
+                break;
+            case 'appalachian':
+                price13 = '.37';
+                break;
+            case 'winroc':
+                price13 = '.37';
+                break;
+            case 'gypsum':
+                price13 = '.37';
+                break;
+            case 'accurate':
+                price13 = '.37';
+                break;
+            case 'api':
+                price13 = '.37';
+                break;
+            case 'starr':
+                price13 = '.37';
+                break;
+            case '84 lumber':
+                price13 = '.37';
+                break;
+            }
+            var price19;
+            switch (dis) {
+            case 'paragon pacific':
+                price19 = ".46";
+                break;
+            case 'rocky':
+                price19 = '.46';
+                break;
+            case 'pacific':
+                price19 = '.46';
+                break;
+            case 'best':
+                price19 = '.46';
+                break;
+            case 'idi':
+                price19 = '.46';
+                break;
+            case 'ris':
+                price19 = '.45';
+                break;
+            case 'cardalls':
+                price19 = '.46';
+                break;
+            case 'specialty':
+                price19 = '.43';
+                break;
+            case 'bdi':
+                price19 = '.46';
+                break;
+            case 'new england':
+                price19 = '.46';
+                break;
+            case 'boston':
+                price19 = '.46';
+                break;
+            case 'denver':
+                price19 = '.46';
+                break;
+            case 'florida':
+                price19 = '.46';
+                break;
+            case 'jp':
+                price19 = '.46';
+                break;
+            case 'industrial':
+                price19 = '.46';
+                break;
+            case 'mp':
+                price19 = '.46';
+                break;
+            case 'michigan':
+                price19 = '.46';
+                break;
+            case 'building':
+                price19 = '.46';
+                break;
+            case 'lnw':
+                price19 = '.46';
+                break;
+            case 'building spokane':
+                price19 = '.46';
+                break;
+            case 'appalachian':
+                price19 = '.46';
+                break;
+            case 'winroc':
+                price19 = '.46';
+                break;
+            case 'gypsum':
+                price19 = '.46';
+                break;
+            case 'accurate':
+                price19 = '.46';
+                break;
+            case 'api':
+                price19 = '.46';
+                break;
+            case 'starr':
+                price19 = '.46';
+                break;
+            case '84 lumber':
+                price19 = '.46';
+                break;
+            }
+            var price21;
+            switch (dis) {
+            case 'paragon pacific':
+                price21 = ".65";
+                break;
+            case 'rocky':
+                price21 = '.65';
+                break;
+            case 'pacific':
+                price21 = '.65';
+                break;
+            case 'best':
+                price21 = '.65';
+                break;
+            case 'idi':
+                price21 = '.65';
+                break;
+            case 'ris':
+                price21 = '.80';
+                break;
+            case 'cardalls':
+                price21 = '.65';
+                break;
+            case 'specialty':
+                price21 = '.74';
+                break;
+            case 'bdi':
+                price21 = '.65';
+                break;
+            case 'new england':
+                price21 = '.65';
+                break;
+            case 'boston':
+                price21 = '.65';
+                break;
+            case 'denver':
+                price21 = '.65';
+                break;
+            case 'florida':
+                price21 = '.65';
+                break;
+            case 'jp':
+                price21 = '.65';
+                break;
+            case 'industrial':
+                price21 = '.65';
+                break;
+            case 'mp':
+                price21 = '.65';
+                break;
+            case 'michigan':
+                price21 = '.65';
+                break;
+            case 'building':
+                price21 = '.65';
+                break;
+            case 'lnw':
+                price21 = 'none';
+                break;
+            case 'building spokane':
+                price21 = 'none';
+                break;
+            case 'appalachian':
+                price21 = '.65';
+                break;
+            case 'winroc':
+                price21 = '.65';
+                break;
+            case 'gypsum':
+                price21 = '.65';
+                break;
+            case 'accurate':
+                price21 = '.65';
+                break;
+            case 'api':
+                price21 = '.65';
+                break;
+            case 'starr':
+                price21 = '.65';
+                break;
+            case '84 lumber':
+                price21 = '.65';
+                break;
+            }
+            var price30;
+            switch (dis) {
+            case 'paragon pacific':
+                price30 = ".69";
+                break;
+            case 'rocky':
+                price30 = '.69';
+                break
+            case 'pacific':
+                price30 = '.69';
+                break;
+            case 'best':
+                price30 = '.69';
+                break;
+            case 'idi':
+                price30 = '.69';
+                break;
+            case 'ris':
+                price30 = '.73';
+                break;
+            case 'cardalls':
+                price30 = '.69';
+                break;
+            case 'specialty':
+                price30 = '.70';
+                break;
+            case 'bdi':
+                price30 = '.69';
+                break;
+            case 'new england':
+                price30 = '.69';
+                break;
+            case 'boston':
+                price30 = '.69';
+                break;
+            case 'denver':
+                price30 = '.69';
+                break;
+            case 'florida':
+                price30 = '.69';
+                break;
+            case 'jp':
+                price30 = '.69';
+                break;
+            case 'industrial':
+                price30 = '.69';
+                break;
+            case 'mp':
+                price30 = '.69';
+                break;
+            case 'michigan':
+                price30 = '.69';
+                break;
+            case 'building':
+                price30 = '.69';
+                break;
+            case 'lnw':
+                price30 = '.69';
+                break;
+            case 'building spokane':
+                price30 = 'none';
+                break;
+            case 'appalachian':
+                price30 = '.69';
+                break;
+            case 'winroc':
+                price30 = '.69';
+                break;
+            case 'gypsum':
+                price30 = '.69';
+                break;
+            case 'accurate':
+                price30 = '.69';
+                break;
+            case 'api':
+                price30 = '.69';
+                break;
+            case 'starr':
+                price30 = '.69';
+                break;
+            case '84 lumber':
+                price30 = '.69';
+                break;
+            }
+            var price38;
+            switch (dis) {
+            case 'paragon pacific':
+                price38 = ".88";
+                break;
+            case 'rocky':
+                price38 = '.88';
+                break;
+            case 'pacific':
+                price38 = '.88';
+                break;
+            case 'best':
+                price38 = '.88';
+                break;
+            case 'idi':
+                price38 = '.88';
+                break;
+            case 'ris':
+                price38 = '.89';
+                break;
+            case 'cardalls':
+                price38 = '.88';
+                break;
+            case 'specialty':
+                price38 = '.84';
+                break;
+            case 'bdi':
+                price38 = '.88';
+                break;
+            case 'new england':
+                price38 = '.88';
+                break;
+            case 'boston':
+                price38 = '.88';
+                break;
+            case 'denver':
+                price38 = '.88';
+                break;
+            case 'florida':
+                price38 = '.88';
+                break;
+            case 'jp':
+                price38 = '.88';
+                break;
+            case 'industrial':
+                price38 = '.88';
+                break;
+            case 'mp':
+                price38 = '.88';
+                break;
+            case 'michigan':
+                price38 = '.88';
+                break;
+            case 'building':
+                price38 = '.88';
+                break;
+            case 'lnw':
+                price38 = 'none';
+                break;
+            case 'building spokane':
+                price38 = 'none';
+                break;
+            case 'appalachian':
+                price38 = '.88';
+                break;
+            case 'winroc':
+                price38 = '.88';
+                break;
+            case 'gypsum':
+                price38 = '.88';
+                break;
+            case 'accurate':
+                price38 = '.88';
+                break;
+            case 'api':
+                price38 = '.88';
+                break;
+            case 'starr':
+                price38 = '.88';
+                break;
+            case '84 lumber':
+                price38 = '.88';
+                break;
+            }
+            //now take price and mix it with right dis.
+            var price;
+            if (value == "11x15" || value == "11x23") {
+                price = price11;
+            } else if (value == "13x15" || value == "13x23") {
+                price = price13;
+            } else if (value == "19x15" || value == "19x23") {
+                price = price19;
+            } else if (value == "21x15" || value == "21x23") {
+                price = price21;
+            } else if (value == "30x16" || value == "30x24") {
+                price = price30;
+            } else if (value == "38x16" || value == "38x24") {
+                price = price38;
+            } else {
+                price = 0.66;
+            }
+            //now find the home depot price per square foot.
+            var hdPrice;
+            if (value == "11x15" || value == "11x23") {
+                hdPrice = '0.30';
+            } else if (value == "13x15" || value == "13x23") {
+                hdPrice = '0.44';
+            } else if (value == "19x15" || value == "19x23") {
+                hdPrice = '0.53';
+            } else if (value == "21x15" || value == "21x23") {
+                hdPrice = '0.70';
+            } else if (value == "30x16" || value == "30x24") {
+                hdPrice = '0.87';
+            } else if (value == "38x16" || value == "38x24") {
+                hdPrice = '1.04';
+            } else {
+                hdPrice = "something went wrong";
+            }
+            //now calculate how many bags based on overall square feet given and overall square feet they will get
+            var bags = amount / sqft;
+            //make number smaller.
+            var num = 2
+            var multiplier = Math.pow(10, num);
+            var bags = Math.round(bags * multiplier) / multiplier;
+            // make the numbers rounded correctly...
+            var bags = Math.round(bags);
+            //make the overall sqft number smaller
+            var overall = bags * sqft;
+            var overall = Math.round(overall * multiplier) / multiplier;
+            //turn price into a number.
+            var price = parseFloat(price);
+            //otober 2016 changes to take 16% off the price per sf.
+            var price;
+            if (bags > 11) {
+                price = price - (price * .16);
+            } else if (deal == 16) {
+                price = price - (price * .16);
+            }else if (deal == 10) {
+                price = price - (price * .10);
+            } else {
+                price = price;
+            }
+            var price = Math.round(price * multiplier) / multiplier;
+            //now make price multiplied to overall sqft.
+            var total = overall * price;
+            var total = Math.round(total * multiplier) / multiplier;
+            //now display total with total + taxes under it.
+            //discount.
+            var perc = deal / 100;
+            var dscnt = total * perc;
+            var dscnt = Math.round(dscnt * multiplier) / multiplier;
+            var nt = total - dscnt
+            var nt = Math.round(nt * multiplier) / multiplier;
+            //calculate the taxes...this is the END PRICE!!!
+            var actualTax = (tax / 100) + 1;
+            var last = total * actualTax;
+            var last = Math.round(last * multiplier) / multiplier;
+            //calc the home depot thing.
+            var hd = total * .22;
+            var hd = Math.round(hd * multiplier) / multiplier;
+            var price = price.toFixed(2);
+            var total = total.toFixed(2);
+            //show the end without tax n discount.
+            document.getElementById('output').innerHTML = "R-" + value + "\"" + " Unfaced " + "(" + sqft + " sq ft in a bag" + "/" + bags + " bags" + "=" + overall + " sq ft" + ")" + "(" + "$" + price + ")" + "=$" + total;
+            //show it the discount end.
+            //document.getElementById('new').innerHTML =deal+"% Promo Discount "+"($"+dscnt+")"+"=$"+nt;
+            //total with tax.
+            document.getElementById('withtax').innerHTML = "TotalWTX=" + "$" + last + '<br/>' + '---------------------' + '<br/>' + 'The average Home Depot and retail price for the same R-' + value + ' precut batts are $' + hdPrice + ' per square foot. We dropped yours to $' + price + ' per square foot. Your total estimated savings is $' + hd + '<br/>' + '<br/>' + '<br/>';
+        }
+        //---------------------------------------------------------------------------------------------------------
+        /*input: sqft needed, R-value of blow in, and distributor name.
+         *Calculate: take dispt. name and find in that array what the price per bag of blow in it has, now see what ins.type array it has (InsulSafe,
+         *JM Climate Pro, or ProPink) and follow it to its corresponding list of sqft covered per bale. sqft is an array that lists the sqft per bale
+         *in each ins.type.
+         *show: the end bid in this format-- 1 bale of loose fill at R- depth covers ___ sq ft/__bales=__ sq ft
+         *                                   InsulSafe loose fill - $___per bale*__bales=$__.
+         */
+        function blueSealBlowIn() {
+            //recieve the users specs.
+            var amount = parseFloat(document.getElementById('numnum').value);
+            var value = document.getElementById('insVal').value;
+            var dis = document.getElementById('diTor').value;
+            var disString = dis;
+            var disNumber = parseFloat(dis);
+            //now get the price for what it is, turn it back into a string, then later turn them into just the 3 numbers for the coming calls...
+            var endPrice = dis;
+            var dis = dis.toString();
+            var dis;
+            switch (disString) {
+            case '28.81':
+            case '31.04':
+            case '27.15':
+            case '25.79':
+            case '37.13':
+                dis = '0';
+                break;
+            case '31.50':
+            case '25.30':
+            case '32.20':
+            case '38.94':
+            case '36.01':
+            case '32.68':
+            case '24.15':
+            case '27.60':
+            case '25.33':
+                dis = '1';
+                break;
+            case '29.93':
+            case '31.05':
+            case '32.03':
+            case '24.79':
+            case '28.75':
+            case '30.56':
+            case '31.74':
+                dis = '2';
+                break;
+            }
+            var dis = parseFloat(dis);
+            //call em!------------------------------------------------------------------------------------------------
+            var getSf = blowIn(amount, value, dis);
+            //calculate what we have so far.
+            var amountNumber = parseFloat(amount);
+            var bales = amountNumber / getSf;
+            var bales = Math.round(bales);
+            var overAll = bales * getSf;
+            var last = bales * endPrice;
+            var dos = 2
+            var plier = Math.pow(10, dos);
+            var overAll = Math.round(overAll * plier) / plier;
+            var last = Math.round(last * plier) / plier;
+            //show the end product!!!yay
+            document.getElementById('gogo').innerHTML = 'Fiberglass Loose Fill at R-' + value + ' Depth (' + getSf + ' sq ' +
+                'ft per bale/' + bales + ' bales=' + overAll + ' sq ft($' + endPrice + ') = $' + last;
+        }
+
+        function blowIn(amount, value, dis) {
+            //make the sf array with objects and their characteristics.-----------------------------------------------------------
+            var products = [
                     {
-                        name:'JM',thrtn:'182.90',nntn:"124.20",twt:"106.30",twsx:"89.60",thrt:"77",thtate:"59.50",frtfr:"49.80",frtnin:"44.20",sxt:"35.10"
+                        name: 'JM',
+                        thrtn: '182.90',
+                        nntn: "124.20",
+                        twt: "106.30",
+                        twsx: "89.60",
+                        thrt: "77",
+                        thtate: "59.50",
+                        frtfr: "49.80",
+                        frtnin: "44.20",
+                        sxt: "35.10"
                     },
                     {
-                        name:'InsulSafe',thrtn:'182.90',nntn:"124.20",twt:"106.30",twsx:"89.60",thrt:'77',thtate:"59.50",frtfr:"49.80",frtnin:"44.20",sxt:"35.10"
+                        name: 'InsulSafe',
+                        thrtn: '182.90',
+                        nntn: "124.20",
+                        twt: "106.30",
+                        twsx: "89.60",
+                        thrt: '77',
+                        thtate: "59.50",
+                        frtfr: "49.80",
+                        frtnin: "44.20",
+                        sxt: "35.10"
                     },
                     {
-                        name:'ProPink',thrtn:'182.90',nntn:"124.20",twt:"106.30",twsx:"89.60",thrt:"77",thtate:"59.50",frtfr:"49.80",frtnin:"44.20",sxt:"35.10"
+                        name: 'ProPink',
+                        thrtn: '182.90',
+                        nntn: "124.20",
+                        twt: "106.30",
+                        twsx: "89.60",
+                        thrt: "77",
+                        thtate: "59.50",
+                        frtfr: "49.80",
+                        frtnin: "44.20",
+                        sxt: "35.10"
                     }
                 ]
                 //make it so that the distributor value that came can be read by the objects.--------------------------------------------
-                var value ;
-                switch (value) {
-                    case 'thrtn':
-                        value = products[dis].thrtn;
-                        break;
-                    case 'nntn':
-                        value = products[dis].nntn;
-                        break;
-                    case 'twt':
-                        value = products[dis].twt;
-                        break;
-                    case 'twsx':
-                        value = products[dis].twsx;
-                        break;
-                    case 'thrt':
-                        value = products[dis].thrt;
-                        break;
-                    case 'thtate':
-                        value = products[dis].thtate;
-                        break;
-                    case 'frtfr':
-                        value = products[dis].frtfr;
-                        break;
-                    case 'frtnin':
-                        value = products[dis].frtnin;
-                        break;
-                    case 'sxt':
-                        value = products[dis].sxt;
-                        break;
-                }
-                //now finish and return the sf and the price.-----------------------------------------------------------------------
-                var go = value;
-                return go;
+            var value;
+            switch (value) {
+            case 'thrtn':
+                value = products[dis].thrtn;
+                break;
+            case 'nntn':
+                value = products[dis].nntn;
+                break;
+            case 'twt':
+                value = products[dis].twt;
+                break;
+            case 'twsx':
+                value = products[dis].twsx;
+                break;
+            case 'thrt':
+                value = products[dis].thrt;
+                break;
+            case 'thtate':
+                value = products[dis].thtate;
+                break;
+            case 'frtfr':
+                value = products[dis].frtfr;
+                break;
+            case 'frtnin':
+                value = products[dis].frtnin;
+                break;
+            case 'sxt':
+                value = products[dis].sxt;
+                break;
             }
-            //FUNCTION FOR CANADA QUOTES!!!-----------------------------------------------------------------------
-            function Canada() {
-                var square= parseFloat (document.getElementById('amount').value);
-                var rvalue= document.getElementById ('canadaInsulationValue').value;
-                var prov= document.getElementById ('province').value;
-                var canDiscount= parseFloat (document.getElementById('discount').value);
-                var taxes ;
-                switch (prov) {
-                    case 'BC':
-                        taxes = 1.12;
-                        break;
-                    case 'Alberta':
-                        taxes = 1.05;
-                        break;
-                    case 'Manitoba':
-                        taxes = 1.13;
-                        break;
-                    case 'Sas':
-                        taxes = 1.10;
-                        break;
-                    case 'Ontario':
-                        taxes = 1.13;
-                        break;
-                }
-                var BC = [
-                    {
-                        name:'BC',a:'0',b:"0",c:"117.5",d:"180.17",e:"97.92",f:"114",g:"150.14",h:"48.95",i:"90.08",j:"78.33",k:"63.33",l:'75.06',m:'48.96',n:'52.54',o:'0',p:'0',q:'34.27',r:'52.5',s:'0',t:'0',u:'0',v:'56',w:'32',x:'48',price8:'.23',price10:'.24',price12:'.25',price14:'.40',price20:'.39',price22:'.62',price28:'.54',price28:'.70',price35:'.97',price40:'.84'
-                    },{          name:'Alberta',a:'149.3',b:"0",c:"117.5",d:"180.17",e:"88.12",f:"114",g:"135.12",h:"48.95",i:"90.08",j:"48.95",k:"63.33",l:'75.06',m:'0',n:'0',o:'0',p:'0',q:'42.66',r:'61.33',s:'0',t:'0',u:'37.33',v:'56',w:'32',x:'48',price10:'.63',price12:'.38',price14:'.89',price20:'.60',price22:'0',price28:'.82',price28:'0',price35:'1.05',price40:'1.36'
-                      },{      name:'Manitoba',a:'0',b:"0",c:"0",d:"0",e:"88.12",f:"0",g:"135.12",h:"0",i:"0",j:"48.95",k:"0",l:'75.06',m:'0',n:'0',o:'0',p:'0',q:'42.66',r:'64',s:'0',t:'0',u:'37.33',v:'56',w:'32',x:'48',price10:'0',price12:'.37',price14:'0',price20:'.56',price22:'0',price28:'.79',price28:'0',price35:'.99',price40:'1.21'
-                        },{     name:'Sas',a:'0',b:"0",c:"0",d:"0",e:"97.92",f:"114",g:"135.12",h:"0",i:"0",j:"78.33",k:"63.33",l:'120.11',m:'0',n:'0',o:'0',p:'0',q:'40',r:'0',s:'0',t:'0',u:'0',v:'0',w:'32',x:'48',price10:'0',price12:'.36',price14:'0',price20:'.60',price22:'0',price28:'.81',price28:'0',price35:'0',price40:'1.22'
-                          },{    name:'Ontario',a:'0',b:"0",c:"0",d:"0",e:"97.9",f:"0",g:"150.1",h:"78.3",i:"120.1",j:"78",k:"99.2",l:'122.7',m:'49',n:'75.1',o:'33.7',p:'52',q:'53.3',r:'80',s:'42.7',t:'64',u:'0',v:'0',w:'32',x:'48',price10:'0',price12:'.33',price14:'.49',price20:'.56',price22:'.84',price24:'1.33',price28:'.78',price28:'0',price31:'.87',price35:'0',price40:'1.24'
+            //now finish and return the sf and the price.-----------------------------------------------------------------------
+            var go = value;
+            return go;
+        }
+        //FUNCTION FOR CANADA QUOTES!!!-----------------------------------------------------------------------
+        function Canada() {
+            var square = parseFloat(document.getElementById('amount').value);
+            var rvalue = document.getElementById('canadaInsulationValue').value;
+            var prov = document.getElementById('province').value;
+            var canDiscount = parseFloat(document.getElementById('discount').value);
+            var taxes;
+            switch (prov) {
+            case 'BC':
+                taxes = 1.12;
+                break;
+            case 'Alberta':
+                taxes = 1.05;
+                break;
+            case 'Manitoba':
+                taxes = 1.13;
+                break;
+            case 'Sas':
+                taxes = 1.10;
+                break;
+            case 'Ontario':
+                taxes = 1.13;
+                break;
+            }
+            var BC = [
+                {
+                    name: 'BC',
+                    a: '0',
+                    b: "0",
+                    c: "117.5",
+                    d: "180.17",
+                    e: "97.92",
+                    f: "114",
+                    g: "150.14",
+                    h: "48.95",
+                    i: "90.08",
+                    j: "78.33",
+                    k: "63.33",
+                    l: '75.06',
+                    m: '48.96',
+                    n: '52.54',
+                    o: '0',
+                    p: '0',
+                    q: '34.27',
+                    r: '52.5',
+                    s: '0',
+                    t: '0',
+                    u: '0',
+                    v: '56',
+                    w: '32',
+                    x: '48',
+                    price8: '.23',
+                    price10: '.24',
+                    price12: '.25',
+                    price14: '.40',
+                    price20: '.39',
+                    price22: '.62',
+                    price28: '.54',
+                    price28: '.70',
+                    price35: '.97',
+                    price40: '.84'
+                    }, {
+                    name: 'Alberta',
+                    a: '149.3',
+                    b: "0",
+                    c: "117.5",
+                    d: "180.17",
+                    e: "88.12",
+                    f: "114",
+                    g: "135.12",
+                    h: "48.95",
+                    i: "90.08",
+                    j: "48.95",
+                    k: "63.33",
+                    l: '75.06',
+                    m: '0',
+                    n: '0',
+                    o: '0',
+                    p: '0',
+                    q: '42.66',
+                    r: '61.33',
+                    s: '0',
+                    t: '0',
+                    u: '37.33',
+                    v: '56',
+                    w: '32',
+                    x: '48',
+                    price10: '.63',
+                    price12: '.38',
+                    price14: '.89',
+                    price20: '.60',
+                    price22: '0',
+                    price28: '.82',
+                    price28: '0',
+                    price35: '1.05',
+                    price40: '1.36'
+                      }, {
+                    name: 'Manitoba',
+                    a: '0',
+                    b: "0",
+                    c: "0",
+                    d: "0",
+                    e: "88.12",
+                    f: "0",
+                    g: "135.12",
+                    h: "0",
+                    i: "0",
+                    j: "48.95",
+                    k: "0",
+                    l: '75.06',
+                    m: '0',
+                    n: '0',
+                    o: '0',
+                    p: '0',
+                    q: '42.66',
+                    r: '64',
+                    s: '0',
+                    t: '0',
+                    u: '37.33',
+                    v: '56',
+                    w: '32',
+                    x: '48',
+                    price10: '0',
+                    price12: '.37',
+                    price14: '0',
+                    price20: '.56',
+                    price22: '0',
+                    price28: '.79',
+                    price28: '0',
+                    price35: '.99',
+                    price40: '1.21'
+                        }, {
+                    name: 'Sas',
+                    a: '0',
+                    b: "0",
+                    c: "0",
+                    d: "0",
+                    e: "97.92",
+                    f: "114",
+                    g: "135.12",
+                    h: "0",
+                    i: "0",
+                    j: "78.33",
+                    k: "63.33",
+                    l: '120.11',
+                    m: '0',
+                    n: '0',
+                    o: '0',
+                    p: '0',
+                    q: '40',
+                    r: '0',
+                    s: '0',
+                    t: '0',
+                    u: '0',
+                    v: '0',
+                    w: '32',
+                    x: '48',
+                    price10: '0',
+                    price12: '.36',
+                    price14: '0',
+                    price20: '.60',
+                    price22: '0',
+                    price28: '.81',
+                    price28: '0',
+                    price35: '0',
+                    price40: '1.22'
+                          }, {
+                    name: 'Ontario',
+                    a: '0',
+                    b: "0",
+                    c: "0",
+                    d: "0",
+                    e: "97.9",
+                    f: "0",
+                    g: "150.1",
+                    h: "78.3",
+                    i: "120.1",
+                    j: "78",
+                    k: "99.2",
+                    l: '122.7',
+                    m: '49',
+                    n: '75.1',
+                    o: '33.7',
+                    p: '52',
+                    q: '53.3',
+                    r: '80',
+                    s: '42.7',
+                    t: '64',
+                    u: '0',
+                    v: '0',
+                    w: '32',
+                    x: '48',
+                    price10: '0',
+                    price12: '.33',
+                    price14: '.49',
+                    price20: '.56',
+                    price22: '.84',
+                    price24: '1.33',
+                    price28: '.78',
+                    price28: '0',
+                    price31: '.87',
+                    price35: '0',
+                    price40: '1.24'
                             }
                 ]
-                var whichprov ;
-                switch (prov) {
-                    case 'BC':
-                        whichprov = 0;
-                        break;
-                    case 'Alberta':
-                        whichprov = 1;
-                        break;
-                    case 'Manitoba':
-                        whichprov = 2;
-                        break;
-                    case 'Sas':
-                        whichprov = 3;
-                        break;
-                    case 'Ontario':
-                        whichprov = 4;
-                        break;
-                }
-                var price;
-                if ( rvalue =="8x15" || rvalue =="8x23" ) {
-                    price= BC[whichprov].price8;
-                }
-                else if ( rvalue =="10x15" || rvalue =="10x23" ) {
-                    price= BC[whichprov].price10;
-                }
-                else if ( rvalue =="12x15" || rvalue =="12x19" || rvalue =="12x23" ) {
-                    price= BC[whichprov].price12;
-                }
-                else if ( rvalue =="14x15" || rvalue =="14x23" ) {
-                    price= BC[whichprov].price14;
-                }
-                else if ( rvalue =="20x15" || rvalue =="20x19" || rvalue =="20x23" ) {
-                    price= BC[whichprov].price20;
-                }
-                else if ( rvalue =="22x15" || rvalue =="22x23" ) {
-                    price= BC[whichprov].price22;
-                }
-                else if ( rvalue =="24x16" || rvalue =="24x23" ) {
-                    price= BC[whichprov].price28;
-                }
-                else if ( rvalue =="28x16" || rvalue =="28x23" ) {
-                    price= BC[whichprov].price28;
-                }
-                else if ( rvalue =="31x16" || rvalue =="31x23" ) {
-                    price= BC[whichprov].price31;
-                }
-                else if ( rvalue =="35x16" || rvalue =="35x23" ) {
-                    price= BC[whichprov].price35;
-                }
-                else if ( rvalue =="40x16" || rvalue =="40x23" ) {
-                    price= BC[whichprov].price40;
-                }
-                else {
-                    price ="something went wrong";
-                }
-                var squareft ;
-                switch (rvalue) {
-                    case '8x15':
-                        squareft= BC[whichprov].a;
-                        break;
-                    case '8x23':
-                        squareft= BC[whichprov].b;
-                        break;
-                    case '10x15':
-                        squareft= BC[whichprov].c;
-                        break;
-                    case '10x23':
-                        squareft= BC[whichprov].d;
-                        break;
-                    case '12x15':
-                        squareft= BC[whichprov].e;
-                        break;
-                    case '12x19':
-                        squareft= BC[whichprov].f;
-                        break;
-                    case '12x23':
-                        squareft= BC[whichprov].g;
-                        break;
-                    case '14x15':
-                        squareft= BC[whichprov].h;
-                        break;
-                    case '14x23':
-                        squareft= BC[whichprov].i;
-                        break;
-                    case '20x15':
-                        squareft= BC[whichprov].j;
-                        break;
-                    case '20x19':
-                        squareft= BC[whichprov].k;
-                        break;
-                    case '20x23':
-                        squareft= BC[whichprov].l;
-                        break;
-                    case '22x15':
-                        squareft= BC[whichprov].m;
-                        break;
-                    case '22x23':
-                        squareft= BC[whichprov].n;
-                        break;
-                    case '24x16':
-                        squareft= BC[whichprov].o;
-                        break;
-                    case '24x23':
-                        squareft= BC[whichprov].p;
-                        break;
-                    case '28x16':
-                        squareft= BC[whichprov].q;
-                        break;
-                    case '28x23':
-                        squareft= BC[whichprov].r;
-                        break;
-                    case '31x16':
-                        squareft= BC[whichprov].s;
-                        break;
-                    case '31x23':
-                        squareft= BC[whichprov].t;
-                        break;
-                    case '35x16':
-                        squareft= BC[whichprov].u;
-                        break;
-                    case '35x23':
-                        squareft= BC[whichprov].v;
-                        break;
-                    case '40x16':
-                        squareft= BC[whichprov].w;
-                        break;
-                    case '40x23':
-                        squareft= BC[whichprov].x;
-                        break;
-                }
-                var num= 2
-                var multiplier = Math.pow(10, num);
-                //set all the var's to be used whn they are all called
-                var price= Number(price);
-                var squareft= Number(squareft);
-                var bags= square / squareft;
-                var bags= Math.round(bags);
-                var overall= bags * squareft;
-                var total= price * overall;
-                var dscnt= total * (canDiscount / 100);
-                var nt= total - dscnt;
-                var totalwtx= nt * taxes;
-                //make them all rounded to just 2 decimals
-                var overall = Math.round (overall * multiplier) / multiplier;
-                var total = Math.round (total * multiplier) / multiplier;
-                var dscnt = Math.round (dscnt * multiplier) / multiplier;
-                var nt = Math.round (nt * multiplier) / multiplier;
-                var totalwtx = Math.round (totalwtx * multiplier) / multiplier;
-                document.getElementById('canOutput').innerHTML ="R-" + rvalue + "\"" + " (" + squareft + " sq ft in a bag/" + bags +" bags=" + overall +" sq ft)($"+price+")=$"+total;
-                //show it the discount end.
-                document.getElementById('canNew').innerHTML =canDiscount+"% Promo Discount ($"+dscnt+")=$"+nt+'<br>'+'TotalWTX=$'+totalwtx;
+            var whichprov;
+            switch (prov) {
+            case 'BC':
+                whichprov = 0;
+                break;
+            case 'Alberta':
+                whichprov = 1;
+                break;
+            case 'Manitoba':
+                whichprov = 2;
+                break;
+            case 'Sas':
+                whichprov = 3;
+                break;
+            case 'Ontario':
+                whichprov = 4;
+                break;
             }
-            //--------------------------------------------------------------------------------------------------------------------------------
-        </script>
-    </head>
+            var price;
+            if (rvalue == "8x15" || rvalue == "8x23") {
+                price = BC[whichprov].price8;
+            } else if (rvalue == "10x15" || rvalue == "10x23") {
+                price = BC[whichprov].price10;
+            } else if (rvalue == "12x15" || rvalue == "12x19" || rvalue == "12x23") {
+                price = BC[whichprov].price12;
+            } else if (rvalue == "14x15" || rvalue == "14x23") {
+                price = BC[whichprov].price14;
+            } else if (rvalue == "20x15" || rvalue == "20x19" || rvalue == "20x23") {
+                price = BC[whichprov].price20;
+            } else if (rvalue == "22x15" || rvalue == "22x23") {
+                price = BC[whichprov].price22;
+            } else if (rvalue == "24x16" || rvalue == "24x23") {
+                price = BC[whichprov].price28;
+            } else if (rvalue == "28x16" || rvalue == "28x23") {
+                price = BC[whichprov].price28;
+            } else if (rvalue == "31x16" || rvalue == "31x23") {
+                price = BC[whichprov].price31;
+            } else if (rvalue == "35x16" || rvalue == "35x23") {
+                price = BC[whichprov].price35;
+            } else if (rvalue == "40x16" || rvalue == "40x23") {
+                price = BC[whichprov].price40;
+            } else {
+                price = "something went wrong";
+            }
+            var squareft;
+            switch (rvalue) {
+            case '8x15':
+                squareft = BC[whichprov].a;
+                break;
+            case '8x23':
+                squareft = BC[whichprov].b;
+                break;
+            case '10x15':
+                squareft = BC[whichprov].c;
+                break;
+            case '10x23':
+                squareft = BC[whichprov].d;
+                break;
+            case '12x15':
+                squareft = BC[whichprov].e;
+                break;
+            case '12x19':
+                squareft = BC[whichprov].f;
+                break;
+            case '12x23':
+                squareft = BC[whichprov].g;
+                break;
+            case '14x15':
+                squareft = BC[whichprov].h;
+                break;
+            case '14x23':
+                squareft = BC[whichprov].i;
+                break;
+            case '20x15':
+                squareft = BC[whichprov].j;
+                break;
+            case '20x19':
+                squareft = BC[whichprov].k;
+                break;
+            case '20x23':
+                squareft = BC[whichprov].l;
+                break;
+            case '22x15':
+                squareft = BC[whichprov].m;
+                break;
+            case '22x23':
+                squareft = BC[whichprov].n;
+                break;
+            case '24x16':
+                squareft = BC[whichprov].o;
+                break;
+            case '24x23':
+                squareft = BC[whichprov].p;
+                break;
+            case '28x16':
+                squareft = BC[whichprov].q;
+                break;
+            case '28x23':
+                squareft = BC[whichprov].r;
+                break;
+            case '31x16':
+                squareft = BC[whichprov].s;
+                break;
+            case '31x23':
+                squareft = BC[whichprov].t;
+                break;
+            case '35x16':
+                squareft = BC[whichprov].u;
+                break;
+            case '35x23':
+                squareft = BC[whichprov].v;
+                break;
+            case '40x16':
+                squareft = BC[whichprov].w;
+                break;
+            case '40x23':
+                squareft = BC[whichprov].x;
+                break;
+            }
+            var num = 2
+            var multiplier = Math.pow(10, num);
+            //set all the var's to be used whn they are all called
+            var price = Number(price);
+            var squareft = Number(squareft);
+            var bags = square / squareft;
+            var bags = Math.round(bags);
+            var overall = bags * squareft;
+            var total = price * overall;
+            var dscnt = total * (canDiscount / 100);
+            var nt = total - dscnt;
+            var totalwtx = nt * taxes;
+            //make them all rounded to just 2 decimals
+            var overall = Math.round(overall * multiplier) / multiplier;
+            var total = Math.round(total * multiplier) / multiplier;
+            var dscnt = Math.round(dscnt * multiplier) / multiplier;
+            var nt = Math.round(nt * multiplier) / multiplier;
+            var totalwtx = Math.round(totalwtx * multiplier) / multiplier;
+            document.getElementById('canOutput').innerHTML = "R-" + rvalue + "\"" + " (" + squareft + " sq ft in a bag/" + bags + " bags=" + overall + " sq ft)($" + price + ")=$" + total;
+            //show it the discount end.
+            document.getElementById('canNew').innerHTML = canDiscount + "% Promo Discount ($" + dscnt + ")=$" + nt + '<br>' + 'TotalWTX=$' + totalwtx;
+        }
+        //--------------------------------------------------------------------------------------------------------------------------------
+    </script>
+</head>
 
-    <body>
-        <h1>Insulation Quote</h1>
-        <br>
-        Amount of insulation in square feet:  <input type="text" id="amount">
-        <br><br>
-        Insulation R-value: <select id="insulationValue">
-        <option value="11x15">11x15</option><option value="11x23">11x23</option><option value="13x15">13x15</option><option     value="13x23">13x23</option><option value="15x15">15x15</option><option value="15x23">15x23</option><option value="19x15">19x15</option><option value="19x23">19x23</option><option value="21x15">21x15</option><option value="21x23">21x23</option><option value="30x16">30x16</option><option value="30x24">30x24</option><option value="38x16">38x16</option><option value="38x24">38x24</option></select>
+<body>
+    <h1>Insulation Quote</h1>
+    <br> Amount of insulation in square feet:
+    <input type="text" id="amount">
+    <br>
+    <br> Insulation R-value:
+    <select id="insulationValue">
+        <option value="11x15">11x15</option>
+        <option value="11x23">11x23</option>
+        <option value="13x15">13x15</option>
+        <option value="13x23">13x23</option>
+        <option value="15x15">15x15</option>
+        <option value="15x23">15x23</option>
+        <option value="19x15">19x15</option>
+        <option value="19x23">19x23</option>
+        <option value="21x15">21x15</option>
+        <option value="21x23">21x23</option>
+        <option value="30x16">30x16</option>
+        <option value="30x24">30x24</option>
+        <option value="38x16">38x16</option>
+        <option value="38x24">38x24</option>
+    </select>
 
-        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-        Canada R-value: <select id="canadaInsulationValue">
-        <option value='8x15'>8x15" </option><option value="8x23">8x23" </option>
-        <option value="10x15">10x15"</option><option value="10x23">10x23"</option>
-        <option value="12x15">12x15"</option><option value="12x19">12x19"</option><option value="12x23">12x23</option>
-        <option value="14x15">14x15"</option><option value="14x23">14x23"</option>
-        <option value="20x15">20x15"</option><option value="20x19">20x19"</option><option value="20x23">20x23</option>
-        <option value="22x15">22x15"</option><option value="22x23">22x23"</option>
-        <option value="24x16">24x16"</option><option value="24x23">24x23"</option>
-        <option value="28x16">28x16"</option><option value="28x23">28x23"</option>
-        <option value="31x16">31x16"</option><option value="31x23">31x23"</option>
-        <option value="35x16">35x16"</option><option value="35x23">35x23"</option>
-        <option value="40x16">40x16"</option><option value="40x23">40x24".</option>
-        </select> <br>
+    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Canada R-value:
+    <select id="canadaInsulationValue">
+        <option value='8x15'>8x15" </option>
+        <option value="8x23">8x23" </option>
+        <option value="10x15">10x15"</option>
+        <option value="10x23">10x23"</option>
+        <option value="12x15">12x15"</option>
+        <option value="12x19">12x19"</option>
+        <option value="12x23">12x23</option>
+        <option value="14x15">14x15"</option>
+        <option value="14x23">14x23"</option>
+        <option value="20x15">20x15"</option>
+        <option value="20x19">20x19"</option>
+        <option value="20x23">20x23</option>
+        <option value="22x15">22x15"</option>
+        <option value="22x23">22x23"</option>
+        <option value="24x16">24x16"</option>
+        <option value="24x23">24x23"</option>
+        <option value="28x16">28x16"</option>
+        <option value="28x23">28x23"</option>
+        <option value="31x16">31x16"</option>
+        <option value="31x23">31x23"</option>
+        <option value="35x16">35x16"</option>
+        <option value="35x23">35x23"</option>
+        <option value="40x16">40x16"</option>
+        <option value="40x23">40x24".</option>
+    </select>
+    <br>
+    <br> Type:
+    <select id="location">
         <br>
-        Type: <select id="location"><br>
         <option value="owens">Owens Corning</option>
         <option value="ct">CertainTeed</option>
         <option value="johns">Johns Manville</option>
         <option value="knauf">Knauf</option>
-        </select>
-        <br><br>
-        Distributor name:  <select id="distributor">
+    </select>
+    <br>
+    <br> Distributor name:
+    <select id="distributor">
         <option value="paragon pacific">Winroc SPI paragon</option>
         <option value="rocky">Rocky Mountain</option>
         <option value="pacific">DI Distribution / Pacific</option>
@@ -2013,40 +2224,44 @@
         <option value="api">API</option>
         <option value="starr">Starr Lumber</option>
         <option value="84 lumber">84 Lumber</option>
-        </select>
+    </select>
 
-        &#160;&#160;&#160;&#160;&#160;&#160;&#160;Canada Province:  <select id="province">
+    &#160;&#160;&#160;&#160;&#160;&#160;&#160;Canada Province:
+    <select id="province">
         <option value="BC">BC/(British Columbia)</option>
         <option value="Alberta">Alberta</option>
         <option value="Manitoba">Manitoba</option>
         <option value="Sas">Saskatchewan</option>
         <option value="Ontario">Ontario</option>
-        </select>
-        <br>
-        <br>
-        <br>
-        Enter tax: <input type="text" id="taxes">
-        Enter desired discount % <input type="text" id="discount">
-        <br>
-        <br>
-        <button type="button" onclick="Kraft()">Kraft Faced</button> <button type="button" onclick="Unfaced()">Unfaced</button>
-        <button type="button" style="margin-left:18em;" onclick="Canada()">Canada</button><br><br>
-        <div id="canOutput"></div>
-        <br>
-        <div id="canNew"></div>
-        <br>
-        <br>
-        <div id="output"></div>
-        <br>
-        <div id="new"></div>
-        <div id="withtax"></div>
+    </select>
+    <br>
+    <br>
+    <br> Enter tax:
+    <input type="text" id="taxes"> Enter desired discount %
+    <input type="text" id="discount">
+    <br>
+    <br>
+    <button type="button" onclick="Kraft()">Kraft Faced</button>
+    <button type="button" onclick="Unfaced()">Unfaced</button>
+    <button type="button" style="margin-left:18em;" onclick="Canada()">Canada</button>
+    <br>
+    <br>
+    <div id="canOutput"></div>
+    <br>
+    <div id="canNew"></div>
+    <br>
+    <br>
+    <div id="output"></div>
+    <br>
+    <div id="new"></div>
+    <div id="withtax"></div>
 
-        <h1>Insulation Blow In</h1>
-        <br>
-        Amount of insulation in square feet:  <input type="text" id="numnum">
-        <br>
-        <br>
-        insulation R-value: <select id="insVal">
+    <h1>Insulation Blow In</h1>
+    <br> Amount of insulation in square feet:
+    <input type="text" id="numnum">
+    <br>
+    <br> insulation R-value:
+    <select id="insVal">
         <option value='thrtn'>R-13</option>
         <option value="nntn">R-19</option>
         <option value="twt">R-22</option>
@@ -2056,10 +2271,10 @@
         <option value="frtfr">R-44</option>
         <option value="frtnin">R-49</option>
         <option value="sxt">R-60</option>
-        </select><br>
-        <br>
-
-        Distributor name:  <select id="diTor">
+    </select>
+    <br>
+    <br> Distributor name:
+    <select id="diTor">
         <option value=31.50>paragon pacific</option>
         <option value=25.30>Rocky Mountain</option>
         <option value=28.81>Pacific</option>
@@ -2082,13 +2297,16 @@
         <option value=37.13>Winroc-spi</option>
         <option value=27.60>Gypsum</option>
         <option value=25.33>API</option>
-        </select><br>
-        <br>
-        <button type="button" onclick="blueSealBlowIn()">Create Loose Fill bid:</button>
-        <br><br>
-        <div id="gogo"></div>
-        <br>
+    </select>
+    <br>
+    <br>
+    <button type="button" onclick="blueSealBlowIn()">Create Loose Fill bid:</button>
+    <br>
+    <br>
+    <div id="gogo"></div>
+    <br>
 
 
-    </body>
+</body>
+
 </html>
