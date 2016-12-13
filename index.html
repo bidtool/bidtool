@@ -798,13 +798,15 @@
 //otober 2016 changes to take 16% off the price per sf.
             var price;
             if (bags > 11) {
-                price = price - (price * .16);
+                price = price - (price * .21);
             } else if (deal == 16) {
                 price = price - (price * .16);
+            } else if (deal == 21) {
+                price = price - (price * .21);
             }else if (deal == 10) {
                     price = price - (price * .10);
             } else {
-                price = price;
+                price = price - (price * .05);
             }
 
             var price = Math.round(price * multiplier) / multiplier;
@@ -1609,13 +1611,15 @@
             //otober 2016 changes to take 16% off the price per sf.
             var price;
             if (bags > 11) {
-                price = price - (price * .16);
+                price = price - (price * .21);
             } else if (deal == 16) {
                 price = price - (price * .16);
+            } else if (deal == 21) {
+                price = price - (price * .21);
             }else if (deal == 10) {
                 price = price - (price * .10);
             } else {
-                price = price;
+                price = price - (price * .05);
             }
             var price = Math.round(price * multiplier) / multiplier;
             //now make price multiplied to overall sqft.
