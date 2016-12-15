@@ -435,7 +435,7 @@
                 price19 = '.48';
                 break;
             case 'specialty':
-                price19 = '.49';
+                price19 = '.48';
                 break;
             case 'bdi':
                 price19 = '.48';
@@ -764,6 +764,9 @@
             } else {
                 price = .66;
             }
+
+            var pricetype = price;
+
             //now find the home depot price per square foot.
             var hdPrice;
             if (value == "11x15" || value == "11x23") {
@@ -807,6 +810,15 @@
                     price = price - (price * .10);
             } else {
                 price = price - (price * .05);
+            }
+
+            var price;
+            if (pricetype == price30 && bags > 11) {
+                price = price - (price * .06);
+            }else if (pricetype == price38 && bags > 11) {
+                price = price + .03;
+            } else {
+                price = price;
             }
 
             var price = Math.round(price * multiplier) / multiplier;
@@ -1396,85 +1408,85 @@
             var price30;
             switch (dis) {
             case 'paragon pacific':
-                price30 = ".69";
+                price30 = ".71";
                 break;
             case 'rocky':
-                price30 = '.69';
+                price30 = '.71';
                 break
             case 'pacific':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'best':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'idi':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'ris':
                 price30 = '.73';
                 break;
             case 'cardalls':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'specialty':
                 price30 = '.70';
                 break;
             case 'bdi':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'new england':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'boston':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'denver':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'florida':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'jp':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'industrial':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'mp':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'michigan':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'building':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'lnw':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'building spokane':
                 price30 = 'none';
                 break;
             case 'appalachian':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'winroc':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'gypsum':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'accurate':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'api':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case 'starr':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             case '84 lumber':
-                price30 = '.69';
+                price30 = '.71';
                 break;
             }
             var price38;
@@ -1578,6 +1590,9 @@
             } else {
                 price = 0.66;
             }
+
+            var pricetype = price;
+
             //now find the home depot price per square foot.
             var hdPrice;
             if (value == "11x15" || value == "11x23") {
@@ -1608,6 +1623,7 @@
             var overall = Math.round(overall * multiplier) / multiplier;
             //turn price into a number.
             var price = parseFloat(price);
+
             //otober 2016 changes to take 16% off the price per sf.
             var price;
             if (bags > 11) {
@@ -1621,6 +1637,18 @@
             } else {
                 price = price - (price * .05);
             }
+
+            var price;
+            if (pricetype == price30 && bags > 11) {
+                price = price - (price * .06);
+            }else if (pricetype == price19 && bags > 11) {
+                price = price + .01;
+            }else if (pricetype == price38 && bags > 11) {
+                price = price + .02;
+            } else {
+                price = price;
+            }
+
             var price = Math.round(price * multiplier) / multiplier;
             //now make price multiplied to overall sqft.
             var total = overall * price;
