@@ -1,15 +1,20 @@
-<!DOCTYPE HTML>
-<html lang="en-us">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <style>
-        h1 {
-            color: maroon
-        }
-    </style>
-    <title>Blueseal Project</title>
+    <meta charset='utf-8'>
+    <title>Home | BidTool.GitHub</title>
+    <link href="../bidtool.github.io/bidtool.css" type="text/css" rel="stylesheet" media="screen">
+</head>
 
+<body>
+    <header>
+        <h1>Bidtool.github.io</h1>
+        <img alt='the logo for blueseal' src='#'>
+    </header>
+    <nav>links go here</nav>
+    <h1>Home</h1>
+    <p>this is my content</p>
     <script type="text/javascript">
         /*Input - a persons location, types of insulation, and square footage needed per...
          *Processing - fetch the warehouse asigned to the location, along with all types of insulation it has. (warehouse will have    assigned
@@ -798,7 +803,7 @@
             //turn price into a number.
             var price = parseFloat(price);
 
-//otober 2016 changes to take 16% off the price per sf.
+            //otober 2016 changes to take 16% off the price per sf.
             var price;
             if (bags > 11) {
                 price = price - (price * .21);
@@ -806,8 +811,8 @@
                 price = price - (price * .16);
             } else if (deal == 21) {
                 price = price - (price * .21);
-            }else if (deal == 10) {
-                    price = price - (price * .10);
+            } else if (deal == 10) {
+                price = price - (price * .10);
             } else {
                 price = price - (price * .05);
             }
@@ -815,7 +820,7 @@
             var price;
             if (pricetype == price30 && bags > 11) {
                 price = price - (price * .06);
-            }else if (pricetype == price38 && bags > 11) {
+            } else if (pricetype == price38 && bags > 11) {
                 price = price + .03;
             } else {
                 price = price;
@@ -1632,7 +1637,7 @@
                 price = price - (price * .16);
             } else if (deal == 21) {
                 price = price - (price * .21);
-            }else if (deal == 10) {
+            } else if (deal == 10) {
                 price = price - (price * .10);
             } else {
                 price = price - (price * .05);
@@ -1641,9 +1646,9 @@
             var price;
             if (pricetype == price30 && bags > 11) {
                 price = price - (price * .06);
-            }else if (pricetype == price19 && bags > 11) {
+            } else if (pricetype == price19 && bags > 11) {
                 price = price + .01;
-            }else if (pricetype == price38 && bags > 11) {
+            } else if (pricetype == price38 && bags > 11) {
                 price = price + .02;
             } else {
                 price = price;
@@ -1756,7 +1761,7 @@
                         frtfr: "49.80",
                         frtnin: "44.20",
                         sxt: "35.10"
-                    },
+},
                     {
                         name: 'InsulSafe',
                         thrtn: '182.90',
@@ -1768,7 +1773,7 @@
                         frtfr: "49.80",
                         frtnin: "44.20",
                         sxt: "35.10"
-                    },
+},
                     {
                         name: 'ProPink',
                         thrtn: '182.90',
@@ -1780,36 +1785,36 @@
                         frtfr: "49.80",
                         frtnin: "44.20",
                         sxt: "35.10"
-                    }
-                ]
+}
+]
                 //make it so that the distributor value that came can be read by the objects.--------------------------------------------
             var value;
             switch (value) {
-            case '13':
+            case 'thrtn':
                 value = products[dis].thrtn;
                 break;
-            case '19':
+            case 'nntn':
                 value = products[dis].nntn;
                 break;
-            case '22':
+            case 'twt':
                 value = products[dis].twt;
                 break;
-            case '26':
+            case 'twsx':
                 value = products[dis].twsx;
                 break;
-            case '30':
+            case 'thrt':
                 value = products[dis].thrt;
                 break;
-            case '38':
+            case 'thtate':
                 value = products[dis].thtate;
                 break;
-            case '44':
+            case 'frtfr':
                 value = products[dis].frtfr;
                 break;
-            case '49':
+            case 'frtnin':
                 value = products[dis].frtnin;
                 break;
-            case '60':
+            case 'sxt':
                 value = products[dis].sxt;
                 break;
             }
@@ -1826,9 +1831,6 @@
             var taxes;
             switch (prov) {
             case 'BC':
-                taxes = 1.12;
-                break;
-            case 'BCI':
                 taxes = 1.12;
                 break;
             case 'Alberta':
@@ -1881,43 +1883,7 @@
                     price28: '.70',
                     price35: '.97',
                     price40: '.84'
-                    }, {
-                        name: 'BCI',
-                        a: '0',
-                        b: "0",
-                        c: "117.5",
-                        d: "180.17",
-                        e: "97.92",
-                        f: "114",
-                        g: "150.14",
-                        h: "48.95",
-                        i: "90.08",
-                        j: "78.33",
-                        k: "63.33",
-                        l: '75.06',
-                        m: '48.96',
-                        n: '52.54',
-                        o: '0',
-                        p: '0',
-                        q: '34.27',
-                        r: '52.5',
-                        s: '0',
-                        t: '0',
-                        u: '0',
-                        v: '56',
-                        w: '32',
-                        x: '48',
-                        price8: '.23',
-                        price10: '.24',
-                        price12: '.25',
-                        price14: '.40',
-                        price20: '.39',
-                        price22: '.62',
-                        price28: '.54',
-                        price28: '.70',
-                        price35: '.97',
-                        price40: '.84'
-                    }, {
+}, {
                     name: 'Alberta',
                     a: '149.3',
                     b: "0",
@@ -1952,7 +1918,7 @@
                     price28: '0',
                     price35: '1.05',
                     price40: '1.36'
-                      }, {
+}, {
                     name: 'Manitoba',
                     a: '0',
                     b: "0",
@@ -1987,7 +1953,7 @@
                     price28: '0',
                     price35: '.99',
                     price40: '1.21'
-                        }, {
+}, {
                     name: 'Sas',
                     a: '0',
                     b: "0",
@@ -2022,7 +1988,7 @@
                     price28: '0',
                     price35: '0',
                     price40: '1.22'
-                          }, {
+}, {
                     name: 'Ontario',
                     a: '0',
                     b: "0",
@@ -2059,27 +2025,24 @@
                     price31: '.87',
                     price35: '0',
                     price40: '1.24'
-                            }
-                ]
+}
+]
             var whichprov;
             switch (prov) {
             case 'BC':
                 whichprov = 0;
                 break;
-                case 'BCI':
+            case 'Alberta':
                 whichprov = 1;
                 break;
-            case 'Alberta':
+            case 'Manitoba':
                 whichprov = 2;
                 break;
-            case 'Manitoba':
+            case 'Sas':
                 whichprov = 3;
                 break;
-            case 'Sas':
-                whichprov = 4;
-                break;
             case 'Ontario':
-                whichprov = 5;
+                whichprov = 4;
                 break;
             }
             var price;
@@ -2207,181 +2170,185 @@
         }
         //--------------------------------------------------------------------------------------------------------------------------------
     </script>
-</head>
 
-<body>
-    <h1>Insulation Quote</h1>
-    <br> Amount of insulation in square feet:
-    <input type="text" id="amount">
-    <br>
-    <br> Insulation R-value:
-    <select id="insulationValue">
-        <option value="11x15">11x15</option>
-        <option value="11x23">11x23</option>
-        <option value="13x15">13x15</option>
-        <option value="13x23">13x23</option>
-        <option value="15x15">15x15</option>
-        <option value="15x23">15x23</option>
-        <option value="19x15">19x15</option>
-        <option value="19x23">19x23</option>
-        <option value="21x15">21x15</option>
-        <option value="21x23">21x23</option>
-        <option value="30x16">30x16</option>
-        <option value="30x24">30x24</option>
-        <option value="38x16">38x16</option>
-        <option value="38x24">38x24</option>
-    </select>
-
-    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Canada R-value:
-    <select id="canadaInsulationValue">
-        <option value='8x15'>8x15" </option>
-        <option value="8x23">8x23" </option>
-        <option value="10x15">10x15"</option>
-        <option value="10x23">10x23"</option>
-        <option value="12x15">12x15"</option>
-        <option value="12x19">12x19"</option>
-        <option value="12x23">12x23</option>
-        <option value="14x15">14x15"</option>
-        <option value="14x23">14x23"</option>
-        <option value="20x15">20x15"</option>
-        <option value="20x19">20x19"</option>
-        <option value="20x23">20x23</option>
-        <option value="22x15">22x15"</option>
-        <option value="22x23">22x23"</option>
-        <option value="24x16">24x16"</option>
-        <option value="24x23">24x23"</option>
-        <option value="28x16">28x16"</option>
-        <option value="28x23">28x23"</option>
-        <option value="31x16">31x16"</option>
-        <option value="31x23">31x23"</option>
-        <option value="35x16">35x16"</option>
-        <option value="35x23">35x23"</option>
-        <option value="40x16">40x16"</option>
-        <option value="40x23">40x24".</option>
-    </select>
-    <br>
-    <br> Type:
-    <select id="location">
+    <main class="looks">
+        <h1>Insulation Quote</h1>
+        <br> Amount of insulation in square feet:
+        <input type="text" id="amount">
         <br>
-        <option value="owens">Owens Corning</option>
-        <option value="ct">CertainTeed</option>
-        <option value="johns">Johns Manville</option>
-        <option value="knauf">Knauf</option>
-    </select>
-    <br>
-    <br> Distributor name:
-    <select id="distributor">
-        <option value="paragon pacific">Winroc SPI paragon</option>
-        <option value="rocky">Rocky Mountain</option>
-        <option value="pacific">DI Distribution / Pacific</option>
-        <option value="best">Best</option>
-        <option value="idi">idi</option>
-        <option value="ris">RIS</option>
-        <option value="cardalls">Cardalls / R-Factor</option>
-        <option value="specialty">Specialty Ins.</option>
-        <option value="bdi">BDI Insulation</option>
-        <option value="new england">New England</option>
-        <option value="boston">Boston</option>
-        <option value="denver">Service Partners: Denver SW Texas</option>
-        <option value="florida">Service Partners: Florida</option>
-        <option value="jp">Serv. Prtnrs.:Johnson Product,JP</option>
-        <option value="industrial">Svc. Ptnrs.:Industrial Product,IP</option>
-        <option value="mp">Serv.Ptnrs.: MP</option>
-        <option value="michigan">Mich.</option>
-        <option value="building">LnW: Building Specialties</option>
-        <option value="lnw">LnW Supply: Building Virginia</option>
-        <option value="building spokane">LnW: Building Specialties Spokane</option>
-        <option value="appalachian">Appalachian</option>
-        <option value="winroc">Winroc-spi</option>
-        <option value="gypsum">Gypsum</option>
-        <option value="accurate">Accurate</option>
-        <option value="api">API</option>
-        <option value="starr">Starr Lumber</option>
-        <option value="84 lumber">84 Lumber</option>
-    </select>
+        <br> Insulation R-value:
+        <select id="insulationValue">
+            <option value="11x15">11x15</option>
+            <option value="11x23">11x23</option>
+            <option value="13x15">13x15</option>
+            <option value="13x23">13x23</option>
+            <option value="15x15">15x15</option>
+            <option value="15x23">15x23</option>
+            <option value="19x15">19x15</option>
+            <option value="19x23">19x23</option>
+            <option value="21x15">21x15</option>
+            <option value="21x23">21x23</option>
+            <option value="30x16">30x16</option>
+            <option value="30x24">30x24</option>
+            <option value="38x16">38x16</option>
+            <option value="38x24">38x24</option>
+        </select>
 
-    &#160;&#160;&#160;&#160;&#160;&#160;&#160;Canada Province:
-    <select id="province">
-        <option value="BC">BC/(British Columbia)</option>
-        <option value="BCI">BC/(Island)</option>
-        <option value="Alberta">Alberta</option>
-        <option value="Manitoba">Manitoba</option>
-        <option value="Sas">Saskatchewan</option>
-        <option value="Ontario">Ontario</option>
-    </select>
-    <br>
-    <br>
-    <br> Enter tax:
-    <input type="text" id="taxes"> Enter desired discount %
-    <input type="text" id="discount">
-    <br>
-    <br>
-    <button type="button" onclick="Kraft()">Kraft Faced</button>
-    <button type="button" onclick="Unfaced()">Unfaced</button>
-    <button type="button" style="margin-left:18em;" onclick="Canada()">Canada</button>
-    <br>
-    <br>
-    <div id="canOutput"></div>
-    <br>
-    <div id="canNew"></div>
-    <br>
-    <br>
-    <div id="output"></div>
-    <br>
-    <div id="new"></div>
-    <div id="withtax"></div>
+        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Canada R-value:
+        <select id="canadaInsulationValue">
+            <option value='8x15'>8x15" </option>
+            <option value="8x23">8x23" </option>
+            <option value="10x15">10x15"</option>
+            <option value="10x23">10x23"</option>
+            <option value="12x15">12x15"</option>
+            <option value="12x19">12x19"</option>
+            <option value="12x23">12x23</option>
+            <option value="14x15">14x15"</option>
+            <option value="14x23">14x23"</option>
+            <option value="20x15">20x15"</option>
+            <option value="20x19">20x19"</option>
+            <option value="20x23">20x23</option>
+            <option value="22x15">22x15"</option>
+            <option value="22x23">22x23"</option>
+            <option value="24x16">24x16"</option>
+            <option value="24x23">24x23"</option>
+            <option value="28x16">28x16"</option>
+            <option value="28x23">28x23"</option>
+            <option value="31x16">31x16"</option>
+            <option value="31x23">31x23"</option>
+            <option value="35x16">35x16"</option>
+            <option value="35x23">35x23"</option>
+            <option value="40x16">40x16"</option>
+            <option value="40x23">40x24".</option>
+        </select>
+        <br>
+        <br> Type:
+        <select id="location">
+            <br>
+            <option value="owens">Owens Corning</option>
+            <option value="ct">CertainTeed</option>
+            <option value="johns">Johns Manville</option>
+            <option value="knauf">Knauf</option>
+        </select>
+        <br>
+        <br> Distributor name:
+        <select id="distributor">
+            <option value="paragon pacific">Winroc SPI paragon</option>
+            <option value="rocky">Rocky Mountain</option>
+            <option value="pacific">DI Distribution / Pacific</option>
+            <option value="best">Best</option>
+            <option value="idi">idi</option>
+            <option value="ris">RIS</option>
+            <option value="cardalls">Cardalls / R-Factor</option>
+            <option value="specialty">Specialty Ins.</option>
+            <option value="bdi">BDI Insulation</option>
+            <option value="new england">New England</option>
+            <option value="boston">Boston</option>
+            <option value="denver">Service Partners: Denver SW Texas</option>
+            <option value="florida">Service Partners: Florida</option>
+            <option value="jp">Serv. Prtnrs.:Johnson Product,JP</option>
+            <option value="industrial">Svc. Ptnrs.:Industrial Product,IP</option>
+            <option value="mp">Serv.Ptnrs.: MP</option>
+            <option value="michigan">Mich.</option>
+            <option value="building">LnW: Building Specialties</option>
+            <option value="lnw">LnW Supply: Building Virginia</option>
+            <option value="building spokane">LnW: Building Specialties Spokane</option>
+            <option value="appalachian">Appalachian</option>
+            <option value="winroc">Winroc-spi</option>
+            <option value="gypsum">Gypsum</option>
+            <option value="accurate">Accurate</option>
+            <option value="api">API</option>
+            <option value="starr">Starr Lumber</option>
+            <option value="84 lumber">84 Lumber</option>
+        </select>
 
-    <h1>Insulation Blow In</h1>
-    <br> Amount of insulation in square feet:
-    <input type="text" id="numnum">
-    <br>
-    <br> insulation R-value:
-    <select id="insVal">
-        <option value='13'>R-13</option>
-        <option value="19">R-19</option>
-        <option value="22">R-22</option>
-        <option value="26">R-26</option>
-        <option value="30">R-30</option>
-        <option value="38">R-38</option>
-        <option value="44">R-44</option>
-        <option value="49">R-49</option>
-        <option value="60">R-60</option>
-    </select>
-    <br>
-    <br> Distributor name:
-    <select id="diTor">
-        <option value=31.50>paragon pacific</option>
-        <option value=25.30>Rocky Mountain</option>
-        <option value=28.81>Pacific</option>
-        <option value=31.04>Best</option>
-        <option value=35.65>idi</option>
-        <option value=38.94>RIS</option>
-        <option value=29.93>Cardalls</option>
-        <option value=nan>Specialty Ins.</option>
-        <option value=27.15>BDI Insulation</option>
-        <option value=31.05>New England</option>
-        <option value=32.03>Boston</option>
-        <option value=35.65>Service Partners: Denver SW Texas</option>
-        <option value=35.65>Service Partners: Florida</option>
-        <option value=35.65>Serv. Prtnrs.:Johnson Product,jp</option>
-        <option value=35.65>Svc. Ptnrs.:Industrial Product,IP</option>
-        <option value=35.65>Serv.Ptnrs.: MP</option>
-        <option value=30.56>Mich.</option>
-        <option value=35.65>LnW: Building Specialties</option>
-        <option value=25.79>Appalachian</option>
-        <option value=37.13>Winroc-spi</option>
-        <option value=27.60>Gypsum</option>
-        <option value=25.33>API</option>
-    </select>
-    <br>
-    <br>
-    <button type="button" onclick="blueSealBlowIn()">Create Loose Fill bid:</button>
-    <br>
-    <br>
-    <div id="gogo"></div>
-    <br>
+        &#160;&#160;&#160;&#160;&#160;&#160;&#160;Canada Province:
+        <select id="province">
+            <option value="BC">BC/(British Columbia)</option>
+            <option value="Alberta">Alberta</option>
+            <option value="Manitoba">Manitoba</option>
+            <option value="Sas">Saskatchewan</option>
+            <option value="Ontario">Ontario</option>
+        </select>
+        <br>
+        <br>
+        <br> Enter tax:
+        <input type="text" id="taxes"> Enter desired discount %
+        <input type="text" id="discount">
+        <br>
+        <br>
+        <button type="button" onclick="Kraft()">Kraft Faced</button>
+        <button type="button" onclick="Unfaced()">Unfaced</button>
+        <button type="button" style="margin-left:18em;" onclick="Canada()">Canada</button>
+        <br>
+        <br>
+        <div id="canOutput"></div>
+        <br>
+        <div id="canNew"></div>
+        <br>
+        <br>
+        <div id="output"></div>
+        <br>
+        <div id="new"></div>
+        <div id="withtax"></div>
 
-
+        <h1>Insulation Blow In</h1>
+        <br> Amount of insulation in square feet:
+        <input type="text" id="numnum">
+        <br>
+        <br> insulation R-value:
+        <select id="insVal">
+            <option value='thrtn'>R-13</option>
+            <option value="nntn">R-19</option>
+            <option value="twt">R-22</option>
+            <option value="twsx">R-26</option>
+            <option value="thrt">R-30</option>
+            <option value="thtate">R-38</option>
+            <option value="frtfr">R-44</option>
+            <option value="frtnin">R-49</option>
+            <option value="sxt">R-60</option>
+        </select>
+        <br>
+        <br> Distributor name:
+        <select id="diTor">
+            <option value=31.50>paragon pacific</option>
+            <option value=25.30>Rocky Mountain</option>
+            <option value=28.81>Pacific</option>
+            <option value=31.04>Best</option>
+            <option value=35.65>idi</option>
+            <option value=38.94>RIS</option>
+            <option value=29.93>Cardalls</option>
+            <option value=nan>Specialty Ins.</option>
+            <option value=27.15>BDI Insulation</option>
+            <option value=31.05>New England</option>
+            <option value=32.03>Boston</option>
+            <option value=35.65>Service Partners: Denver SW Texas</option>
+            <option value=35.65>Service Partners: Florida</option>
+            <option value=35.65>Serv. Prtnrs.:Johnson Product,jp</option>
+            <option value=35.65>Svc. Ptnrs.:Industrial Product,IP</option>
+            <option value=35.65>Serv.Ptnrs.: MP</option>
+            <option value=30.56>Mich.</option>
+            <option value=35.65>LnW: Building Specialties</option>
+            <option value=25.79>Appalachian</option>
+            <option value=37.13>Winroc-spi</option>
+            <option value=27.60>Gypsum</option>
+            <option value=25.33>API</option>
+        </select>
+        <br>
+        <br>
+        <button type="button" onclick="blueSealBlowIn()">Create Loose Fill bid:</button>
+        <br>
+        <br>
+        <div id="gogo"></div>
+        <br>
+    </main>
+    <footer>
+        <ul>
+            <li>&copy;2016</li>
+            <li>Justin Steele</li>
+            <li>Last Updated:10/2016</li>
+        </ul>
+    </footer>
 </body>
 
 </html>
