@@ -1,25 +1,14 @@
-head{
-    background-color: darkgray;
+.wise {
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+    margin-left: 500px;
+    font-size: 24px;
+    color: dodgerblue;
 }
-
-body{
-    background-color: forestgreen;
-}
-
-header{
-
-
-}
-
-nav{
+main {
 
 }
 
-main{
-
+.name {
 }
-
-#looks{
-    background-color: aqua;
-}
-
