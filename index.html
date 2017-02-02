@@ -826,6 +826,8 @@
                 price = price - (price * .06);
             }else if (pricetype == price38 && bags > 11) {
                 price = price + .03;
+            }else if (pricetype == price30 && deal == 21) {
+                price = price - (price * .06);
             } else {
                 price = price;
             }
@@ -1662,6 +1664,8 @@
                 price = price + .01;
             }else if (pricetype == price38 && bags > 11) {
                 price = price + .02;
+            }else if (pricetype == price30 && deal == 21) {
+                price = price - (price * .06);
             } else {
                 price = price;
             }
