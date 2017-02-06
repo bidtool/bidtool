@@ -1,5 +1,5 @@
 .wise {
-    display: flex;
+    display: none;
     flex-flow: wrap;
     flex-direction: row;
     margin-left: 500px;
