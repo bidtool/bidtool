@@ -823,11 +823,13 @@
 
             var price;
             if (pricetype == price30 && bags > 11) {
-                price = price - (price * .06);
+                price = price - (price * .05);
             }else if (pricetype == price38 && bags > 11) {
                 price = price + .03;
-            }else if (pricetype == price30 && deal == 21) {
-                price = price - (price * .06);
+            }else if (pricetype == price30 && deal == 16) {
+                price = price - (price * .05);
+            }else if (pricetype == price30) {
+                price = price + .01;
             } else {
                 price = price;
             }
@@ -1659,13 +1661,15 @@
 
             var price;
             if (pricetype == price30 && bags > 11) {
-                price = price - (price * .06);
+                price = price - (price * .02);
             }else if (pricetype == price19 && bags > 11) {
                 price = price;
             }else if (pricetype == price38 && bags > 11) {
                 price = price + .02;
-            }else if (pricetype == price30 && deal == 21) {
-                price = price - (price * .06);
+            }else if (pricetype == price30 && deal == 16) {
+                price = price - (price * .02);
+            }else if (pricetype == price30) {
+                price = price + .01;
             } else {
                 price = price;
             }
