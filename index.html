@@ -801,7 +801,9 @@
 
 //otober 2016 changes to take 16% off the price per sf.
             var price;
-            if (value == "21x15" && bags > 11) {
+        if (dis == "lnw" || dis == '84 lumber') {
+                price = price - (price * .02);
+            } else if (value == "21x15" && bags > 11) {
                 price = price - (price * .07);
             } else if (value == "21x23" && bags > 11) {
                     price = price - (price * .07);
@@ -810,28 +812,11 @@
             } else if (value == '15x23' && bags > 11) {
                 price = price - (price * .07);
             } else if (bags > 11) {
-                price = price - (price * .16);
+                price = price - (price * .14);
             } else if (deal == 16) {
-                price = price - (price * .16);
-            } else if (deal == 21) {
-                price = price - (price * .21);
-            }else if (deal == 10) {
-                    price = price - (price * .10);
+                price = price - (price * .14);
             } else {
-                price = price - (price * .05);
-            }
-
-            var price;
-            if (pricetype == price30 && bags > 11) {
-                price = price - (price * .05);
-            }else if (pricetype == price38 && bags > 11) {
-                price = price + .03;
-            }else if (pricetype == price30 && deal == 16) {
-                price = price - (price * .05);
-            }else if (pricetype == price30) {
-                price = price + .01;
-            } else {
-                price = price;
+                price = price - (price * .03);
             }
 
             var price = Math.round(price * multiplier) / multiplier;
@@ -1421,85 +1406,85 @@
             var price30;
             switch (dis) {
             case 'paragon pacific':
-                price30 = ".71";
+                price30 = ".69";
                 break;
             case 'rocky':
-                price30 = '.71';
+                price30 = '.69';
                 break
             case 'pacific':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'best':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'idi':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'ris':
                 price30 = '.73';
                 break;
             case 'cardalls':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'specialty':
                 price30 = '.70';
                 break;
             case 'bdi':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'new england':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'boston':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'denver':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'florida':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'jp':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'industrial':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'mp':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'michigan':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'building':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'lnw':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'building spokane':
                 price30 = 'none';
                 break;
             case 'appalachian':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'winroc':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'gypsum':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'accurate':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'api':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case 'starr':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             case '84 lumber':
-                price30 = '.71';
+                price30 = '.69';
                 break;
             }
             var price38;
@@ -1639,7 +1624,9 @@
 
             //otober 2016 changes to take 16% off the price per sf.
             var price;
-            if (value == "21x15" && bags > 11) {
+        if (dis == "lnw" || dis == '84 lumber') {
+                price = price - (price * .02);
+            }else if (value == "21x15" && bags > 11) {
                 price = price - (price * .07);
             } else if (value == "21x23" && bags > 11) {
                 price = price - (price * .07);
@@ -1648,30 +1635,11 @@
             } else if (value == '15x23' && bags > 11) {
                 price = price - (price * .07);
             } else if (bags > 11) {
-                price = price - (price * .16);
+                price = price - (price * .14);
             } else if (deal == 16) {
-                price = price - (price * .16);
-            } else if (deal == 21) {
-                price = price - (price * .21);
-            }else if (deal == 10) {
-                price = price - (price * .10);
+                price = price - (price * .14);
             } else {
-                price = price - (price * .05);
-            }
-
-            var price;
-            if (pricetype == price30 && bags > 11) {
-                price = price - (price * .02);
-            }else if (pricetype == price19 && bags > 11) {
-                price = price;
-            }else if (pricetype == price38 && bags > 11) {
-                price = price + .02;
-            }else if (pricetype == price30 && deal == 16) {
-                price = price - (price * .02);
-            }else if (pricetype == price30) {
-                price = price + .01;
-            } else {
-                price = price;
+                price = price - (price * .03);
             }
 
             var price = Math.round(price * multiplier) / multiplier;
@@ -2236,7 +2204,8 @@
 
 <body>
     <figure>
-        <img alt='' src='../bidtool.github.io/pics/blueSealLogo300px.png'>3.2
+        <img alt='' src='../bidtool.github.io/pics/blueSealLogo300px.png'>3.3
+        <img alt='' src='../bidtool.github.io/pics/addisonpic.jpg'>&#160;&#160;"Faier-Nuff" -Addison Zollinger
     </figure>
     <h1 class="name">Insulation Quote</h1>
     <p class="wise">Justins Wisdoms: "CAPITALIZATION IS KEY"</p>
