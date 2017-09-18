@@ -51,7 +51,7 @@
                 sqft1 = "67.81";
                 break;
             case '15x23':
-                sqft1 = "owens corning doesn't carry r15x23";
+                sqft1 = "103.97";
                 break;
             case '19x15':
                 sqft1 = "77.50";
@@ -100,7 +100,7 @@
                 sqft2 = "77.50";
                 break;
             case '15x23':
-                sqft2 = "certainteed doesnt carry 15x23";
+                sqft2 = "103.97";
                 break;
             case '19x15':
                 sqft2 = "87.19";
@@ -149,7 +149,7 @@
                 sqft3 = "67.81";
                 break;
             case '15x23':
-                sqft3 = "johns manville doesnt carry 15x23";
+                sqft3 = "103.97";
                 break;
             case '19x15':
                 sqft3 = "87.18";
@@ -198,7 +198,7 @@
                 sqft4 = "58.13";
                 break;
             case '15x23':
-                sqft4 = "knauf doesnt carry 15x23";
+                sqft4 = "103.97";
                 break;
             case '19x15':
                 sqft4 = "97.92";
@@ -598,7 +598,7 @@
                 price30 = '.74';
                 break;
             case 'ris':
-                price30 = '.77';
+                price30 = '.74';
                 break;
             case 'cardalls':
                 price30 = '.74';
@@ -842,9 +842,10 @@
             //show the end without tax n discount.
             document.getElementById('output').innerHTML = "R-" + value + "\"" + " Kraft Faced " + "(" + sqft + " sq ft in a bag" + "/" + bags + " bags" + "=" + overall + " sq ft" + ")" + "(" + "$" + price + ")" + "=$" + total;
             //show it the discount end.
+            document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '---------';
             //(took this out, but am leaving j.i.c.)document.getElementById('new').innerHTML =deal+"% Promo Discount"+" (-$"+dscnt+")"+"= $"+nt;
             //total with tax.
-            document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '----------' + '<br/>' + 'The average Home Depot and retail price for the same R-' + value + ' precut batts are $' + hdPrice + ' per square foot. We dropped yours to $' + price + ' per square foot. Your total estimated savings is $' + hd + '<br/>' + '<br/>' + '<br/>';
+          //  document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '----------' + '<br/>' + 'The average Home Depot and retail price for the same R-' + value + ' precut batts are $' + hdPrice + ' per square foot. We dropped yours to $' + price + ' per square foot. Your total estimated savings is $' + hd + '<br/>' + '<br/>' + '<br/>';
         }
 
         function Unfaced() {
@@ -923,7 +924,7 @@
                 sqft2 = "77.50";
                 break;
             case '15x23':
-                sqft2 = "certainteed doesnt carry 15x23";
+                sqft2 = "103.98";
                 break;
             case '19x15':
                 sqft2 = "87.19";
@@ -972,7 +973,7 @@
                 sqft3 = "67.81";
                 break;
             case '15x23':
-                sqft3 = "johns manville doesnt carry 15x23";
+                    sqft3 = "103.98";
                 break;
             case '19x15':
                 sqft3 = "87.18";
@@ -1021,7 +1022,7 @@
                 sqft4 = "77.5";
                 break;
             case '15x23':
-                sqft4 = "knauf doesnt carry 15x23";
+                    sqft4 = "103.98";
                 break;
             case '19x15':
                 sqft4 = "99.54";
@@ -1421,13 +1422,13 @@
                 price30 = '.69';
                 break;
             case 'ris':
-                price30 = '.73';
+                price30 = '.69';
                 break;
             case 'cardalls':
                 price30 = '.69';
                 break;
             case 'specialty':
-                price30 = '.70';
+                price30 = '.69';
                 break;
             case 'bdi':
                 price30 = '.69';
@@ -1665,9 +1666,10 @@
             //show the end without tax n discount.
             document.getElementById('output').innerHTML = "R-" + value + "\"" + " Unfaced " + "(" + sqft + " sq ft in a bag" + "/" + bags + " bags" + "=" + overall + " sq ft" + ")" + "(" + "$" + price + ")" + "=$" + total;
             //show it the discount end.
+            document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '---------';
             //document.getElementById('new').innerHTML =deal+"% Promo Discount "+"($"+dscnt+")"+"=$"+nt;
             //total with tax.
-            document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '---------' + '<br/>' + 'The average Home Depot and retail price for the same R-' + value + ' precut batts are $' + hdPrice + ' per square foot. We dropped yours to $' + price + ' per square foot. Your total estimated savings is $' + hd + '<br/>' + '<br/>' + '<br/>';
+           // document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '---------' + '<br/>' + 'The average Home Depot and retail price for the same R-' + value + ' precut batts are $' + hdPrice + ' per square foot. We dropped yours to $' + price + ' per square foot. Your total estimated savings is $' + hd + '<br/>' + '<br/>' + '<br/>';
         }
         //---------------------------------------------------------------------------------------------------------
         /*input: sqft needed, R-value of blow in, and distributor name.
@@ -2198,6 +2200,11 @@
             //show it the discount end.
             document.getElementById('canNew').innerHTML = canDiscount + "% Promo Discount ($" + dscnt + ")=$" + nt + '<br>' + 'TotalWTX=$' + totalwtx;
         }
+
+        function Joke() {
+        window.alert("Really?! I told you not to click here. You're Fired.");
+        }
+
         //--------------------------------------------------------------------------------------------------------------------------------
     </script>
 </head>
@@ -2205,7 +2212,7 @@
 <body>
     <figure>
         <img alt='' src='../bidtool.github.io/pics/blueSealLogo300px.png'>3.3
-        <img alt='' src='../bidtool.github.io/pics/addisonpic.jpg'>&#160;&#160;"Faier-Nuff" -Addison Zollinger
+        <button type="button" onclick="Joke()">Do Not Click</button>
     </figure>
     <h1 class="name">Insulation Quote</h1>
     <p class="wise">Justins Wisdoms: "CAPITALIZATION IS KEY"</p>
@@ -2311,8 +2318,12 @@
     <br>
     <br>
     <br> Enter tax:
-    <input type="text" id="taxes"> Enter desired discount %
-    <input type="text" id="discount">
+    <input type="text" id="taxes">
+        Add Discount?
+        <select id="discount">
+            <option value="0">No</option>
+            <option value=16>Yes</option>
+        </select>
     <br>
     <br>
     <button type="button" onclick="Kraft()">Kraft Faced</button>
