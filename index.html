@@ -32,6 +32,7 @@
             var amount = parseFloat(document.getElementById('amount').value);
             var deal = parseFloat(document.getElementById('discount').value);
             var tax = parseFloat(document.getElementById('taxes').value);
+            var Cath = document.getElementById('Cath').value;
             //get the location type of insulation from corresponding warehouse.
             var sqft1;
             switch (value) {
@@ -77,6 +78,20 @@
             case '38x24':
                 sqft1 = "64";
                 break;
+
+                case '30x15':
+                    sqft1 = "56.83";
+                    break;
+                case '30x23':
+                    sqft1 = "79.17";
+                    break;
+                case '38x15':
+                    sqft1 = "41.33";
+                    break;
+                case '38x23':
+                    sqft1 = "63.33";
+                    break;
+
             default:
                 sqft1 = "try different warehouse, or type a different insulation";
                 window.alert("sadly, not yet in system");
@@ -126,6 +141,20 @@
             case '38x24':
                 sqft2 = "64";
                 break;
+
+                case '30x15':
+                    sqft1 = "50";
+                    break;
+                case '30x23':
+                    sqft1 = "76.67";
+                    break;
+                case '38x15':
+                    sqft1 = "35";
+                    break;
+                case '38x23':
+                    sqft1 = "53.67";
+                    break;
+
             default:
                 sqft2 = "try different warehouse, or type a different insulation";
                 window.alert("sadly, not yet in system");
@@ -175,6 +204,20 @@
             case '38x24':
                 sqft3 = "72";
                 break;
+
+                case '30x15':
+                    sqft1 = "56.83";
+                    break;
+                case '30x23':
+                    sqft1 = "86.62";
+                    break;
+                case '38x15':
+                    sqft1 = "41.33";
+                    break;
+                case '38x23':
+                    sqft1 = "63.33";
+                    break;
+
             default:
                 sqft3 = "try different warehouse, or type a different insulation";
                 window.alert("sadly, not yet in system");
@@ -224,6 +267,20 @@
             case '38x24':
                 sqft4 = "64";
                 break;
+
+                case '30x15':
+                    sqft1 = "55";
+                    break;
+                case '30x23':
+                    sqft1 = "84.33";
+                    break;
+                case '38x15':
+                    sqft1 = "40";
+                    break;
+                case '38x23':
+                    sqft1 = "61.33";
+                    break;
+
             default:
                 sqft4 = "try different warehouse, or type a different insulation";
                 window.alert("sadly, not yet in system");
@@ -819,6 +876,237 @@
                 price = price - (price * .03);
             }
 
+            //HD prices :(
+            var price;
+            if (value == '30x15' && dis == 'paragon pacific') {
+                price = .80;
+            } else if (value == '30x23' && dis == 'paragon pacific') {
+                price = .80;
+            } else if (value == '38x15' && dis == 'paragon pacific') {
+                price = 1.26;
+            } else if (value == '38x23' && dis == 'paragon pacific') {
+                price = 1.26;
+
+            } else if (value == '30x15' && dis == 'rocky') {
+                price = .78;
+            } else if (value == '30x23' && dis == 'rocky') {
+                price = .78;
+            } else if (value == '38x15' && dis == 'rocky') {
+                price = 1.27;
+            } else if (value == '38x23' && dis == 'rocky') {
+                price = 1.27;
+
+            } else if (value == '30x15' && dis == 'pacific') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'pacific') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'pacific') {
+                price = 1.28;
+            } else if (value == '38x23' && dis == 'pacific') {
+                price = 1.28;
+
+            } else if (value == '30x15' && dis == 'best') {
+                price = .89;
+            } else if (value == '30x23' && dis == 'best') {
+                price = .89;
+            } else if (value == '38x15' && dis == 'best') {
+                price = 1.14;
+            } else if (value == '38x23' && dis == 'best') {
+                price = 1.14;
+
+            } else if (value == '30x15' && dis == 'idi') {
+                price = .81;
+            } else if (value == '30x23' && dis == 'idi') {
+                price = .81;
+            } else if (value == '38x15' && dis == 'idi') {
+                price = 1.14;
+            } else if (value == '38x23' && dis == 'idi') {
+                price = 1.14;
+
+            } else if (value == '30x15' && dis == 'cardalls') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'cardalls') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'cardalls') {
+                price = 1.28;
+            } else if (value == '38x23' && dis == 'cardalls') {
+                price = 1.28;
+
+            } else if (value == '30x15' && dis == 'specialty') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'specialty') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'specialty') {
+                price = 1.28;
+            } else if (value == '38x23' && dis == 'specialty') {
+                price = 1.28;
+
+            } else if (value == '30x15' && dis == 'bdi') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'bdi') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'bdi') {
+                price = 1.28;
+            } else if (value == '38x23' && dis == 'bdi') {
+                price = 1.28;
+
+            } else if (value == '30x15' && dis == 'new england') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'new england') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'new england') {
+                price = 1.28;
+            } else if (value == '38x23' && dis == 'new england') {
+                price = 1.28;
+
+            } else if (value == '30x15' && dis == 'boston') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'boston') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'boston') {
+                price = 1.28;
+            } else if (value == '38x23' && dis == 'boston') {
+                price = 1.28;
+
+            } else if (value == '30x15' && dis == 'denver') {
+                price = .80;
+            } else if (value == '30x23' && dis == 'denver') {
+                price = .80;
+            } else if (value == '38x15' && dis == 'denver') {
+                price = 1.25;
+            } else if (value == '38x23' && dis == 'denver') {
+                price = 1.25;
+
+            } else if (value == '30x15' && dis == 'florida') {
+                price = .80;
+            } else if (value == '30x23' && dis == 'florida') {
+                price = .80;
+            } else if (value == '38x15' && dis == 'florida') {
+                price = 1.25;
+            } else if (value == '38x23' && dis == 'florida') {
+                price = 1.25;
+
+            } else if (value == '30x15' && dis == 'jp') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'jp') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'jp') {
+                price = 1.28;
+            } else if (value == '38x23' && dis == 'jp') {
+                price = 1.28;
+
+            } else if (value == '30x15' && dis == 'industrial') {
+                price = .84;
+            } else if (value == '30x23' && dis == 'industrial') {
+                price = .84;
+            } else if (value == '38x15' && dis == 'industrial') {
+                price = 1.30;
+            } else if (value == '38x23' && dis == 'industrial') {
+                price = 1.30;
+
+            } else if (value == '30x15' && dis == 'mp') {
+                price = .80;
+            } else if (value == '30x23' && dis == 'mp') {
+                price = .80;
+            } else if (value == '38x15' && dis == 'mp') {
+                price = 1.23;
+            } else if (value == '38x23' && dis == 'mp') {
+                price = 1.23;
+
+            } else if (value == '30x15' && dis == 'michigan') {
+                price = .84;
+            } else if (value == '30x23' && dis == 'michigan') {
+                price = .84;
+            } else if (value == '38x15' && dis == 'michigan') {
+                price = 1.30;
+            } else if (value == '38x23' && dis == 'michigan') {
+                price = 1.30;
+
+            } else if (value == '30x15' && dis == 'lnw') {
+                price = .84;
+            } else if (value == '30x23' && dis == 'lnw') {
+                price = .84;
+            } else if (value == '38x15' && dis == 'lnw') {
+                price = 1.30;
+            } else if (value == '38x23' && dis == 'lnw') {
+                price = 1.30;
+
+            } else if (value == '30x15' && dis == 'building spokane') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'building spokane') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'building spokane') {
+                price = 1.26;
+            } else if (value == '38x23' && dis == 'building spokane') {
+                price = 1.26;
+
+            } else if (value == '30x15' && dis == 'appalation') {
+                price = .84;
+            } else if (value == '30x23' && dis == 'appalation') {
+                price = .84;
+            } else if (value == '38x15' && dis == 'appalation') {
+                price = 1.30;
+            } else if (value == '38x23' && dis == 'appalation') {
+                price = 1.30;
+
+            } else if (value == '30x15' && dis == 'winroc') {
+                price = .84;
+            } else if (value == '30x23' && dis == 'winroc') {
+                price = .84;
+            } else if (value == '38x15' && dis == 'winroc') {
+                price = 1.30;
+            } else if (value == '38x23' && dis == 'winroc') {
+                price = 1.30;
+
+            } else if (value == '30x23' && dis == 'gypsum') {
+                price = .80;
+            } else if (value == '38x15' && dis == 'gypsum') {
+                price = .80;
+            } else if (value == '38x23' && dis == 'gypsum') {
+                price = 1.26;
+            } else if (value == '38x23' && dis == 'gypsum') {
+                price = 1.26;
+
+            } else if (value == '30x15' && dis == 'accurate') {
+                price = .84;
+            } else if (value == '30x23' && dis == 'accurate') {
+                price = .84;
+            } else if (value == '38x15' && dis == 'accurate') {
+                price = 1.30;
+            } else if (value == '38x23' && dis == 'accurate') {
+                price = 1.30;
+
+            } else if (value == '30x15' && dis == 'api') {
+                price = .84;
+            } else if (value == '30x23' && dis == 'api') {
+                price = .84;
+            } else if (value == '38x15' && dis == 'api') {
+                price = 1.26;
+            } else if (value == '38x23' && dis == 'api') {
+                price = 1.26;
+
+            } else if (value == '30x15' && dis == 'starr') {
+                price = .84;
+            } else if (value == '30x23' && dis == 'starr') {
+                price = .84;
+            } else if (value == '38x15' && dis == 'starr') {
+                price = 1.30;
+            } else if (value == '38x23' && dis == 'starr') {
+                price = 1.30;
+
+            } else if (value == '30x15' && dis == '84 lumber') {
+                price = .84;
+            } else if (value == '30x23' && dis == '84 lumber') {
+                price = .84;
+            } else if (value == '38x15' && dis == '84 lumber') {
+                price = 1.30;
+            } else if (value == '38x23' && dis == '84 lumber') {
+                price = 1.30;
+
+            } else {
+                price = price;
+            }
+
             var price = Math.round(price * multiplier) / multiplier;
             //now make price multiplied to overall sqft.
             var total = overall * price;
@@ -901,6 +1189,20 @@
             case '38x24':
                 sqft1 = "64";
                 break;
+
+                case '30x15':
+                    sqft1 = "56.83";
+                    break;
+                case '30x23':
+                    sqft1 = "79.17";
+                    break;
+                case '38x15':
+                    sqft1 = "41.33";
+                    break;
+                case '38x23':
+                    sqft1 = "63.33";
+                    break;
+
             default:
                 sqft1 = "try different warehouse, or type a different insulation";
                 window.alert("sadly, not yet in system");
@@ -950,6 +1252,20 @@
             case '38x24':
                 sqft2 = "64";
                 break;
+
+                case '30x15':
+                    sqft1 = "50";
+                    break;
+                case '30x23':
+                    sqft1 = "76.67";
+                    break;
+                case '38x15':
+                    sqft1 = "35";
+                    break;
+                case '38x23':
+                    sqft1 = "53.67";
+                    break;
+
             default:
                 sqft2 = "try different warehouse, or type a different insulation";
                 window.alert("sadly, not yet in system");
@@ -999,6 +1315,20 @@
             case '38x24':
                 sqft3 = "72";
                 break;
+
+                case '30x15':
+                    sqft1 = "56.83";
+                    break;
+                case '30x23':
+                    sqft1 = "86.62";
+                    break;
+                case '38x15':
+                    sqft1 = "41.33";
+                    break;
+                case '38x23':
+                    sqft1 = "63.33";
+                    break;
+
             default:
                 sqft3 = "try different warehouse, or type a different insulation";
                 window.alert("sadly, not yet in system");
@@ -1048,6 +1378,20 @@
             case '38x24':
                 sqft4 = "64";
                 break;
+
+                case '30x15':
+                    sqft1 = "55";
+                    break;
+                case '30x23':
+                    sqft1 = "84.33";
+                    break;
+                case '38x15':
+                    sqft1 = "40";
+                    break;
+                case '38x23':
+                    sqft1 = "61.33";
+                    break;
+
             default:
                 sqft4 = "try different warehouse, or type a different insulation";
                 window.alert("sadly, not yet in system");
@@ -1643,6 +1987,228 @@
                 price = price - (price * .03);
             }
 
+            //HD prices :(
+            var price;
+            if (value == '30x15' && dis == 'paragon pacific') {
+                price = .75;
+            } else if (value == '30x23' && dis == 'paragon pacific') {
+                price = .75;
+            } else if (value == '38x15' && dis == 'paragon pacific') {
+                price = 1.17;
+            } else if (value == '38x23' && dis == 'paragon pacific') {
+                price = 1.17;
+
+            } else if (value == '30x15' && dis == 'rocky') {
+                price = .75;
+            } else if (value == '30x23' && dis == 'rocky') {
+                price = .75;
+            } else if (value == '38x15' && dis == 'rocky') {
+                price = 1.11;
+            } else if (value == '38x23' && dis == 'rocky') {
+                price = 1.11;
+
+            } else if (value == '30x15' && dis == 'pacific') {
+                price = .79;
+            } else if (value == '30x23' && dis == 'pacific') {
+                price = .79;
+            } else if (value == '38x15' && dis == 'pacific') {
+                price = 1.19;
+            } else if (value == '38x23' && dis == 'pacific') {
+                price = 1.19;
+
+            } else if (value == '30x15' && dis == 'best') {
+                price = .86;
+            } else if (value == '30x23' && dis == 'best') {
+                price = .86;
+            } else if (value == '38x15' && dis == 'best') {
+                price = 1.07;
+            } else if (value == '38x23' && dis == 'best') {
+                price = 1.07;
+
+            } else if (value == '30x15' && dis == 'idi') {
+                price = .74;
+            } else if (value == '30x23' && dis == 'idi') {
+                price = .74;
+            } else if (value == '38x15' && dis == 'idi') {
+                price = 1.06;
+            } else if (value == '38x23' && dis == 'idi') {
+                price = 1.06;
+
+            } else if (value == '30x15' && dis == 'cardalls') {
+                price = .79;
+            } else if (value == '30x23' && dis == 'cardalls') {
+                price = .79;
+            } else if (value == '38x15' && dis == 'cardalls') {
+                price = 1.19;
+            } else if (value == '38x23' && dis == 'cardalls') {
+                price = 1.19;
+
+            } else if (value == '30x15' && dis == 'specialty') {
+                price = .79;
+            } else if (value == '30x23' && dis == 'specialty') {
+                price = .79;
+            } else if (value == '38x15' && dis == 'specialty') {
+                price = 1.19;
+            } else if (value == '38x23' && dis == 'specialty') {
+                price = 1.19;
+
+            } else if (value == '30x15' && dis == 'bdi') {
+                price = .79;
+            } else if (value == '30x23' && dis == 'bdi') {
+                price = .79;
+            } else if (value == '38x15' && dis == 'bdi') {
+                price = 1.19;
+            } else if (value == '38x23' && dis == 'bdi') {
+                price = 1.19;
+
+            } else if (value == '30x15' && dis == 'boston') {
+                price = .79;
+            } else if (value == '30x23' && dis == 'boston') {
+                price = .79;
+            } else if (value == '38x15' && dis == 'boston') {
+                price = 1.19;
+            } else if (value == '38x23' && dis == 'boston') {
+                price = 1.19;
+
+            } else if (value == '30x15' && dis == 'denver') {
+                price = .78;
+            } else if (value == '30x23' && dis == 'denver') {
+                price = .78;
+            } else if (value == '38x15' && dis == 'denver') {
+                price = 1.21;
+            } else if (value == '38x23' && dis == 'denver') {
+                price = 1.21;
+
+            } else if (value == '30x15' && dis == 'florida') {
+                price = .77;
+            } else if (value == '30x23' && dis == 'florida') {
+                price = .77;
+            } else if (value == '38x15' && dis == 'florida') {
+                price = 1.16;
+            } else if (value == '38x23' && dis == 'florida') {
+                price = 1.16;
+
+            } else if (value == '30x15' && dis == 'jp') {
+                price = .79;
+            } else if (value == '30x23' && dis == 'jp') {
+                price = .79;
+            } else if (value == '38x15' && dis == 'jp') {
+                price = 1.19;
+            } else if (value == '38x23' && dis == 'jp') {
+                price = 1.19;
+
+            } else if (value == '30x15' && dis == 'industrial') {
+                price = .81;
+            } else if (value == '30x23' && dis == 'industrial') {
+                price = .81;
+            } else if (value == '38x15' && dis == 'industrial') {
+                price = 1.21;
+            } else if (value == '38x23' && dis == 'industrial') {
+                price = 1.21;
+
+            } else if (value == '30x15' && dis == 'mp') {
+                price = .77;
+            } else if (value == '30x23' && dis == 'mp') {
+                price = .77;
+            } else if (value == '38x15' && dis == 'mp') {
+                price = 1.15;
+            } else if (value == '38x23' && dis == 'mp') {
+                price = 1.15;
+
+            } else if (value == '30x15' && dis == 'michigan') {
+                price = .81;
+            } else if (value == '30x23' && dis == 'michigan') {
+                price = .81;
+            } else if (value == '38x15' && dis == 'michigan') {
+                price = 1.21;
+            } else if (value == '38x23' && dis == 'michigan') {
+                price = 1.21;
+
+            } else if (value == '30x15' && dis == 'lnw') {
+                price = .81;
+            } else if (value == '30x23' && dis == 'lnw') {
+                price = .81;
+            } else if (value == '38x15' && dis == 'lnw') {
+                price = 1.21;
+            } else if (value == '38x23' && dis == 'lnw') {
+                price = 1.21;
+
+            } else if (value == '30x15' && dis == 'building spokane') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'building spokane') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'building spokane') {
+                price = 1.26;
+            } else if (value == '38x23' && dis == 'building spokane') {
+                price = 1.26;
+
+            } else if (value == '30x15' && dis == 'appalation') {
+                price = .81;
+            } else if (value == '30x23' && dis == 'appalation') {
+                price = .81;
+            } else if (value == '38x15' && dis == 'appalation') {
+                price = 1.21;
+            } else if (value == '38x23' && dis == 'appalation') {
+                price = 1.21;
+
+            } else if (value == '30x15' && dis == 'winroc') {
+                price = .81;
+            } else if (value == '30x23' && dis == 'winroc') {
+                price = .81;
+            } else if (value == '38x15' && dis == 'winroc') {
+                price = 1.21;
+            } else if (value == '38x23' && dis == 'winroc') {
+                price = 1.21;
+
+            } else if (value == '30x23' && dis == 'gypsum') {
+                price = .81;
+            } else if (value == '38x15' && dis == 'gypsum') {
+                price = .81;
+            } else if (value == '38x23' && dis == 'gypsum') {
+                price = 1.21;
+            } else if (value == '38x23' && dis == 'gypsum') {
+                price = 1.21;
+
+            } else if (value == '30x15' && dis == 'accurate') {
+                price = .81;
+            } else if (value == '30x23' && dis == 'accurate') {
+                price = .81;
+            } else if (value == '38x15' && dis == 'accurate') {
+                price = 1.21;
+            } else if (value == '38x23' && dis == 'accurate') {
+                price = 1.21;
+
+            } else if (value == '30x15' && dis == 'api') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'api') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'api') {
+                price = 1.23;
+            } else if (value == '38x23' && dis == 'api') {
+                price = 1.23;
+
+            } else if (value == '30x15' && dis == 'starr') {
+                price = .82;
+            } else if (value == '30x23' && dis == 'starr') {
+                price = .82;
+            } else if (value == '38x15' && dis == 'starr') {
+                price = 1.23;
+            } else if (value == '38x23' && dis == 'starr') {
+                price = 1.23;
+
+            } else if (value == '30x15' && dis == '84 lumber') {
+                price = .81;
+            } else if (value == '30x23' && dis == '84 lumber') {
+                price = .81;
+            } else if (value == '38x15' && dis == '84 lumber') {
+                price = 1.21;
+            } else if (value == '38x23' && dis == '84 lumber') {
+                price = 1.21;
+
+            } else {
+                price = price;
+            }
+
             var price = Math.round(price * multiplier) / multiplier;
             //now make price multiplied to overall sqft.
             var total = overall * price;
@@ -2202,7 +2768,7 @@
         }
 
         function Joke() {
-        window.alert("Really?! I told you not to click here. You're Fired.");
+        window.alert("Gullible Much? You're Fired.");
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------
@@ -2211,8 +2777,8 @@
 
 <body>
     <figure>
-        <img alt='' src='../bidtool.github.io/pics/blueSealLogo300px.png'>3.3
-        <button type="button" onclick="Joke()">Do Not Click</button>
+        <img alt='' src='../bidtool.github.io/pics/blueSealLogo300px.png'>3.4
+        <button type="button" onclick="Joke()">Click Here For Candy</button>
     </figure>
     <h1 class="name">Insulation Quote</h1>
     <p class="wise">Justins Wisdoms: "CAPITALIZATION IS KEY"</p>
@@ -2236,7 +2802,17 @@
         <option value="30x24">30x24</option>
         <option value="38x16">38x16</option>
         <option value="38x24">38x24</option>
+        <option value="30x15">30x15HD</option>
+        <option value="30x23">30x23HD</option>
+        <option value="38x15">38x15HD</option>
+        <option value="38x23">38x23HD</option>
     </select>
+
+
+        <select id="Cath">
+            <option value="0">No</option>
+            <option value='1'>Yes</option>
+        </select>
 
     &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Canada R-value:
     <select id="canadaInsulationValue">
@@ -2246,12 +2822,12 @@
         <option value="10x23">10x23"</option>
         <option value="12x15">12x15"</option>
         <option value="12x19">12x19"</option>
-        <option value="12x23">12x23</option>
+        <option value="12x23">12x23"</option>
         <option value="14x15">14x15"</option>
         <option value="14x23">14x23"</option>
         <option value="20x15">20x15"</option>
         <option value="20x19">20x19"</option>
-        <option value="20x23">20x23</option>
+        <option value="20x23">20x23"</option>
         <option value="22x15">22x15"</option>
         <option value="22x23">22x23"</option>
         <option value="24x16">24x16"</option>
@@ -2293,7 +2869,7 @@
         <option value="jp">Serv. Prtnrs.:Johnson Product,JP</option>
         <option value="industrial">Svc. Ptnrs.:Industrial Product,IP</option>
         <option value="mp">Serv.Ptnrs.: MP</option>
-        <option value="michigan">Mich.</option>
+        <option value="michigan">SP. Michigan</option>
         <option value="building">LnW: Building Specialties</option>
         <option value="lnw">LnW Supply: Building Virginia</option>
         <option value="building spokane">LnW: Building Specialties Spokane</option>
@@ -2306,7 +2882,7 @@
         <option value="84 lumber">84 Lumber</option>
     </select>
 
-    &#160;&#160;&#160;&#160;&#160;&#160;&#160;Canada Province:
+        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Canada Province:
     <select id="province">
         <option value="BC">BC/(British Columbia)</option>
         <option value="BCI">BC/(Island)</option>
@@ -2322,13 +2898,13 @@
         Add Discount?
         <select id="discount">
             <option value="0">No</option>
-            <option value=16>Yes</option>
+            <option value='16'>Yes</option>
         </select>
     <br>
     <br>
     <button type="button" onclick="Kraft()">Kraft Faced</button>
     <button type="button" onclick="Unfaced()">Unfaced</button>
-    <button type="button" style="margin-left:18em;" onclick="Canada()">Canada</button>
+        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<button type="button" style="margin-left:18em;" onclick="Canada()">Canada</button>
     <br>
     <br>
     <div id="canOutput"></div>
