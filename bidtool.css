@@ -7,6 +7,10 @@
     color: dodgerblue;
 }
 
+.yes{ background-color: red; color:white;}
+
+.no{ background-color: green; color:white;}
+
 #Cath {
     display: none;
 }

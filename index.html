@@ -2896,9 +2896,11 @@
     <br> Enter tax:
     <input type="text" id="taxes">
         Add Discount?
-        <select id="discount">
-            <option value="0">No</option>
-            <option value='16'>Yes</option>
+        <select id="discount"
+                onchange='this.className=this.option[this.selectedIndex].className'
+                class='greenText'>
+            <option class='greenText' value="0">No Discount!</option>
+            <option class='redText' value='16'>Yes Discount</option>
         </select>
     <br>
     <br>
