@@ -319,13 +319,13 @@
                 price11 = '.31';
                 break;
             case 'ris':
-                price11 = '.32';
+                price11 = '.31';
                 break;
             case 'cardalls':
                 price11 = '.31';
                 break;
             case 'specialty':
-                price11 = '.33';
+                price11 = '.31';
                 break;
             case 'bdi':
                 price11 = '.31';
@@ -739,7 +739,7 @@
                 price38 = '.91';
                 break;
             case 'ris':
-                price38 = '.95';
+                price38 = '.91';
                 break;
             case 'cardalls':
                 price38 = '.91';
@@ -855,25 +855,25 @@
             var overall = Math.round(overall * multiplier) / multiplier;
             //turn price into a number.
             var price = parseFloat(price);
-
-//otober 2016 changes to take 16% off the price per sf.
+            
+            var price = price + (price * .04);
+            
+            //otober 2016 changes to take 16% off the price per sf.
             var price;
         if (dis == "lnw" || dis == '84 lumber') {
                 price = price - (price * .02);
             } else if (value == "21x15" && bags > 11) {
-                price = price - (price * .07);
+                price = price;
             } else if (value == "21x23" && bags > 11) {
-                    price = price - (price * .07);
+                    price = price;
             } else if (value == '15x15' && bags > 11) {
-                price = price - (price * .07);
+                price = price;
             } else if (value == '15x23' && bags > 11) {
-                price = price - (price * .07);
+                price = price;
             } else if (bags > 11) {
-                price = price - (price * .10);
-            } else if (deal == 16) {
-                price = price - (price * .10);
+                price = price - (price * .05);
             } else {
-                price = price - (price * .02);
+                price = price;
             }
 
             //HD prices :(
@@ -915,13 +915,13 @@
                 price = 1.14;
 
             } else if (value == '30x15' && dis == 'idi') {
-                price = .81;
+                price = .89;
             } else if (value == '30x23' && dis == 'idi') {
-                price = .81;
+                price = .89;
             } else if (value == '38x15' && dis == 'idi') {
-                price = 1.14;
+                price = 1.69;
             } else if (value == '38x23' && dis == 'idi') {
-                price = 1.14;
+                price = 1.69;
 
             } else if (value == '30x15' && dis == 'cardalls') {
                 price = .82;
@@ -1598,13 +1598,13 @@
                 price19 = '.46';
                 break;
             case 'ris':
-                price19 = '.45';
+                price19 = '.46';
                 break;
             case 'cardalls':
                 price19 = '.46';
                 break;
             case 'specialty':
-                price19 = '.43';
+                price19 = '.46';
                 break;
             case 'bdi':
                 price19 = '.46';
@@ -1682,13 +1682,13 @@
                 price21 = '.65';
                 break;
             case 'ris':
-                price21 = '.80';
+                price21 = '.65';
                 break;
             case 'cardalls':
                 price21 = '.65';
                 break;
             case 'specialty':
-                price21 = '.74';
+                price21 = '.65';
                 break;
             case 'bdi':
                 price21 = '.65';
@@ -1850,13 +1850,13 @@
                 price38 = '.88';
                 break;
             case 'ris':
-                price38 = '.89';
+                price38 = '.88';
                 break;
             case 'cardalls':
                 price38 = '.88';
                 break;
             case 'specialty':
-                price38 = '.84';
+                price38 = '.88';
                 break;
             case 'bdi':
                 price38 = '.88';
@@ -1931,7 +1931,7 @@
             } else if (value == "38x16" || value == "38x24") {
                 price = price38;
             } else {
-                price = 0.66;
+                price = 0.60;
             }
 
             var pricetype = price;
@@ -1967,24 +1967,24 @@
             //turn price into a number.
             var price = parseFloat(price);
 
+            var price = price + (price * .04);
+            
             //otober 2016 changes to take 16% off the price per sf.
             var price;
         if (dis == "lnw" || dis == '84 lumber') {
                 price = price - (price * .02);
-            }else if (value == "21x15" && bags > 11) {
-                price = price - (price * .07);
+            } else if (value == "21x15" && bags > 11) {
+                price = price;
             } else if (value == "21x23" && bags > 11) {
-                price = price - (price * .07);
+                    price = price;
             } else if (value == '15x15' && bags > 11) {
-                price = price - (price * .07);
+                price = price;
             } else if (value == '15x23' && bags > 11) {
-                price = price - (price * .07);
+                price = price;
             } else if (bags > 11) {
-                price = price - (price * .10);
-            } else if (deal == 16) {
-                price = price - (price * .10);
+                price = price - (price * .05);
             } else {
-                price = price - (price * .02);
+                price = price;
             }
 
             //HD prices :(
@@ -2026,13 +2026,13 @@
                 price = 1.07;
 
             } else if (value == '30x15' && dis == 'idi') {
-                price = .74;
+                price = .85;
             } else if (value == '30x23' && dis == 'idi') {
-                price = .74;
+                price = .85;
             } else if (value == '38x15' && dis == 'idi') {
-                price = 1.06;
+                price = 1.28;
             } else if (value == '38x23' && dis == 'idi') {
-                price = 1.06;
+                price = 1.28;
 
             } else if (value == '30x15' && dis == 'cardalls') {
                 price = .79;
@@ -2762,9 +2762,11 @@
             var dscnt = Math.round(dscnt * multiplier) / multiplier;
             var nt = Math.round(nt * multiplier) / multiplier;
             var totalwtx = Math.round(totalwtx * multiplier) / multiplier;
-            document.getElementById('canOutput').innerHTML = "R-" + rvalue + "\"" + " (" + squareft + " sq ft in a bag/" + bags + " bags=" + overall + " sq ft)($" + price + ")=$" + total;
+            document.getElementById('canOutput').innerHTML = "Canada quote tool under construction";
+                //"R-" + rvalue + "\"" + " (" + squareft + " sq ft in a bag/" + bags + " bags=" + overall + " sq ft)($" + price + ")=$" + total;
             //show it the discount end.
-            document.getElementById('canNew').innerHTML = canDiscount + "% Promo Discount ($" + dscnt + ")=$" + nt + '<br>' + 'TotalWTX=$' + totalwtx;
+            document.getElementById('canNew').innerHTML = "sorry"
+                //canDiscount + "% Promo Discount ($" + dscnt + ")=$" + nt + '<br>' + 'TotalWTX=$' + totalwtx;
         }
 
         function Joke() {
