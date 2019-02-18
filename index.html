@@ -2064,7 +2064,7 @@
             //turn price into a number.
             var price = parseFloat(price);
 
-            var price = price + (price * .04);
+            //var price = price + (price * .04);
             
             //otober 2016 changes to take 16% off the price per sf.
             //Feb 2019, killed for now this till later when sean wants to bring it back...
@@ -2082,7 +2082,7 @@
             } else if (bags > 11) {
                 price = price;// - (price * .05);
             } else if (deal == 16) {
-                price = price - (price * .05);
+                price = price;// - (price * .05);
             } else {
                 price = price;
             }
