@@ -91,6 +91,13 @@
                 case '38x23':
                     sqft1 = "63.33";
                     break;
+                    
+                case '49x16':
+                    sqft1 = "33";
+                    break;
+                case '49x24':
+                    sqft1 = "42";
+                    break;
 
             default:
                 sqft1 = "try different warehouse, or type a different insulation";
@@ -143,16 +150,23 @@
                 break;
 
                 case '30x15':
-                    sqft1 = "50";
+                    sqft2 = "50";
                     break;
                 case '30x23':
-                    sqft1 = "76.67";
+                    sqft2 = "76.67";
                     break;
                 case '38x15':
-                    sqft1 = "35";
+                    sqft2 = "35";
                     break;
                 case '38x23':
-                    sqft1 = "53.67";
+                    sqft2 = "53.67";
+                    break;
+                    
+                case '49x16':
+                    sqft2 = "33";
+                    break;
+                case '49x24':
+                    sqft2 = "42";
                     break;
 
             default:
@@ -206,16 +220,23 @@
                 break;
 
                 case '30x15':
-                    sqft1 = "56.83";
+                    sqft3 = "56.83";
                     break;
                 case '30x23':
-                    sqft1 = "86.62";
+                    sqft3 = "86.62";
                     break;
                 case '38x15':
-                    sqft1 = "41.33";
+                    sqft3 = "41.33";
                     break;
                 case '38x23':
-                    sqft1 = "63.33";
+                    sqft3 = "63.33";
+                    break;
+                    
+                case '49x16':
+                    sqft3 = "33";
+                    break;
+                case '49x24':
+                    sqft3 = "42";
                     break;
 
             default:
@@ -269,16 +290,23 @@
                 break;
 
                 case '30x15':
-                    sqft1 = "55";
+                    sqft4 = "55";
                     break;
                 case '30x23':
-                    sqft1 = "84.33";
+                    sqft4 = "84.33";
                     break;
                 case '38x15':
-                    sqft1 = "40";
+                    sqft4 = "40";
                     break;
                 case '38x23':
-                    sqft1 = "61.33";
+                    sqft4 = "61.33";
+                    break;
+                    
+                case '49x16':
+                    sqft4 = "33";
+                    break;
+                case '49x24':
+                    sqft4 = "42";
                     break;
 
             default:
@@ -304,37 +332,37 @@
             var price11;
             switch (dis) {
             case 'paragon pacific':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'rocky':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'pacific':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'best':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'idi':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'ris':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'cardalls':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'specialty':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'bdi':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'new england':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'boston':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'denver':
                 price11 = '31';
@@ -343,7 +371,7 @@
                 price11 = '.31';
                 break;
             case 'jp':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'industrial':
                 price11 = '.31';
@@ -358,455 +386,456 @@
                 price11 = '.31';
                 break;
             case 'lnw':
-                price11 = 'not available';
+                price11 = '.33';
                 break;
             case 'building spokane':
                 price11 = 'nope';
                 break;
             case 'appalachian':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'winroc':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'gypsum':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'accurate':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case 'api':
-                price11 = '.31'
+                price11 = '.33'
                 break;
             case 'starr':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             case '84 lumber':
-                price11 = '.31';
+                price11 = '.33';
                 break;
             }
             var price13;
             switch (dis) {
-            case 'paragon pacific':
-                price13 = '.38';
+            case 'paragon pacific': //SPI
+                price13 = '.42';
                 break;
             case 'rocky':
-                price13 = '.38';
+                price13 = '.42';
                 break;
-            case 'pacific':
-                price13 = '.38';
+            case 'pacific':         //DI
+                price13 = '.40';
                 break;
             case 'best':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'idi':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'ris':
-                price13 = '.39';
+                price13 = '.42';
                 break;
             case 'cardalls':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'specialty':
-                price13 = 'none';
+                price13 = '.42';
                 break;
             case 'bdi':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'new england':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'boston':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'denver':
-                price13 = '.38';
+                price13 = '.40';
                 break;
             case 'florida':
-                price13 = '.38';
+                price13 = '.40';
                 break;
             case 'jp':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'industrial':
-                price13 = '.38';
+                price13 = '.40';
                 break;
             case 'mp':
-                price13 = '.38';
+                price13 = '.40';
                 break;
             case 'michigan':
-                price13 = '.38';
+                price13 = '.40';
                 break;
             case 'building':
-                price13 = '.38';
+                price13 = '.40';
                 break;
             case 'lnw':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'building spokane':
-                price13 = 'none';
+                price13 = '.42';
                 break;
             case 'appalachian':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'winroc':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'gypsum':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'accurate':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'api':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case 'starr':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             case '84 lumber':
-                price13 = '.38';
+                price13 = '.42';
                 break;
             }
             var price19;
             switch (dis) {
             case 'paragon pacific':
-                price19 = ".48";
+                price19 = ".53";
                 break;
             case 'rocky':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'pacific':
-                price19 = '.48';
+                price19 = '.51';
                 break;
             case 'best':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'idi':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'ris':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'cardalls':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'specialty':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'bdi':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'new england':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'boston':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'denver':
-                price19 = '.48';
+                price19 = '.50';
                 break;
             case 'florida':
-                price19 = '.48';
+                price19 = '.50';
                 break;
             case 'jp':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'industrial':
-                price19 = '.48';
+                price19 = '.50';
                 break;
             case 'mp':
-                price19 = '.48';
+                price19 = '.50';
                 break;
             case 'michigan':
-                price19 = '.48';
+                price19 = '.50';
                 break;
             case 'building':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'lnw':
-                price19 = '.48';
+                price19 = '.50';
                 break;
             case 'building spokane':
-                price19 = 'none';
+                price19 = '.50';
                 break;
             case 'appalachian':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'winroc':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'gypsum':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'accurate':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'api':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case 'starr':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             case '84 lumber':
-                price19 = '.48';
+                price19 = '.53';
                 break;
             }
             var price21;
             switch (dis) {
             case 'paragon pacific':
-                price21 = ".68";
+                price21 = ".82";
                 break;
             case 'rocky':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'pacific':
-                price21 = '.68';
+                price21 = '.72';
                 break;
             case 'best':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'idi':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'ris':
-                price21 = '.86';
+                price21 = '.82';
                 break;
             case 'cardalls':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'specialty':
-                price21 = '.80';
+                price21 = '.82';
                 break;
             case 'bdi':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'new england':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'boston':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'denver':
-                price21 = '.68';
+                price21 = '.77';
                 break;
             case 'florida':
-                price21 = '.68';
+                price21 = '.77';
                 break;
             case 'jp':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'industrial':
-                price21 = '.68';
+                price21 = '.77';
                 break;
             case 'mp':
-                price21 = '.68';
+                price21 = '.77';
                 break;
             case 'michigan':
-                price21 = '.68';
+                price21 = '.77';
                 break;
             case 'building':
-                price21 = '.68';
+                price21 = '.77';
                 break;
             case 'lnw':
-                price21 = 'none';
+                price21 = '.82';
                 break;
             case 'building spokane':
-                price21 = 'none';
+                price21 = '.82';
                 break;
             case 'appalachian':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'winroc':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'gypsum':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'accurate':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'api':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case 'starr':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             case '84 lumber':
-                price21 = '.68';
+                price21 = '.82';
                 break;
             }
             var price30;
             switch (dis) {
             case 'paragon pacific':
-                price30 = ".74";
+                price30 = ".80";
                 break;
             case 'rocky':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'pacific':
-                price30 = '.74';
-                break;
-            case 'best':
-                price30 = '.74';
-                break;
-            case 'idi':
-                price30 = '.74';
-                break;
-            case 'ris':
-                price30 = '.74';
-                break;
-            case 'cardalls':
-                price30 = '.74';
-                break;
-            case 'specialty':
                 price30 = '.78';
                 break;
+            case 'best':
+                price30 = '.80';
+                break;
+            case 'idi':
+                price30 = '.80';
+                break;
+            case 'ris':
+                price30 = '.80';
+                break;
+            case 'cardalls':
+                price30 = '.80';
+                break;
+            case 'specialty':
+                price30 = '.80';
+                break;
             case 'bdi':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'new england':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'boston':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'denver':
-                price30 = '.74';
+                price30 = '.75';
                 break;
             case 'florida':
-                price30 = '.74';
+                price30 = '.75';
                 break;
             case 'jp':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'industrial':
-                price30 = '.74';
+                price30 = '.75';
                 break;
             case 'mp':
-                price30 = '.74';
+                price30 = '.75';
                 break;
             case 'michigan':
-                price30 = '.74';
+                price30 = '.75';
                 break;
             case 'building':
-                price30 = '.74';
+                price30 = '.75';
                 break;
             case 'lnw':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'building spokane':
-                price30 = 'none';
+                price30 = '.80';
                 break;
             case 'appalachian':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'winroc':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'gypsum':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'accurate':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'api':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case 'starr':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             case '84 lumber':
-                price30 = '.74';
+                price30 = '.80';
                 break;
             }
             var price38;
             switch (dis) {
             case 'paragon pacific':
-                price38 = ".91";
+                price38 = ".99";
                 break;
             case 'rocky':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'pacific':
-                price38 = '.91';
+                price38 = '.96';
                 break;
             case 'best':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'idi':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'ris':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'cardalls':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'specialty':
-                price38 = 'none';
+                price38 = '.99';
                 break;
             case 'bdi':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'new england':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'boston':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'denver':
-                price38 = '.91';
+                price38 = '.93';
                 break;
             case 'florida':
-                price38 = '.91';
+                price38 = '.93';
                 break;
             case 'jp':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'industrial':
-                price38 = '.91';
+                price38 = '.93';
                 break;
             case 'mp':
-                price38 = '.91';
+                price38 = '.93';
                 break;
             case 'michigan':
-                price38 = '.91';
+                price38 = '.93';
                 break;
             case 'building':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'lnw':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'building spokane':
-                price38 = 'none';
+                price38 = '.99';
                 break;
             case 'appalachian':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'winroc':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'gypsum':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'accurate':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'api':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case 'starr':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             case '84 lumber':
-                price38 = '.91';
+                price38 = '.99';
                 break;
             }
+            
             //now take price and mix it with right dis.
-            var price;
+           var price;
             if (value == "11x15" || value == "11x23") {
                 price = price11;
             } else if (value == "13x15" || value == "13x23") {
@@ -822,7 +851,7 @@
             } else {
                 price = .66;
             }
-
+        
             var pricetype = price;
 
             //now find the home depot price per square foot.
@@ -842,6 +871,7 @@
             } else {
                 hdPrice = "something went wrong";
             }
+            
             //now calculate how many bags based on overall square feet given and overall square feet they will get
             var bags = amount / sqft;
             //make number smaller.
@@ -856,12 +886,14 @@
             //turn price into a number.
             var price = parseFloat(price);
             
-            var price = price + (price * .04);
+            //var price = price + (price * .04);
             
-            //otober 2016 changes to take 16% off the price per sf.
+            // otober 2016 changes to take 16% off the price per sf.
+            // Note: in Feb 2019 I changed these to be useless, but 
+            //left them incase sean wants to start another discount system in the future
             var price;
         if (dis == "lnw" || dis == '84 lumber') {
-                price = price - (price * .02);
+                price = price;
             } else if (value == "21x15" && bags > 11) {
                 price = price;
             } else if (value == "21x23" && bags > 11) {
@@ -871,59 +903,61 @@
             } else if (value == '15x23' && bags > 11) {
                 price = price;
             } else if (bags > 11) {
-                price = price - (price * .05);
+                price = price;
             } else if (deal == 16) {
-                price = price - (price * .05);
+                price = price;
             } else {
                 price = price;
             }
 
-            //cathedral prices :(
+            //cathedral prices :( 
+            //SPI FBM
             var price;
             if (value == '30x15' && dis == 'paragon pacific') {
-                price = .80;
+                price = .93;
             } else if (value == '30x23' && dis == 'paragon pacific') {
-                price = .80;
+                price = .93;
             } else if (value == '38x15' && dis == 'paragon pacific') {
-                price = 1.26;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'paragon pacific') {
-                price = 1.26;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'rocky') {
-                price = .78;
+                price = .93;
             } else if (value == '30x23' && dis == 'rocky') {
-                price = .78;
+                price = .93;
             } else if (value == '38x15' && dis == 'rocky') {
-                price = 1.27;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'rocky') {
-                price = 1.27;
+                price = 1.41;
 
+                //DI
             } else if (value == '30x15' && dis == 'pacific') {
-                price = .82;
+                price = .87;
             } else if (value == '30x23' && dis == 'pacific') {
-                price = .82;
+                price = .87;
             } else if (value == '38x15' && dis == 'pacific') {
-                price = 1.28;
+                price = 1.36;
             } else if (value == '38x23' && dis == 'pacific') {
-                price = 1.28;
+                price = 1.36;
 
             } else if (value == '30x15' && dis == 'best') {
-                price = .89;
+                price = .93;
             } else if (value == '30x23' && dis == 'best') {
-                price = .89;
+                price = .93;
             } else if (value == '38x15' && dis == 'best') {
-                price = 1.14;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'best') {
-                price = 1.14;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'idi') {
-                price = .89;
+                price = .93;
             } else if (value == '30x23' && dis == 'idi') {
-                price = .89;
+                price = .93;
             } else if (value == '38x15' && dis == 'idi') {
-                price = 1.69;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'idi') {
-                price = 1.69;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'cardalls') {
                 price = .82;
@@ -935,184 +969,188 @@
                 price = 1.28;
 
             } else if (value == '30x15' && dis == 'specialty') {
-                price = .82;
+                price = .93;
             } else if (value == '30x23' && dis == 'specialty') {
-                price = .82;
+                price = .93;
             } else if (value == '38x15' && dis == 'specialty') {
-                price = 1.28;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'specialty') {
-                price = 1.28;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'bdi') {
-                price = .82;
+                price = .93;
             } else if (value == '30x23' && dis == 'bdi') {
-                price = .82;
+                price = .93;
             } else if (value == '38x15' && dis == 'bdi') {
-                price = 1.28;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'bdi') {
-                price = 1.28;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'new england') {
-                price = .82;
+                price = .93;
             } else if (value == '30x23' && dis == 'new england') {
-                price = .82;
+                price = .93;
             } else if (value == '38x15' && dis == 'new england') {
-                price = 1.28;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'new england') {
-                price = 1.28;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'boston') {
-                price = .82;
+                price = .93;
             } else if (value == '30x23' && dis == 'boston') {
-                price = .82;
+                price = .93;
             } else if (value == '38x15' && dis == 'boston') {
-                price = 1.28;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'boston') {
-                price = 1.28;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'denver') {
-                price = .80;
+                price = .88;
             } else if (value == '30x23' && dis == 'denver') {
-                price = .80;
+                price = .88;
             } else if (value == '38x15' && dis == 'denver') {
-                price = 1.25;
+                price = 1.33;
             } else if (value == '38x23' && dis == 'denver') {
-                price = 1.25;
+                price = 1.33;
 
             } else if (value == '30x15' && dis == 'florida') {
-                price = .80;
+                price = .88;
             } else if (value == '30x23' && dis == 'florida') {
-                price = .80;
+                price = .88;
             } else if (value == '38x15' && dis == 'florida') {
-                price = 1.25;
+                price = 1.33;
             } else if (value == '38x23' && dis == 'florida') {
-                price = 1.25;
+                price = 1.33;
 
             } else if (value == '30x15' && dis == 'jp') {
-                price = .82;
+                price = .93;
             } else if (value == '30x23' && dis == 'jp') {
-                price = .82;
+                price = .93;
             } else if (value == '38x15' && dis == 'jp') {
-                price = 1.28;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'jp') {
-                price = 1.28;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'industrial') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == 'industrial') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == 'industrial') {
-                price = 1.30;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'industrial') {
-                price = 1.30;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'mp') {
-                price = .80;
+                price = .93;
             } else if (value == '30x23' && dis == 'mp') {
-                price = .80;
+                price = .93;
             } else if (value == '38x15' && dis == 'mp') {
-                price = 1.23;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'mp') {
-                price = 1.23;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'michigan') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == 'michigan') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == 'michigan') {
-                price = 1.30;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'michigan') {
-                price = 1.30;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'lnw') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == 'lnw') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == 'lnw') {
-                price = 1.30;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'lnw') {
-                price = 1.30;
+                price = 1.41;
                 
             } else if (value == '30x15' && dis == 'building') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == 'building') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == 'building') {
-                price = 1.30;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'building') {
-                price = 1.30;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'building spokane') {
-                price = .82;
+                price = .93;
             } else if (value == '30x23' && dis == 'building spokane') {
-                price = .82;
+                price = .93;
             } else if (value == '38x15' && dis == 'building spokane') {
-                price = 1.26;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'building spokane') {
-                price = 1.26;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'appalation') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == 'appalation') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == 'appalation') {
-                price = 1.30;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'appalation') {
-                price = 1.30;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'winroc') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == 'winroc') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == 'winroc') {
-                price = 1.30;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'winroc') {
-                price = 1.30;
+                price = 1.41;
 
             } else if (value == '30x23' && dis == 'gypsum') {
-                price = .80;
+                price = .93;
             } else if (value == '38x15' && dis == 'gypsum') {
-                price = .80;
+                price = .93;
             } else if (value == '38x23' && dis == 'gypsum') {
-                price = 1.26;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'gypsum') {
-                price = 1.26;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'accurate') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == 'accurate') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == 'accurate') {
-                price = 1.30;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'accurate') {
-                price = 1.30;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'api') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == 'api') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == 'api') {
-                price = 1.26;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'api') {
-                price = 1.26;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'starr') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == 'starr') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == 'starr') {
-                price = 1.30;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'starr') {
-                price = 1.30;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == '84 lumber') {
-                price = .84;
+                price = .93;
             } else if (value == '30x23' && dis == '84 lumber') {
-                price = .84;
+                price = .93;
             } else if (value == '38x15' && dis == '84 lumber') {
-                price = 1.30;
+                price = 1.41;
             } else if (value == '38x23' && dis == '84 lumber') {
-                price = 1.30;
+                price = 1.41;
+            } else if (value == '49x16') {
+                price = 1.53;
+            } else if (value == '49x24') {
+                price = 1.53;
 
             } else {
                 price = price;
@@ -1138,10 +1176,12 @@
             var hd = Math.round(hd * multiplier) / multiplier;
             var price = price.toFixed(2);
             var total = total.toFixed(2);
+            
             //show the end without tax n discount.
             document.getElementById('output').innerHTML = "R-" + value + "\"" + " Kraft Faced " + "(" + sqft + " sq ft in a bag" + "/" + bags + " bags" + "=" + overall + " sq ft" + ")" + "(" + "$" + price + ")" + "=$" + total;
             //show it the discount end.
             document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '---------';
+            
             //(took this out, but am leaving j.i.c.)document.getElementById('new').innerHTML =deal+"% Promo Discount"+" (-$"+dscnt+")"+"= $"+nt;
             //total with tax.
           //  document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '----------' + '<br/>' + 'The average Home Depot and retail price for the same R-' + value + ' precut batts are $' + hdPrice + ' per square foot. We dropped yours to $' + price + ' per square foot. Your total estimated savings is $' + hd + '<br/>' + '<br/>' + '<br/>';
@@ -1213,6 +1253,13 @@
                 case '38x23':
                     sqft1 = "63.33";
                     break;
+                    
+                case '49x16':
+                    sqft4 = "33";
+                    break;
+                case '49x24':
+                    sqft4 = "42";
+                    break;
 
             default:
                 sqft1 = "try different warehouse, or type a different insulation";
@@ -1275,6 +1322,13 @@
                     break;
                 case '38x23':
                     sqft1 = "53.67";
+                    break;
+                    
+                case '49x16':
+                    sqft4 = "33";
+                    break;
+                case '49x24':
+                    sqft4 = "42";
                     break;
 
             default:
@@ -1339,6 +1393,13 @@
                 case '38x23':
                     sqft1 = "63.33";
                     break;
+                    
+                case '49x16':
+                    sqft4 = "33";
+                    break;
+                case '49x24':
+                    sqft4 = "42";
+                    break;
 
             default:
                 sqft3 = "try different warehouse, or type a different insulation";
@@ -1401,6 +1462,13 @@
                     break;
                 case '38x23':
                     sqft1 = "61.33";
+                    break;
+                    
+                case '49x16':
+                    sqft4 = "33";
+                    break;
+                case '49x24':
+                    sqft4 = "42";
                     break;
 
             default:
@@ -1927,6 +1995,16 @@
                 price38 = '.88';
                 break;
             }
+            
+            //Feb 2019
+            // I bypassed all this stuff to make life easier for now, since sean wants all pricing identical accross the board till later!
+            var price11 = '.31';
+            var price13 = '.40';
+            var price19 = '.51';
+            var price21 = '.76';
+            var price30 = '.76';
+            var price38 = '.92';
+            
             //now take price and mix it with right dis.
             var price;
             if (value == "11x15" || value == "11x23") {
@@ -1941,6 +2019,13 @@
                 price = price30;
             } else if (value == "38x16" || value == "38x24") {
                 price = price38;
+            } else if (value == "49x16") {
+                price = '1.42';
+                sqft = '33';
+            } else if (value == "49x24") {
+                price = '1.42';
+                sqft = '42';
+                
             } else {
                 price = 0.60;
             }
@@ -1964,6 +2049,7 @@
             } else {
                 hdPrice = "something went wrong";
             }
+            
             //now calculate how many bags based on overall square feet given and overall square feet they will get
             var bags = amount / sqft;
             //make number smaller.
@@ -1981,9 +2067,10 @@
             var price = price + (price * .04);
             
             //otober 2016 changes to take 16% off the price per sf.
+            //Feb 2019, killed for now this till later when sean wants to bring it back...
             var price;
         if (dis == "lnw" || dis == '84 lumber') {
-                price = price - (price * .02);
+                price = price; //- (price * .02);
             } else if (value == "21x15" && bags > 11) {
                 price = price;
             } else if (value == "21x23" && bags > 11) {
@@ -1993,7 +2080,7 @@
             } else if (value == '15x23' && bags > 11) {
                 price = price;
             } else if (bags > 11) {
-                price = price - (price * .05);
+                price = price;// - (price * .05);
             } else if (deal == 16) {
                 price = price - (price * .05);
             } else {
@@ -2003,229 +2090,235 @@
             //Cathedral prices :(
             var price;
             if (value == '30x15' && dis == 'paragon pacific') {
-                price = .75;
+                price = .93;
             } else if (value == '30x23' && dis == 'paragon pacific') {
-                price = .75;
+                price = .93;
             } else if (value == '38x15' && dis == 'paragon pacific') {
-                price = 1.17;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'paragon pacific') {
-                price = 1.17;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'rocky') {
-                price = .75;
+                price = .93;
             } else if (value == '30x23' && dis == 'rocky') {
-                price = .75;
+                price = .93;
             } else if (value == '38x15' && dis == 'rocky') {
-                price = 1.11;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'rocky') {
-                price = 1.11;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'pacific') {
-                price = .79;
+                price = .93;
             } else if (value == '30x23' && dis == 'pacific') {
-                price = .79;
+                price = .93;
             } else if (value == '38x15' && dis == 'pacific') {
-                price = 1.19;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'pacific') {
-                price = 1.19;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'best') {
-                price = .86;
+                price = .93;
             } else if (value == '30x23' && dis == 'best') {
-                price = .86;
+                price = .93;
             } else if (value == '38x15' && dis == 'best') {
-                price = 1.07;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'best') {
-                price = 1.07;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'idi') {
-                price = .85;
+                price = .93;
             } else if (value == '30x23' && dis == 'idi') {
-                price = .85;
+                price = .93;
             } else if (value == '38x15' && dis == 'idi') {
-                price = 1.28;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'idi') {
-                price = 1.28;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'cardalls') {
-                price = .79;
+                price = .93;
             } else if (value == '30x23' && dis == 'cardalls') {
-                price = .79;
+                price = .93;
             } else if (value == '38x15' && dis == 'cardalls') {
-                price = 1.19;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'cardalls') {
-                price = 1.19;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'specialty') {
-                price = .79;
+                price = .93;
             } else if (value == '30x23' && dis == 'specialty') {
-                price = .79;
+                price = .93;
             } else if (value == '38x15' && dis == 'specialty') {
-                price = 1.19;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'specialty') {
-                price = 1.19;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'bdi') {
-                price = .79;
+                price = .93;
             } else if (value == '30x23' && dis == 'bdi') {
-                price = .79;
+                price = .93;
             } else if (value == '38x15' && dis == 'bdi') {
-                price = 1.19;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'bdi') {
-                price = 1.19;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'boston') {
-                price = .79;
+                price = .93;
             } else if (value == '30x23' && dis == 'boston') {
-                price = .79;
+                price = .93;
             } else if (value == '38x15' && dis == 'boston') {
-                price = 1.19;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'boston') {
-                price = 1.19;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'denver') {
-                price = .78;
+                price = .93;
             } else if (value == '30x23' && dis == 'denver') {
-                price = .78;
+                price = .93;
             } else if (value == '38x15' && dis == 'denver') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'denver') {
-                price = 1.21;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'florida') {
-                price = .77;
+                price = .93;
             } else if (value == '30x23' && dis == 'florida') {
-                price = .77;
+                price = .93;
             } else if (value == '38x15' && dis == 'florida') {
-                price = 1.16;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'florida') {
-                price = 1.16;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'jp') {
-                price = .79;
+                price = .93;
             } else if (value == '30x23' && dis == 'jp') {
-                price = .79;
+                price = .93;
             } else if (value == '38x15' && dis == 'jp') {
-                price = 1.19;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'jp') {
-                price = 1.19;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'industrial') {
-                price = .81;
+                price = .93;
             } else if (value == '30x23' && dis == 'industrial') {
-                price = .81;
+                price = .93;
             } else if (value == '38x15' && dis == 'industrial') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'industrial') {
-                price = 1.21;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'mp') {
-                price = .77;
+                price = .93;
             } else if (value == '30x23' && dis == 'mp') {
-                price = .77;
+                price = .93;
             } else if (value == '38x15' && dis == 'mp') {
-                price = 1.15;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'mp') {
-                price = 1.15;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'michigan') {
-                price = .81;
+                price = .93;
             } else if (value == '30x23' && dis == 'michigan') {
-                price = .81;
+                price = .93;
             } else if (value == '38x15' && dis == 'michigan') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'michigan') {
-                price = 1.21;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'lnw') {
-                price = .81;
+                price = .93;
             } else if (value == '30x23' && dis == 'lnw') {
-                price = .81;
+                price = .93;
             } else if (value == '38x15' && dis == 'lnw') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'lnw') {
-                price = 1.21;
+                price = 1.41;
                 
             } else if (value == '30x15' && dis == 'building') {
-                price = .81;
+                price = .93;
             } else if (value == '30x23' && dis == 'building') {
-                price = .81;
+                price = .93;
             } else if (value == '38x15' && dis == 'building') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'building') {
-                price = 1.21;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'building spokane') {
-                price = .82;
+                price = .93;
             } else if (value == '30x23' && dis == 'building spokane') {
-                price = .82;
+                price = .93;
             } else if (value == '38x15' && dis == 'building spokane') {
-                price = 1.26;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'building spokane') {
-                price = 1.26;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'appalation') {
-                price = .81;
+                price = .93;
             } else if (value == '30x23' && dis == 'appalation') {
-                price = .81;
+                price = .93;
             } else if (value == '38x15' && dis == 'appalation') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'appalation') {
-                price = 1.21;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'winroc') {
-                price = .81;
+                price = .93;
             } else if (value == '30x23' && dis == 'winroc') {
-                price = .81;
+                price = .93;
             } else if (value == '38x15' && dis == 'winroc') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'winroc') {
-                price = 1.21;
+                price = 1.41;
 
             } else if (value == '30x23' && dis == 'gypsum') {
-                price = .81;
+                price = .93;
             } else if (value == '38x15' && dis == 'gypsum') {
-                price = .81;
+                price = .93;
             } else if (value == '38x23' && dis == 'gypsum') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'gypsum') {
-                price = 1.21;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'accurate') {
-                price = .81;
+                price = .93;
             } else if (value == '30x23' && dis == 'accurate') {
-                price = .81;
+                price = .93;
             } else if (value == '38x15' && dis == 'accurate') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'accurate') {
-                price = 1.21;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'api') {
-                price = .82;
+                price = .93;
             } else if (value == '30x23' && dis == 'api') {
-                price = .82;
+                price = .93;
             } else if (value == '38x15' && dis == 'api') {
-                price = 1.23;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'api') {
-                price = 1.23;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == 'starr') {
-                price = .82;
+                price = .93;
             } else if (value == '30x23' && dis == 'starr') {
-                price = .82;
+                price = .93;
             } else if (value == '38x15' && dis == 'starr') {
-                price = 1.23;
+                price = 1.41;
             } else if (value == '38x23' && dis == 'starr') {
-                price = 1.23;
+                price = 1.41;
 
             } else if (value == '30x15' && dis == '84 lumber') {
-                price = .81;
+                price = .93;
             } else if (value == '30x23' && dis == '84 lumber') {
-                price = .81;
+                price = .93;
             } else if (value == '38x15' && dis == '84 lumber') {
-                price = 1.21;
+                price = 1.41;
             } else if (value == '38x23' && dis == '84 lumber') {
-                price = 1.21;
+                price = 1.41;
+            } else if (value == '49x16') {
+                price = 1.42;
+                sqft = 33;
+            } else if (value == '49x24') {
+                price = 1.42;
+                sqft = 42;
 
             } else {
                 price = price;
@@ -2255,6 +2348,8 @@
             document.getElementById('output').innerHTML = "R-" + value + "\"" + " Unfaced " + "(" + sqft + " sq ft in a bag" + "/" + bags + " bags" + "=" + overall + " sq ft" + ")" + "(" + "$" + price + ")" + "=$" + total;
             //show it the discount end.
             document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '---------';
+            
+            
             //document.getElementById('new').innerHTML =deal+"% Promo Discount "+"($"+dscnt+")"+"=$"+nt;
             //total with tax.
            // document.getElementById('withtax').innerHTML = "TotalWtx=" + "$" + last + '<br/>' + '---------' + '<br/>' + 'The average Home Depot and retail price for the same R-' + value + ' precut batts are $' + hdPrice + ' per square foot. We dropped yours to $' + price + ' per square foot. Your total estimated savings is $' + hd + '<br/>' + '<br/>' + '<br/>';
@@ -2792,7 +2887,14 @@
         }
 
         function Joke() {
-        window.alert("Gullible Much? You're Fired.");
+            //window.open();
+            
+            // Rotate page 180
+['', '-ms-', '-webkit-', '-o-', '-moz-'].map(function(prefix){
+	document.body.style[prefix + 'transform'] = 'rotate(180deg)';
+});
+            
+       // window.alert("Gullible Much? You're Fired.");
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------
@@ -2801,8 +2903,12 @@
 
 <body>
     <figure>
-        <img alt='' src='../bidtool.github.io/pics/blueSealLogo300px.png'>3.8
-        <button type="button" onclick="Joke()">Click Here For Candy</button>
+        <img alt='' src='../bidtool.github.io/pics/blueSealLogo300px.png'>3.
+        
+         <button type="button" onclick="Joke()">Clicking this button will probably annoy you.</button>
+
+
+        
     </figure>
     <h1 class="name">Insulation Quote</h1>
     <p class="wise">Justins Wisdoms: "CAPITALIZATION IS KEY"</p>
@@ -2826,6 +2932,8 @@
         <option value="30x24">30x24</option>
         <option value="38x16">38x16</option>
         <option value="38x24">38x24</option>
+        <option value="49x16">49x16</option>
+        <option value="49x24">49x24</option>
         <option value="30x15">30x15HD</option>
         <option value="30x23">30x23HD</option>
         <option value="38x15">38x15HD</option>
@@ -2919,7 +3027,7 @@
     <br>
     <br> Enter tax:
     <input type="text" id="taxes">
-        Add Discount?
+        Add Discount? (this action currently disabled)
         <select id="discount"
                 onchange='this.className=this.options[this.selectedIndex].className'
                 class='greenText'>
