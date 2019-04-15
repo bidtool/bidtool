@@ -34,6 +34,7 @@
             var tax = parseFloat(document.getElementById('taxes').value);
             var Cath = document.getElementById('Cath').value;
             //get the location type of insulation from corresponding warehouse.
+            //owens
             var sqft1;
             switch (value) {
             case '11x15':
@@ -96,7 +97,7 @@
                     sqft1 = "33";
                     break;
                 case '49x24':
-                    sqft1 = "42";
+                    sqft1 = "48";
                     break;
 
             default:
@@ -104,6 +105,7 @@
                 window.alert("sadly, not yet in system");
                 break;
             }
+            //ct
             var sqft2;
             switch (value) {
             case '11x15':
@@ -166,7 +168,7 @@
                     sqft2 = "33";
                     break;
                 case '49x24':
-                    sqft2 = "42";
+                    sqft2 = "48";
                     break;
 
             default:
@@ -174,6 +176,7 @@
                 window.alert("sadly, not yet in system");
                 break;
             }
+            //johns
             var sqft3;
             switch (value) {
             case '11x15':
@@ -201,10 +204,10 @@
                 sqft3 = "133.68";
                 break;
             case '21x15':
-                sqft3 = "77.5";
+                sqft3 = "67.81";
                 break;
             case '21x23':
-                sqft3 = "118.83";
+                sqft3 = "103.97";
                 break;
             case '30x16':
                 sqft3 = "58.66";
@@ -236,7 +239,7 @@
                     sqft3 = "33";
                     break;
                 case '49x24':
-                    sqft3 = "42";
+                    sqft3 = "48";
                     break;
 
             default:
@@ -244,6 +247,7 @@
                 window.alert("sadly, not yet in system");
                 break;
             }
+            //knauf
             var sqft4;
             switch (value) {
             case '11x15':
@@ -306,7 +310,7 @@
                     sqft4 = "33";
                     break;
                 case '49x24':
-                    sqft4 = "42";
+                    sqft4 = "48";
                     break;
 
             default:
@@ -495,6 +499,91 @@
                 break;
             case '84 lumber':
                 price13 = '.42';
+                break;
+            }
+            
+            var price15;
+            switch (dis) {
+            case 'paragon pacific': //SPI
+                price15 = '.74';
+                break;
+            case 'rocky':
+                price15 = '.74';
+                break;
+            case 'pacific':         //DI
+                price15 = '.70';
+                break;
+            case 'best':
+                price15 = '.74';
+                break;
+            case 'idi':
+                price15 = '.74';
+                break;
+            case 'ris':
+                price15 = '.74';
+                break;
+            case 'cardalls':
+                price15 = '.74';
+                break;
+            case 'specialty':
+                price15 = '.74';
+                break;
+            case 'bdi':
+                price15 = '.74';
+                break;
+            case 'new england':
+                price15 = '.74';
+                break;
+            case 'boston':
+                price15 = '.74';
+                break;
+            case 'denver':
+                price15 = '.74';
+                break;
+            case 'florida':
+                price15 = '.74';
+                break;
+            case 'jp':
+                price15 = '.74';
+                break;
+            case 'industrial':
+                price15 = '.74';
+                break;
+            case 'mp':
+                price15 = '.74';
+                break;
+            case 'michigan':
+                price15 = '.74';
+                break;
+            case 'building':
+                price15 = '.74';
+                break;
+            case 'lnw':
+                price15 = '.74';
+                break;
+            case 'building spokane':
+                price15 = '.74';
+                break;
+            case 'appalachian':
+                price15 = '.74';
+                break;
+            case 'winroc':
+                price15 = '.74';
+                break;
+            case 'gypsum':
+                price15 = '.74';
+                break;
+            case 'accurate':
+                price15 = '.74';
+                break;
+            case 'api':
+                price15 = '.74';
+                break;
+            case 'starr':
+                price15 = '.74';
+                break;
+            case '84 lumber':
+                price15 = '.74';
                 break;
             }
             var price19;
@@ -840,6 +929,8 @@
                 price = price11;
             } else if (value == "13x15" || value == "13x23") {
                 price = price13;
+            } else if (value == "15x15" || value == "15x23") {
+                price = price15;
             } else if (value == "19x15" || value == "19x23") {
                 price = price19;
             } else if (value == "21x15" || value == "21x23") {
@@ -1196,6 +1287,7 @@
             var deal = parseFloat(document.getElementById('discount').value);
             var tax = parseFloat(document.getElementById('taxes').value);
             //get the location type of insulation from corresponding warehouse.
+            //owens
             var sqft1;
             switch (value) {
             case '11x15':
@@ -1255,10 +1347,10 @@
                     break;
                     
                 case '49x16':
-                    sqft4 = "33";
+                    sqft1 = "33";
                     break;
                 case '49x24':
-                    sqft4 = "42";
+                    sqft1 = "48";
                     break;
 
             default:
@@ -1266,6 +1358,7 @@
                 window.alert("sadly, not yet in system");
                 break;
             }
+            //ct
             var sqft2;
             switch (value) {
             case '11x15':
@@ -1312,23 +1405,23 @@
                 break;
 
                 case '30x15':
-                    sqft1 = "50";
+                    sqft2 = "50";
                     break;
                 case '30x23':
-                    sqft1 = "76.67";
+                    sqft2 = "76.67";
                     break;
                 case '38x15':
-                    sqft1 = "35";
+                    sqft2 = "35";
                     break;
                 case '38x23':
-                    sqft1 = "53.67";
+                    sqft2 = "53.67";
                     break;
                     
                 case '49x16':
-                    sqft4 = "33";
+                    sqft2 = "33";
                     break;
                 case '49x24':
-                    sqft4 = "42";
+                    sqft2 = "42";
                     break;
 
             default:
@@ -1336,6 +1429,7 @@
                 window.alert("sadly, not yet in system");
                 break;
             }
+            //johns
             var sqft3;
             switch (value) {
             case '11x15':
@@ -1363,7 +1457,7 @@
                 sqft3 = "133.68";
                 break;
             case '21x15':
-                sqft3 = "77.5";
+                sqft3 = "67.81";
                 break;
             case '21x23':
                 sqft3 = "103.97";
@@ -1382,23 +1476,23 @@
                 break;
 
                 case '30x15':
-                    sqft1 = "56.83";
+                    sqft3 = "56.83";
                     break;
                 case '30x23':
-                    sqft1 = "86.62";
+                    sqft3 = "86.62";
                     break;
                 case '38x15':
-                    sqft1 = "41.33";
+                    sqft3 = "41.33";
                     break;
                 case '38x23':
-                    sqft1 = "63.33";
+                    sqft3 = "63.33";
                     break;
                     
                 case '49x16':
-                    sqft4 = "33";
+                    sqft3 = "33";
                     break;
                 case '49x24':
-                    sqft4 = "42";
+                    sqft3 = "48";
                     break;
 
             default:
@@ -1406,6 +1500,7 @@
                 window.alert("sadly, not yet in system");
                 break;
             }
+            //knauf
             var sqft4;
             switch (value) {
             case '11x15':
@@ -1452,23 +1547,23 @@
                 break;
 
                 case '30x15':
-                    sqft1 = "55";
+                    sqft4 = "55";
                     break;
                 case '30x23':
-                    sqft1 = "84.33";
+                    sqft4 = "84.33";
                     break;
                 case '38x15':
-                    sqft1 = "40";
+                    sqft4 = "40";
                     break;
                 case '38x23':
-                    sqft1 = "61.33";
+                    sqft4 = "61.33";
                     break;
                     
                 case '49x16':
                     sqft4 = "33";
                     break;
                 case '49x24':
-                    sqft4 = "42";
+                    sqft4 = "48";
                     break;
 
             default:
@@ -1584,7 +1679,7 @@
                 price13 = '.37';
                 break;
             case 'pacific':
-                price13 = '.37';
+                price13 = '.39';
                 break;
             case 'best':
                 price13 = '.37';
@@ -1659,6 +1754,92 @@
                 price13 = '.37';
                 break;
             }
+            
+            var price15;
+            switch (dis) {
+            case 'paragon pacific': //SPI
+                price15 = '.68';
+                break;
+            case 'rocky':
+                price15 = '.68';
+                break;
+            case 'pacific':         //DI
+                price15 = '.68';
+                break;
+            case 'best':
+                price15 = '.68';
+                break;
+            case 'idi':
+                price15 = '.68';
+                break;
+            case 'ris':
+                price15 = '.68';
+                break;
+            case 'cardalls':
+                price15 = '.68';
+                break;
+            case 'specialty':
+                price15 = '.68';
+                break;
+            case 'bdi':
+                price15 = '.68';
+                break;
+            case 'new england':
+                price15 = '.68';
+                break;
+            case 'boston':
+                price15 = '.68';
+                break;
+            case 'denver':
+                price15 = '.68';
+                break;
+            case 'florida':
+                price15 = '.68';
+                break;
+            case 'jp':
+                price15 = '.68';
+                break;
+            case 'industrial':
+                price15 = '.68';
+                break;
+            case 'mp':
+                price15 = '.68';
+                break;
+            case 'michigan':
+                price15 = '.68';
+                break;
+            case 'building':
+                price15 = '.68';
+                break;
+            case 'lnw':
+                price15 = '.68';
+                break;
+            case 'building spokane':
+                price15 = '.68';
+                break;
+            case 'appalachian':
+                price15 = '.68';
+                break;
+            case 'winroc':
+                price15 = '.68';
+                break;
+            case 'gypsum':
+                price15 = '.68';
+                break;
+            case 'accurate':
+                price15 = '.68';
+                break;
+            case 'api':
+                price15 = '.68';
+                break;
+            case 'starr':
+                price15 = '.68';
+                break;
+            case '84 lumber':
+                price15 = '.68';
+                break;
+            }
+            
             var price19;
             switch (dis) {
             case 'paragon pacific':
@@ -2010,7 +2191,9 @@
             if (value == "11x15" || value == "11x23") {
                 price = price11;
             } else if (value == "13x15" || value == "13x23") {
-                price = price13;
+                price = ".39";
+            } else if (value == "15x15" || value == "15x23") {
+                price = price15;
             } else if (value == "19x15" || value == "19x23") {
                 price = price19;
             } else if (value == "21x15" || value == "21x23") {
@@ -2024,7 +2207,7 @@
                 sqft = '33';
             } else if (value == "49x24") {
                 price = '1.42';
-                sqft = '42';
+                sqft = '48';
                 
             } else {
                 price = 0.60;
@@ -2126,13 +2309,13 @@
                 price = 1.41;
 
             } else if (value == '30x15' && dis == 'idi') {
-                price = .93;
+                price = .91;
             } else if (value == '30x23' && dis == 'idi') {
-                price = .93;
+                price = .91;
             } else if (value == '38x15' && dis == 'idi') {
-                price = 1.41;
+                price = 1.38;
             } else if (value == '38x23' && dis == 'idi') {
-                price = 1.41;
+                price = 1.38;
 
             } else if (value == '30x15' && dis == 'cardalls') {
                 price = .93;
@@ -2261,13 +2444,13 @@
                 price = 1.41;
 
             } else if (value == '30x15' && dis == 'winroc') {
-                price = .93;
+                price = .91;
             } else if (value == '30x23' && dis == 'winroc') {
-                price = .93;
+                price = .91;
             } else if (value == '38x15' && dis == 'winroc') {
-                price = 1.41;
+                price = 1.38;
             } else if (value == '38x23' && dis == 'winroc') {
-                price = 1.41;
+                price = 1.38;
 
             } else if (value == '30x23' && dis == 'gypsum') {
                 price = .93;
@@ -2318,7 +2501,7 @@
                 sqft = 33;
             } else if (value == '49x24') {
                 price = 1.42;
-                sqft = 42;
+                sqft = 48;
 
             } else {
                 price = price;
@@ -2903,7 +3086,7 @@
 
 <body>
     <figure>
-        <img alt='' src='../bidtool.github.io/pics/blueSealLogo300px.png'>3.9
+        <img alt='' src='../bidtool.github.io/pics/blueSealLogo300px.png'>4.0
         
          <button type="button" onclick="Joke()">Clicking this button will probably annoy you.</button>
 
