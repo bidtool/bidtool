@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>BlueSeal Building Supply | bid-tool page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+    
+    <!-------------------------------------------------------------------------- What the "main looks area" does! (head) ----------------------------------------------------------------------------->
+   <head>   
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+       
+    <!--
+        <script>
+            function sayHello() {
+               alert("Hello World")
+               alert(list[1].date)
+            }
+         //-->
+      </script> 
+       <script src="../bidtool.github.io/bidsJava.js" type="text/javascript"></script>
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+       <script src="sweetalert2.all.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+   </head>
+    
+<body>
+    <!------------------------------------------------------------------------------
+    - Firebase
+    - 
+    ------------------------------------------------------------------------------->
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="/__/firebase/6.3.3/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="/__/firebase/6.3.3/firebase-auth.js"></script>
+  <script src="/__/firebase/6.3.3/firebase-firestore.js"></script>
+    <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <!-- JS dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap 4 dependency -->
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <!-- bootbox code -->
+    <script src="bootbox.min.js"></script>
+    <script src="bootbox.locales.min.js"></script>
+    <script>
+        $(document).on("click", ".show-alert", function(e) {
+            bootbox.alert("Hello world!", function() {
+                console.log("Alert Callback");
+            });
+        });
+    </script>
+    
+    <!-- reference our little css sheet and the js file -->
+<link href="../bidtool.github.io/css/bidtool.css" type="text/css" rel="stylesheet" media="screen">
+    
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+    <a href="usbids.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">US Bids</a>
+      <a href="canadabids.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Canada Bids</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>US Bids Page</b></h4>
+ <!--
+<a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+-->
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+        <img class="bslogo" alt="blueseal" src="../bidtool.github.io/pics/blueSealLogo300px.png">
+      <h1 class="w3-text-teal">US Bidtool</h1>
+      <p>Insulation Quote.</p>
+    </div>
+    <div class="w3-third w3-container">
+ <!--
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
+ -->
+    </div>
+  </div>
+   
+    <!------------------------------------------------------------------------------------ Main looks area ---------------------------------------------------------------------------------->
+    Type:
+    <select id="location">
+        <br>
+        <option value="OwensCorning">Owens Corning</option>
+        <option value="CertainTeed">CertainTeed</option>
+        <option value="JohnsManville">Johns Manville</option>
+        <option value="Knauf">Knauf</option>
+    </select>
+    Distributor Name:
+    <select id="distributor">
+        <option value="IDI">IDI</option>
+        <option value="Appalachian">Appalachian</option>
+        <option value="BDI">BDI Insulation</option>
+        <option value="Best">Best</option>
+        <option value="Cardalls-Rfactor">Cardalls / R-Factor</option>
+        <option value="DI">DI Distribution / Pacific</option>
+        <option value="KamcoBoston">Kamco Boston</option>
+        <option value="KamcoNE">Kamco New England</option>
+        <option value="LW-Bend">L&W Bend</option>
+        <option value="LW-Eugene">L&W Eugene</option>
+        <option value="LW-BuildingSpecialty">L&W Building Specialty</option>
+        <option value="OhioValley">Ohio Valley</option>
+        <option value="RIS">RIS</option>
+        <option value="Rocky">Rocky Mountain</option>
+        <option value="SP-Beltsville">SP Beltsville</option>
+        <option value="SP-Denver">SP Denver SW Texas</option>
+        <option value="SP-East(IP)">SP Industrial Product,IP</option>
+        <option value="SP-Florida">SP Florida</option>
+        <option value="SP-JohnsonProducts">SP Johnson Product,JP</option>
+        <option value="SP-Michigan">SP Michigan</option>
+        <option value="SP-MooreProducts">SP Moore Products</option>
+        <option value="SP-SanMarcos">SP SanMarcos</option>       
+        <option value="SPI">SPI FBM</option>
+        <option value="Specialty">Specialty Ins.</option>
+    </select>
+    
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Add A Product
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" id="r11" type="button" onclick="begin(11)">R11</button>
+    <button class="dropdown-item" id="r13" type="button" onclick="begin(13)">R13</button>
+    <button class="dropdown-item" id="r15" type="button" onclick="begin(15)">R15</button>
+    <button class="dropdown-item" id="r19" type="button" onclick="begin(19)">R19</button>
+    <button class="dropdown-item" id="r21" type="button" onclick="begin(21)">R21</button>
+    <button class="dropdown-item" id="r30" type="button" onclick="begin(30)">R30</button>
+    <button class="dropdown-item" id="r38" type="button" onclick="begin(38)">R38</button>
+    <button class="dropdown-item" id="r30HD" type="button" onclick="begin(130)">R30HD</button>
+    <button class="dropdown-item" id="r38HD" type="button" onclick="begin(138)">R38HD</button>
+    <button class="dropdown-item" id="r49" type="button" onclick="begin(49)">R49</button>
+    <button class="dropdown-item" id="r22" type="button" onclick="begin(22)">R22</button>
+    <button class="dropdown-item" id="r25" type="button" onclick="begin(25)">R25</button>
+  </div>
+</div>
+    <div class="divider">
+    
+                                                                          <!-- display the list of materials! -->
+                                                                                <div id="showList"></div>
+                                                                                <div id="showTotals"></div> 
+    
+    <div class="divider">
+    
+    <!--<div style="position: absolute; left: 250px">-->
+        <div style="position: relative; margin-left: -60px">
+       <button class="btn btn-secondary" type="button" id="dropdownMenu2" aria-haspopup="true" aria-expanded="false" onclick="killOne(), display_array(), writeUserData(usrID, tryName, tryEm)">
+    Subtract a Product
+  </button>
+    </div>
+    
+   <div class="button1">
+      Enter Tax:
+      <br/>
+      <input type="text" id="taxes" value="0">
+      <br/><br/>
+      <input type = "button" onclick = "displayEndTotals()" value = "Total Everything" />
+   </div>  
+   
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">to top</a>
+    </div>
+  </div>
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Justin Steele | Version 1.0 | copyright: please dont steal the sourcecode</h4>
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>  
+    
+<script src="../bidtool.github.io/bidsJava.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    
+    
+</body>
+</html>
+
+
+
+
+
