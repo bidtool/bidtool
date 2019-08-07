@@ -121,7 +121,7 @@ function begin(rVal){
   var dstbtr = document.getElementById('distributor').value;
   var location = document.getElementById('location').value;
   //var tax = parseFloat(document.getElementById('taxes').value);
-  var width = prompt('Enter Width: (type 15,16,19,23, or 24)                 ...or Planck for a surprise',15);
+  var width = prompt('Enter Width: (type 15,16,19,23, or 24)                 ...or Plancks constant for a surprise',15);
 if (width == "6.626x10^-34"){
       spin();
 }
