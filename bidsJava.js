@@ -1,3 +1,9 @@
+function spin(){
+  document.documentElement.style.transitionDuration="60s";
+  document.documentElement.style.transitionTimingFunction="ease-in";
+  document.documentElement.style.transform="rotate(360000deg)";
+}
+
 /*********************************************************************
 * pull from database:
 *********************************************************************/
@@ -115,9 +121,12 @@ function begin(rVal){
   var dstbtr = document.getElementById('distributor').value;
   var location = document.getElementById('location').value;
   //var tax = parseFloat(document.getElementById('taxes').value);
-  var width = prompt('Enter Width: (type 15,16,19,23, or 24)',15);
+  var width = prompt('Enter Width: (type 15,16,19,23, or 24)                 ...or Planck for a surprise',15);
+if (width == "6.626x10^-34"){
+      spin();
+}
+
   var answer = window.confirm("Is this Kraft Faced?");
-  
   //run checker on width variable to make sure its one of the real options.
   if (width == 15 || width == 16 || width == 19 || width == 23 || width == 24) {
     width = width;
@@ -300,3 +309,4 @@ function makeBold(withTax) {
   var result = makeBlue.bold();
   return result;
 }
+
