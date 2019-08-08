@@ -122,7 +122,7 @@ function begin(rVal){
   var location = document.getElementById('location').value;
   //var tax = parseFloat(document.getElementById('taxes').value);
   var width = prompt('Enter Width: (type 15,16,19,23,24, or 15x105)                           ...or Plancks constant for a surprise',15);
-if (width == "6.626e-34" || width == "6.626x10^-34"){
+if (width == "6.626e-34" || width == "6.626x10^-34" || width == "6.62607004 × 10-34 m2 kg / s"){
       spin();
 }
 
