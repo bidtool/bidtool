@@ -134,7 +134,7 @@ if (width == "6.626e-34" || width == "6.626x10^-34" || width == "6.62607004 × 1
   else {
     while (width != 15 || width != 16 || width != 19 || width != 23 || width != 24 || width != "15x105") 
     {
-      width = prompt('SORRY! you can only type 15,16,23, or 24',15);
+      width = prompt('SORRY! you can only type 15,16,19,23,24, or 15x105',15);
       if (width == 15 || width == 16 || width == 19 || width == 23 || width == 24 || width == "15x105") {
         break;
       }
