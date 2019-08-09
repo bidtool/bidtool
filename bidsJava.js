@@ -266,8 +266,8 @@ function display_array()
    {
      //e += "Price: " + materials[y].price +"-SQFT: " +  materials[y].sqFt + "<br/>";
      e += materials[y].rVal + "x" + materials[y].width + "\"" + " " + materials[y].cover +  '<br>' + 
-         " " + materials[y].sqFt + " square feet per bag | " + materials[y].bags+" bags = ("+materials[y].SFtotal+" total sq ft)*( $" + materials[y].price + 
-         " per square foot) = $"+materials[y].cost + "<br/>" + "<br/>";
+         " " + materials[y].sqFt + " SF/bag | " + materials[y].bags+" bags = ("+materials[y].SFtotal+" total SF)*( $" + materials[y].price + 
+         " per SF) = $"+materials[y].cost + "<br/>" + "<br/>";
    }
     // var e = materials.join();
    document.getElementById("showList").innerHTML = e;
