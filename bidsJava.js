@@ -265,9 +265,10 @@ function display_array()
    for (var y=0; y<materials.length; y++)
    {
      //e += "Price: " + materials[y].price +"-SQFT: " +  materials[y].sqFt + "<br/>";
-     e += materials[y].rVal + "x" + materials[y].width + "\"" + " " + materials[y].cover +  '<br>' + 
-         " " + materials[y].sqFt + " SF/bag | " + materials[y].bags+" bags = ("+materials[y].SFtotal+" total SF)*( $" + materials[y].price + 
-         " per SF) = $"+materials[y].cost + "<br/>" + "<br/>";
+     //R-13x15" Kraft Faced (125.94 sq ft in a bag/17 bags=2140.98 sq ft)($0.38)=$813.57
+     e += materials[y].rVal + "x" + materials[y].width + "\"" + " " + materials[y].cover + 
+         " (" + materials[y].sqFt + " SF/bag| " + materials[y].bags+" bags="+materials[y].SFtotal+" total SF)( $" + materials[y].price + 
+         " per SF)=$"+materials[y].cost + "<br/>" + "<br/>";
    }
     // var e = materials.join();
    document.getElementById("showList").innerHTML = e;
