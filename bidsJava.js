@@ -186,13 +186,22 @@ dbRef2.once('value', snap => {
         price = snap.val();
           // finish the calculated variables [all in THIS "loadSF" scope!] then send all the variables over to fill an object in the list.
           //calculate how many bags based on overall square feet given and overall square feet they will get
+    //make number smaller.
+  var num = 2
+  var multiplier = Math.pow(10, num)
+  var bags = max / sqFt;;
+  bags = Math.round(bags * multiplier) / multiplier;
+  // make the numbers rounded correctly...
+  bags = Math.round(bags);
+
   // figure bags
       if (max < sqFt){
-           var bags = 1;
+           bags = 1;
           }
       else{
-           var bags = max / sqFt;
+           bags = bags;
           }
+          
   // figure discount
   if (rVal == "R13") {
       if (bags >= 12){
@@ -211,12 +220,7 @@ dbRef2.once('value', snap => {
           if (cover == "Faced"){
    rVal = rVal.substring(0, rVal.length - 1);
           }
-  //make number smaller.
-  var num = 2
-  var multiplier = Math.pow(10, num);
-  bags = Math.round(bags * multiplier) / multiplier;
-  // make the numbers rounded correctly...
-  var bags = Math.round(bags);
+  
   //make the overall sqft number smaller
   var SFtotal = bags * sqFt;
   SFtotal = Math.round(SFtotal * multiplier) / multiplier;
