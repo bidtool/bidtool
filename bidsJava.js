@@ -243,7 +243,7 @@ function plusBtn(price,sqFt, rVal, cover,width,bags,SFtotal,cost){
 
 //this is the object that goes to the array and populates it.
 function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
-    this.price = price;
+    this.price = price.toFixed(2);
     this.sqFt = sqFt;
     this.rVal = rVal;
   if (cover == "Faced"){
@@ -268,7 +268,7 @@ function display_array()
      //R-13x15" Kraft Faced (125.94 sq ft in a bag/17 bags=2140.98 sq ft)($0.38)=$813.57
      e += materials[y].rVal + "x" + materials[y].width + "\"" + " " + materials[y].cover + 
          " (" + materials[y].sqFt + " sqft per bag/" + materials[y].bags+" bags="+materials[y].SFtotal+" total SF)( $" + materials[y].price + 
-         " per SF)=$"+materials[y].cost + "<br/>" + "<br/>";
+         " per sqft)=$"+materials[y].cost + "<br/>" + "<br/>";
    }
     // var e = materials.join();
    document.getElementById("showList").innerHTML = e;
@@ -310,4 +310,5 @@ function makeBold(withTax) {
   var result = makeBlue.bold();
   return result;
 }
+
 
