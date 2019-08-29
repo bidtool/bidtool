@@ -241,13 +241,15 @@ dbRef2.once('value', snap => {
 *********************************************************************/
 // this makes the array and sends it to the display.
 function plusBtn(price,sqFt, rVal, cover,width,bags,SFtotal,cost){
+  price = price.toFixed(2);
+  cost = cost.toFixed(2);
     materials.push(new Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost));
-    display_array();
+    displayOther();
 }
 
 //this is the object that goes to the array and populates it.
 function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
-    this.price = price.toFixed(2);
+    this.price = price;
     this.sqFt = sqFt;
     this.rVal = rVal;
   if (cover == "Faced"){
@@ -260,22 +262,22 @@ function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
     this.width = width;
     this.bags = bags;
     this.SFtotal = SFtotal;
-    this.cost = cost.toFixed(2);
+    this.cost = cost;
+
+    this.itemDisplay = rVal + "x" + width + "\"" + " " + cover + 
+    " (" + sqFt + " sqft per bag/" + bags+" bags="+SFtotal+" total SF)( $" + price + 
+    " per sqft)=$"+cost;
 }
 
-function display_array()
+//the big display!!! takes from either the insulation objects, or the otheritems objects to get their display property.
+function displayOther()
 {   
   var e = "<hr/>";   
-   for (var y=0; y<materials.length; y++)
-   {
-     //e += "Price: " + materials[y].price +"-SQFT: " +  materials[y].sqFt + "<br/>";
-     //R-13x15" Kraft Faced (125.94 sq ft in a bag/17 bags=2140.98 sq ft)($0.38)=$813.57
-     e += materials[y].rVal + "x" + materials[y].width + "\"" + " " + materials[y].cover + 
-         " (" + materials[y].sqFt + " sqft per bag/" + materials[y].bags+" bags="+materials[y].SFtotal+" total SF)( $" + materials[y].price + 
-         " per sqft)=$"+materials[y].cost + "<br/>" + "<br/>";
-   }
-    // var e = materials.join();
-   document.getElementById("showList").innerHTML = e;
+  for (var y=0; y<materials.length; y++)
+  {
+    e += materials[y].itemDisplay + "<br/>" + "<br/>";
+  }
+  document.getElementById("showList").innerHTML = e;
 }
 
 function displayEndTotals(){
@@ -306,6 +308,7 @@ function displayEndTotals(){
 //pops one of the items off the array
 function killOne(){
     materials.pop();
+    displayOther();
 }
 
 function makeBold(withTax) {
@@ -315,4 +318,56 @@ function makeBold(withTax) {
   return result;
 }
 
+//the next few functions are for making objects that handle the other items, not insulation.
+//-------------------------------------------------------------------------
+//1 = baffles, 2 = rods, 3/etc. = poly
+function otherItems(item) {
+  //baffles
+   if (item == 1) {
+    var itemType = prompt("How many in the package? (50 or 75)",50);
+    var itemCost = prompt("Enter Cost per Box- ");
+    var itemAmnt = prompt("How Many Packages? - ");
+    var theItem = "baffles";
+    
+    materials.push(new otherItemObject(itemType,itemCost,itemAmnt,theItem));
+    displayOther();
+   }
 
+   //rods
+   else if (item == 2){
+    var itemType = prompt("16\" or 24\" long rods? (enter 16 or 24)",24);
+    var itemCost = prompt("Enter Cost per Single Box - ");
+    var itemAmnt = prompt("How Many Boxes? - ");
+    var theItem = "rods";
+    
+    materials.push(new otherItemObject(itemType,itemCost, itemAmnt,theItem));
+    displayOther();
+   }
+
+   //poly
+   else {
+    var itemType = prompt("is it 4 mil or 6 mil? (enter 4, or 6)",4);
+    var itemCost = prompt("Enter Cost Per Roll - ");
+    var itemAmnt = prompt("How Many Rolls? - ");
+    var theItem = "poly";
+
+    materials.push(new otherItemObject(itemType,itemCost,itemAmnt,theItem));
+    displayOther();
+   }
+}
+
+//this is the object of other items that goes to the array and populates it.
+function otherItemObject(itemType,itemCost,itemAmnt,theItem) {
+  this.cost = (itemAmnt*itemCost).toFixed(2);
+
+  if (theItem == "baffles"){
+    this.itemDisplay = "- Package of "+itemType+" ct baffles x"+itemAmnt+", at $"+itemCost+" per box = $"+ ((itemAmnt*itemCost).toFixed(2));
+  }
+  else if (theItem == "rods"){
+    this.itemDisplay = "- Box of 500 "+itemType+"\" rods x"+itemAmnt+", at $"+itemCost+" per box = $"+ ((itemAmnt*itemCost).toFixed(2));
+  }
+  else{
+    this.itemDisplay = "- Roll of "+itemType+"mil poly x"+itemAmnt+", at $"+itemCost+" per box = $"+ ((itemAmnt*itemCost).toFixed(2))
+  }
+
+}

@@ -172,11 +172,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <button class="dropdown-item" id="r21" type="button" onclick="begin(21)">R21</button>
     <button class="dropdown-item" id="r30" type="button" onclick="begin(30)">R30</button>
     <button class="dropdown-item" id="r38" type="button" onclick="begin(38)">R38</button>
+    <br/>
     <button class="dropdown-item" id="r30HD" type="button" onclick="begin(130)">R30HD</button>
     <button class="dropdown-item" id="r38HD" type="button" onclick="begin(138)">R38HD</button>
     <button class="dropdown-item" id="r49" type="button" onclick="begin(49)">R49</button>
     <button class="dropdown-item" id="r22" type="button" onclick="begin(22)">R22</button>
     <button class="dropdown-item" id="r25" type="button" onclick="begin(25)">R25</button>
+    <br/>
+    <button class="dropdown-item" id="bafflesID" type="button" onclick="otherItems(1)">Baffles</button>
+    <button class="dropdown-item" id="rodsID" type="button" onclick="otherItems(2)">Rods</button>
+    <button class="dropdown-item" id="polyID" type="button" onclick="otherItems(3)">Poly</button>
   </div>
 </div>
     <div class="divider">
@@ -187,21 +192,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     
     <div class="divider">
     
-    <!--<div style="position: absolute; left: 250px">-->
-        <div style="position: relative; margin-left: -60px">
-       <button class="btn btn-secondary" type="button" id="dropdownMenu2" aria-haspopup="true" aria-expanded="false" onclick="killOne(), display_array(), writeUserData(usrID, tryName, tryEm)">
-    Subtract a Product
-  </button>
-    </div>
-    
-   <div class="button1">
-      Enter Tax:
-      <br/>
-      <input type="text" id="taxes" value="0">
-      <br/><br/>
-      <input type = "button" onclick = "displayEndTotals()" value = "Total Everything" />
-   </div>  
-   
+      <!--<div style="position: absolute; left: 250px">-->
+  <div style="position: relative; margin-left: -60px">
+    <button style="background-color: green" class="btn btn-secondary" type="button" id="dropdownMenu2" aria-haspopup="true" aria-expanded="false" onclick="displayEndTotals()">
+ Display Totals!
+</button>
+Enter Tax: <input type="text" id="taxes" value="0">
+ </div> 
+ <br/> <br/>
+    <input style="color: white; background-color: dimgray" type = "button" onclick = "killOne(), writeUserData(usrID, tryName, tryEm)" value = "Subtract a Product" />
+
   <!-- Pagination -->
   <div class="w3-center w3-padding-32">
     <div class="w3-bar">
