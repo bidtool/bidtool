@@ -243,10 +243,10 @@ dbRef2.once('value', snap => {
 // this makes the array and sends it to the display.
 function plusBtn(price,sqFt,rVal,cover,width,bags,SFtotal,cost){
   price = price + (price * .05); // added the 5% here.
-  price = price.toFixed(2);
-  cost = SFtotal*price;
+  plussedPrice = price.toFixed(2);
+  cost = SFtotal*plussedPrice;
   cost = cost.toFixed(2);
-    materials.push(new Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost));
+    materials.push(new Material(plussedPrice, sqFt, rVal, cover,width,bags,SFtotal,cost));
     displayOther();
 }
 
