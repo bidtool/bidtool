@@ -241,9 +241,10 @@ dbRef2.once('value', snap => {
 * rest of the methods to create/kill quotes
 *********************************************************************/
 // this makes the array and sends it to the display.
-function plusBtn(price,sqFt, rVal, cover,width,bags,SFtotal,cost){
+function plusBtn(price,sqFt,rVal,cover,width,bags,SFtotal,cost){
   price = price + (price * .05); // added the 5% here.
   price = price.toFixed(2);
+  cost = SFtotal*price;
   cost = cost.toFixed(2);
     materials.push(new Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost));
     displayOther();
