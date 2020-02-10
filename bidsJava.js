@@ -261,7 +261,7 @@ function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
     //this.dscnt = discount;
     this.width = width;
     this.bags = bags;
-    this.SFtotal = SFtotal;
+    this.SFtotal = SFtotal+(SFtotal*.05);
     this.cost = cost;
 
     this.itemDisplay = rVal + "x" + width + "\"" + " " + cover + 
@@ -269,7 +269,7 @@ function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
     " per sqft)=$"+cost;
 }
 
-//the big display!!! takes from either the insulation objects, or the otheritems objects to get their display property.
+//the big display!!! takes from either the insulation objects, or the other items objects - to get their display property.
 function displayOther()
 {   
   var e = "<hr/>";   
