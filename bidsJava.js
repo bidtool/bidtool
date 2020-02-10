@@ -249,7 +249,7 @@ function plusBtn(price,sqFt, rVal, cover,width,bags,SFtotal,cost){
 
 //this is the object that goes to the array and populates it.
 function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
-    this.price = price + (price * .05);
+    this.price = price + (price * .05); // added 5% in Feb 2020
     this.sqFt = sqFt;
     this.rVal = rVal;
   if (cover == "Faced"){
