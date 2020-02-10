@@ -249,7 +249,7 @@ function plusBtn(price,sqFt, rVal, cover,width,bags,SFtotal,cost){
 
 //this is the object that goes to the array and populates it.
 function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
-    this.price = price;
+    this.price = price + (price * .05);
     this.sqFt = sqFt;
     this.rVal = rVal;
   if (cover == "Faced"){
@@ -261,7 +261,7 @@ function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
     //this.dscnt = discount;
     this.width = width;
     this.bags = bags;
-    this.SFtotal = SFtotal+(SFtotal*.05);
+    this.SFtotal = SFtotal;
     this.cost = cost;
 
     this.itemDisplay = rVal + "x" + width + "\"" + " " + cover + 
