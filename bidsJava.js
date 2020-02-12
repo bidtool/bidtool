@@ -243,7 +243,7 @@ dbRef2.once('value', snap => {
 *********************************************************************/
 // this makes the array and sends it to the display.
 function plusBtn(price,sqFt,rVal,cover,width,bags,SFtotal,cost){
-    //price = price + (price * .05); // added the 5% here.
+     //price = price + (price * .05); // added the 5% here.
   if (rVal == "R13") 
     {
       if (bags < 12)
