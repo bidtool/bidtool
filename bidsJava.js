@@ -207,14 +207,14 @@ dbRef2.once('value', snap => {
         price = runDiscount();
         }
       else{
-            price = price+(price*.05);
+            price = price;
           }
   } 
   else if (bags >= 15) {
      price = runDiscount();
     }
   else{
-        price = price+(price*.05);
+        price = price;
           }
 
   //remove the "K" so rVal displays right.
