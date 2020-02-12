@@ -201,7 +201,9 @@ dbRef2.once('value', snap => {
       else{
            bags = bags;
           }
-          
+  
+  // Feb2020 - I am putting this down in the "plusBtn" method because it makes updates to pricing easier, i dont think the change in location should mess anything up...
+          /*
   // figure discount
   if (rVal == "R13") {
       if (bags >= 12){
@@ -216,6 +218,8 @@ dbRef2.once('value', snap => {
   else{
         price = price;
           }
+*/
+
   //remove the "K" so rVal displays right.
           if (cover == "Faced"){
    rVal = rVal.substring(0, rVal.length - 1);
@@ -243,6 +247,22 @@ dbRef2.once('value', snap => {
 // this makes the array and sends it to the display.
 function plusBtn(price,sqFt,rVal,cover,width,bags,SFtotal,cost){
   price = price + (price * .05); // added the 5% here.
+
+// figure discount
+if (rVal == "R13") {
+  if (bags >= 12){
+    price = runDiscount();
+    }
+  else{
+        price = price;
+      }
+} else if (bags >= 15) {
+ price = runDiscount();
+}
+else{
+    price = price;
+      }
+
   plussedPrice = price.toFixed(2);
   cost = SFtotal*plussedPrice;
   cost = cost.toFixed(2);
