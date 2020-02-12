@@ -213,7 +213,7 @@ dbRef2.once('value', snap => {
      price = runDiscount();
     }
   else{
-        price = + (price*.05);
+        price = price + (price*.05);
           }
 
   //remove the "K" so rVal displays right.
