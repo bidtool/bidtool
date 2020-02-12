@@ -96,7 +96,6 @@ return newPrice;
         else{
             price = price-(price*(dscnt/100));
               }
-
     } else {
       price = price;
     } */
@@ -201,27 +200,21 @@ dbRef2.once('value', snap => {
       else{
            bags = bags;
           }
-  
+          
   // figure discount
-if (rVal == "R13") 
-{
-  if (bags >= 12)
-  {
-    price = runDiscount();
-  }
-  else
-  {
-    price = price + (price * .05); // added the 5% here.
-  }
-} 
-else if (bags >= 15) 
-{
- price = runDiscount();
-}
-else
-      {
-    price = price + (price * .05); // added the 5% here.
-      }
+  if (rVal == "R13") {
+      if (bags >= 12){
+        price = runDiscount();
+        }
+      else{
+            price = price + (price*.05);
+          }
+  } else if (bags >= 15) {
+     price = runDiscount();
+    }
+  else{
+        price = + (price*.05);
+          }
 
   //remove the "K" so rVal displays right.
           if (cover == "Faced"){
@@ -237,7 +230,6 @@ else
   cost = Math.round(cost * multiplier) / multiplier;
   cost.toFixed(2);
   price = Math.round(price * multiplier) / multiplier;
-  price = price;
 
         plusBtn(price,sqFt,rVal,cover,width,bags,SFtotal,cost);
       })
@@ -248,20 +240,16 @@ else
 * rest of the methods to create/kill quotes
 *********************************************************************/
 // this makes the array and sends it to the display.
-function plusBtn(price,sqFt,rVal,cover,width,bags,SFtotal,cost){
-
-
-
-  plussedPrice = price.toFixed(2);
-  cost = SFtotal*plussedPrice;
+function plusBtn(price,sqFt, rVal, cover,width,bags,SFtotal,cost){
+  price = price.toFixed(2);
   cost = cost.toFixed(2);
-    materials.push(new Material(plussedPrice, sqFt, rVal, cover,width,bags,SFtotal,cost));
+    materials.push(new Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost));
     displayOther();
 }
 
 //this is the object that goes to the array and populates it.
 function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
-    this.price = price; // added 5% in Feb 2020
+    this.price = price;
     this.sqFt = sqFt;
     this.rVal = rVal;
   if (cover == "Faced"){
@@ -281,7 +269,7 @@ function Material(price, sqFt, rVal, cover,width,bags,SFtotal,cost) {
     " per sqft)=$"+cost;
 }
 
-//the big display!!! takes from either the insulation objects, or the other items objects - to get their display property.
+//the big display!!! takes from either the insulation objects, or the otheritems objects to get their display property.
 function displayOther()
 {   
   var e = "<hr/>";   
